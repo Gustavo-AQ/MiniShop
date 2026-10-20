@@ -1,0 +1,19 @@
+name: minishop-oracle-worker
+services:
+  worker-oracle:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+      args:
+        PROJECT: Worker
+    environment:
+      SKIP_SCHEMA_INIT: 'true'
+      ConnectionStrings__Shop: "${WORKER_DB_CONNECTION:?Defina conex\xE3o privada\
+        \ de worker}"
+    restart: unless-stopped
+    stop_grace_period: 5s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'

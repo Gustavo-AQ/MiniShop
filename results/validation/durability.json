@@ -1,0 +1,11 @@
+{
+  "date_utc": "2026-10-20T16:02:27Z",
+  "environment": "Docker local amd64; não Oracle/Hyper-V",
+  "checks": [
+    "Configuração {'mode': 'distributed', 'threads': 4, 'workers': 3, 'iterations': 1000, 'delayMs': 0, 'queueLimit': 10000}",
+    "Reposição 100",
+    "Cinco pedidos persistidos antes do reinício",
+    "Pedidos preservados após reiniciar API e banco",
+    "Todos concluídos após reinício"
+  ]
+}

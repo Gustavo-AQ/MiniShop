@@ -1,0 +1,24 @@
+name: minishop-oracle
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+      args:
+        PROJECT: Web
+    environment:
+      ApiBaseUrl: ${API_BASE_URL:?Defina URL privada da API}
+      ServiceKey: ${SERVICE_KEY:?Defina SERVICE_KEY}
+      AdminKey: ${ADMIN_KEY:?Defina ADMIN_KEY}
+      AdminPassword: ${ADMIN_PASSWORD:?Defina ADMIN_PASSWORD}
+      ASPNETCORE_ENVIRONMENT: Production
+    restart: unless-stopped
+    volumes:
+    - web-keys:/home/app/.aspnet/DataProtection-Keys
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+volumes:
+  web-keys: null

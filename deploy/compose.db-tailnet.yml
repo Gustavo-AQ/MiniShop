@@ -1,0 +1,4 @@
+services:
+  db:
+    ports:
+    - ${HOME_TAILSCALE_IP:?Defina HOME_TAILSCALE_IP}:5432:5432

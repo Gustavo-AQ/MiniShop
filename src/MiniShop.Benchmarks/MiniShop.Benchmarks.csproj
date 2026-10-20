@@ -1,0 +1,1 @@
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>Exe</OutputType></PropertyGroup><ItemGroup><ProjectReference Include="../MiniShop.Infrastructure/MiniShop.Infrastructure.csproj"/></ItemGroup></Project>

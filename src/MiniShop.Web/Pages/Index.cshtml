@@ -1,0 +1,8 @@
+@page
+@model MiniShop.Web.Pages.IndexModel
+@Html.AntiForgeryToken()
+<section class="hero"><div><p class="eyebrow">PEQUENA LOJA, GRANDES EXPERIMENTOS</p><h1>Seu próximo pedido.<br><em>Nosso próximo teste.</em></h1><p>Do clique à confirmação: acompanhe uma compra sendo processada de verdade.</p><a class="button" href="#catalog">Explorar produtos ↓</a> <a class="button ghost" href="#cart">Abrir carrinho</a></div><div class="hero-art" aria-hidden="true">◈<span>01 → 02 → 03</span><small>RECEBER · PROCESSAR · CONFIRMAR</small></div></section>
+<div class="section-title" id="catalog"><div><p class="eyebrow">CATÁLOGO ESSENCIAL</p><h2>Dois produtos. Uma experiência.</h2></div><span class="badge">Ambiente acadêmico</span></div>
+<p id="availability" role="status">Consultando estoque…</p><section class="products" id="products"></section>
+<section class="cart" id="cart"><div><p class="eyebrow">SEU CARRINHO</p><h2>Pronto para experimentar?</h2><p>Sem cadastro e sem cobrança real. O pagamento fictício pode ser recusado.</p></div><div><div id="cart-items"></div><p id="total"></p><button id="checkout">Finalizar compra →</button><p id="order-status" role="status" aria-live="polite"></p><code id="order-id"></code></div></section>
+@section Scripts {<script src="/shop.js" defer></script>}

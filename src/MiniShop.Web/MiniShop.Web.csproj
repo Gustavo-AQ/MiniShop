@@ -1,0 +1,1 @@
+<Project Sdk="Microsoft.NET.Sdk.Web"><PropertyGroup></PropertyGroup><ItemGroup><ProjectReference Include="../MiniShop.Core/MiniShop.Core.csproj"/></ItemGroup></Project>

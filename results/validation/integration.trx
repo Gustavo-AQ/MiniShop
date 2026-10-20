@@ -1,0 +1,974 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="188b0335-e247-4634-a54e-44721b81ca73" name="@7c61e55824cd 2026-10-20 16:17:30" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-10-20T16:17:30.0151991+00:00" queuing="2026-10-20T16:17:30.0151992+00:00" start="2026-10-20T16:17:25.5958523+00:00" finish="2026-10-20T16:17:37.6017332+00:00" />
+  <TestSettings name="default" id="70bbfbcd-b7dc-43ac-ace9-2e55dae237ee">
+    <Deployment runDeploymentRoot="_7c61e55824cd_2026-10-20_16_17_30" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="34f940bb-afa3-43b5-a17b-4e79ad85dac3" testId="48e01bf1-e8bb-5b16-52a9-e72ab05b2caa" testName="MiniShop.Tests.IntegrityTests.NoStock" computerName="7c61e55824cd" duration="00:00:00.1281585" startTime="2026-10-20T16:17:36.0588909+00:00" endTime="2026-10-20T16:17:36.1891357+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="34f940bb-afa3-43b5-a17b-4e79ad85dac3" />
+    <UnitTestResult executionId="365328a3-f188-440e-be2a-92d5c1aaaaf0" testId="01b7826c-15a5-add7-1a66-47142c79fa0b" testName="MiniShop.Tests.IntegrityTests.RecoveryFencesStaleWorkerAndDoesNotReserveTwice" computerName="7c61e55824cd" duration="00:00:01.2909841" startTime="2026-10-20T16:17:36.1895730+00:00" endTime="2026-10-20T16:17:37.4770512+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="365328a3-f188-440e-be2a-92d5c1aaaaf0" />
+    <UnitTestResult executionId="380b2b19-3341-48c5-8465-2353b8f92d4e" testId="349bebd7-8f2b-8b6e-f3d0-5f3d101adab1" testName="MiniShop.Tests.IntegrityTests.CpuWorkIsDeterministic" computerName="7c61e55824cd" duration="00:00:00.0532418" startTime="2026-10-20T16:17:36.0064557+00:00" endTime="2026-10-20T16:17:36.0584116+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="380b2b19-3341-48c5-8465-2353b8f92d4e" />
+    <UnitTestResult executionId="e8942867-1e39-47f3-bbff-cc694dd28d72" testId="c38c11ca-384d-d753-95ef-743eb5513cc1" testName="MiniShop.Tests.IntegrityTests.RealExecutionModesFinishCorrectly(mode: &quot;distributed&quot;, threads: 1, workers: 3)" computerName="7c61e55824cd" duration="00:00:00.6984719" startTime="2026-10-20T16:17:33.0100149+00:00" endTime="2026-10-20T16:17:33.7066385+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e8942867-1e39-47f3-bbff-cc694dd28d72" />
+    <UnitTestResult executionId="79c723e3-885d-4bf9-a389-d97f216e1a41" testId="ee893abf-24f1-d351-7a64-906785b4fb28" testName="MiniShop.Tests.IntegrityTests.RealExecutionModesFinishCorrectly(mode: &quot;distributed&quot;, threads: 1, workers: 2)" computerName="7c61e55824cd" duration="00:00:00.7315730" startTime="2026-10-20T16:17:29.9550070+00:00" endTime="2026-10-20T16:17:30.6427725+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="79c723e3-885d-4bf9-a389-d97f216e1a41" />
+    <UnitTestResult executionId="dd0fd67a-808b-4826-97da-7ea734c950db" testId="54502371-2d1e-37c7-59ea-18387214ccd2" testName="MiniShop.Tests.IntegrityTests.SufficientStock" computerName="7c61e55824cd" duration="00:00:00.0584526" startTime="2026-10-20T16:17:35.9453763+00:00" endTime="2026-10-20T16:17:36.0061918+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dd0fd67a-808b-4826-97da-7ea734c950db" />
+    <UnitTestResult executionId="b4337c78-712c-48fc-a2fe-0fba5d4c3fe1" testId="e960a99d-7711-0d36-a7f2-4b2ac6f32bee" testName="MiniShop.Tests.IntegrityTests.PaymentFailureReleasesReservation" computerName="7c61e55824cd" duration="00:00:00.0678755" startTime="2026-10-20T16:17:35.8078185+00:00" endTime="2026-10-20T16:17:35.8755783+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b4337c78-712c-48fc-a2fe-0fba5d4c3fe1" />
+    <UnitTestResult executionId="2e44bb70-f072-4bff-92fa-259dc6222eef" testId="7a3d396f-abf8-fbf3-517f-900c5359ba92" testName="MiniShop.Tests.IntegrityTests.IdempotencyAndChangedCart" computerName="7c61e55824cd" duration="00:00:00.0587670" startTime="2026-10-20T16:17:37.4772273+00:00" endTime="2026-10-20T16:17:37.5360344+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2e44bb70-f072-4bff-92fa-259dc6222eef" />
+    <UnitTestResult executionId="59da2732-ab8b-4758-b9e9-09271ddad01c" testId="9e0a33c2-71c1-3538-4f35-37e3493849f0" testName="MiniShop.Tests.IntegrityTests.RealExecutionModesFinishCorrectly(mode: &quot;parallel&quot;, threads: 2, workers: 1)" computerName="7c61e55824cd" duration="00:00:00.6559433" startTime="2026-10-20T16:17:32.3540241+00:00" endTime="2026-10-20T16:17:33.0095092+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="59da2732-ab8b-4758-b9e9-09271ddad01c" />
+    <UnitTestResult executionId="0a835942-b8a2-4f40-9c23-35904dd50444" testId="1697237f-c6fc-7e7f-1639-bd88b2810e4e" testName="MiniShop.Tests.IntegrityTests.RealExecutionModesFinishCorrectly(mode: &quot;parallel&quot;, threads: 4, workers: 1)" computerName="7c61e55824cd" duration="00:00:01.7079386" startTime="2026-10-20T16:17:30.6447151+00:00" endTime="2026-10-20T16:17:32.3535021+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0a835942-b8a2-4f40-9c23-35904dd50444" />
+    <UnitTestResult executionId="a734d630-d4d4-42a7-9cd2-1926956109b6" testId="f2791e17-801a-410f-4595-d464d0904738" testName="MiniShop.Tests.IntegrityTests.RealExecutionModesFinishCorrectly(mode: &quot;sequential&quot;, threads: 1, workers: 1)" computerName="7c61e55824cd" duration="00:00:00.7518224" startTime="2026-10-20T16:17:33.7106903+00:00" endTime="2026-10-20T16:17:34.4593376+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a734d630-d4d4-42a7-9cd2-1926956109b6" />
+    <UnitTestResult executionId="0fbaa02a-e3d3-407e-9624-e49af625936b" testId="00a68148-249d-01b9-1c27-bc66122ea0ef" testName="MiniShop.Tests.IntegrityTests.QueueIsBoundedAndResetIsBlocked" computerName="7c61e55824cd" duration="00:00:00.0669641" startTime="2026-10-20T16:17:35.8757503+00:00" endTime="2026-10-20T16:17:35.9450271+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0fbaa02a-e3d3-407e-9624-e49af625936b" />
+    <UnitTestResult executionId="723c1677-3140-406c-8387-243c11cd1afc" testId="ff7d74a2-d61e-bde8-6a2f-a41b22657182" testName="MiniShop.Tests.IntegrityTests.RealExecutionModesFinishCorrectly(mode: &quot;parallel&quot;, threads: 8, workers: 1)" computerName="7c61e55824cd" duration="00:00:02.8082173" startTime="2026-10-20T16:17:27.0836295+00:00" endTime="2026-10-20T16:17:29.9122620+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="723c1677-3140-406c-8387-243c11cd1afc" />
+    <UnitTestResult executionId="56919007-e56f-43ed-9964-de84852b3ba0" testId="72b102a2-243e-6c53-9efc-b0a3076a459e" testName="MiniShop.Tests.IntegrityTests.RealExecutionModesFinishCorrectly(mode: &quot;distributed&quot;, threads: 1, workers: 1)" computerName="7c61e55824cd" duration="00:00:00.7804077" startTime="2026-10-20T16:17:34.4596348+00:00" endTime="2026-10-20T16:17:35.2422192+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="56919007-e56f-43ed-9964-de84852b3ba0" />
+    <UnitTestResult executionId="041a9a4f-be4b-48ab-9b1a-397a3f42cc41" testId="0a401d47-d957-616f-7e38-19d799d6e3f8" testName="MiniShop.Tests.IntegrityTests.ConcurrentPurchasesNeverOversell" computerName="7c61e55824cd" duration="00:00:00.5631017" startTime="2026-10-20T16:17:35.2434489+00:00" endTime="2026-10-20T16:17:35.8075561+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="041a9a4f-be4b-48ab-9b1a-397a3f42cc41" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="MiniShop.Tests.IntegrityTests.RecoveryFencesStaleWorkerAndDoesNotReserveTwice" storage="/workspace/minishop/tests/minishop.tests/bin/release/net10.0/minishop.tests.dll" id="01b7826c-15a5-add7-1a66-47142c79fa0b">
+      <Execution id="365328a3-f188-440e-be2a-92d5c1aaaaf0" />
+      <TestMethod codeBase="/workspace/MiniShop/tests/MiniShop.Tests/bin/Release/net10.0/MiniShop.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="MiniShop.Tests.IntegrityTests" name="RecoveryFencesStaleWorkerAndDoesNotReserveTwice" />
+    </UnitTest>
+    <UnitTest name="MiniShop.Tests.IntegrityTests.NoStock" storage="/workspace/minishop/tests/minishop.tests/bin/release/net10.0/minishop.tests.dll" id="48e01bf1-e8bb-5b16-52a9-e72ab05b2caa">
+      <Execution id="34f940bb-afa3-43b5-a17b-4e79ad85dac3" />
+      <TestMethod codeBase="/workspace/MiniShop/tests/MiniShop.Tests/bin/Release/net10.0/MiniShop.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="MiniShop.Tests.IntegrityTests" name="NoStock" />
+    </UnitTest>
+    <UnitTest name="MiniShop.Tests.IntegrityTests.PaymentFailureReleasesReservation" storage="/workspace/minishop/tests/minishop.tests/bin/release/net10.0/minishop.tests.dll" id="e960a99d-7711-0d36-a7f2-4b2ac6f32bee">
+      <Execution id="b4337c78-712c-48fc-a2fe-0fba5d4c3fe1" />
+      <TestMethod codeBase="/workspace/MiniShop/tests/MiniShop.Tests/bin/Release/net10.0/MiniShop.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="MiniShop.Tests.IntegrityTests" name="PaymentFailureReleasesReservation" />
+    </UnitTest>
+    <UnitTest name="MiniShop.Tests.IntegrityTests.IdempotencyAndChangedCart" storage="/workspace/minishop/tests/minishop.tests/bin/release/net10.0/minishop.tests.dll" id="7a3d396f-abf8-fbf3-517f-900c5359ba92">
+      <Execution id="2e44bb70-f072-4bff-92fa-259dc6222eef" />
+      <TestMethod codeBase="/workspace/MiniShop/tests/MiniShop.Tests/bin/Release/net10.0/MiniShop.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="MiniShop.Tests.IntegrityTests" name="IdempotencyAndChangedCart" />
+    </UnitTest>
+    <UnitTest name="MiniShop.Tests.IntegrityTests.RealExecutionModesFinishCorrectly(mode: &quot;distributed&quot;, threads: 1, workers: 2)" storage="/workspace/minishop/tests/minishop.tests/bin/release/net10.0/minishop.tests.dll" id="ee893abf-24f1-d351-7a64-906785b4fb28">
+      <Execution id="79c723e3-885d-4bf9-a389-d97f216e1a41" />
+      <TestMethod codeBase="/workspace/MiniShop/tests/MiniShop.Tests/bin/Release/net10.0/MiniShop.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="MiniShop.Tests.IntegrityTests" name="RealExecutionModesFinishCorrectly" />
+    </UnitTest>
+    <UnitTest name="MiniShop.Tests.IntegrityTests.QueueIsBoundedAndResetIsBlocked" storage="/workspace/minishop/tests/minishop.tests/bin/release/net10.0/minishop.tests.dll" id="00a68148-249d-01b9-1c27-bc66122ea0ef">
+      <Execution id="0fbaa02a-e3d3-407e-9624-e49af625936b" />
+      <TestMethod codeBase="/workspace/MiniShop/tests/MiniShop.Tests/bin/Release/net10.0/MiniShop.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="MiniShop.Tests.IntegrityTests" name="QueueIsBoundedAndResetIsBlocked" />
+    </UnitTest>
+    <UnitTest name="MiniShop.Tests.IntegrityTests.ConcurrentPurchasesNeverOversell" storage="/workspace/minishop/tests/minishop.tests/bin/release/net10.0/minishop.tests.dll" id="0a401d47-d957-616f-7e38-19d799d6e3f8">
+      <Execution id="041a9a4f-be4b-48ab-9b1a-397a3f42cc41" />
+      <TestMethod codeBase="/workspace/MiniShop/tests/MiniShop.Tests/bin/Release/net10.0/MiniShop.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="MiniShop.Tests.IntegrityTests" name="ConcurrentPurchasesNeverOversell" />
+    </UnitTest>
+    <UnitTest name="MiniShop.Tests.IntegrityTests.RealExecutionModesFinishCorrectly(mode: &quot;distributed&quot;, threads: 1, workers: 3)" storage="/workspace/minishop/tests/minishop.tests/bin/release/net10.0/minishop.tests.dll" id="c38c11ca-384d-d753-95ef-743eb5513cc1">
+      <Execution id="e8942867-1e39-47f3-bbff-cc694dd28d72" />
+      <TestMethod codeBase="/workspace/MiniShop/tests/MiniShop.Tests/bin/Release/net10.0/MiniShop.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="MiniShop.Tests.IntegrityTests" name="RealExecutionModesFinishCorrectly" />
+    </UnitTest>
+    <UnitTest name="MiniShop.Tests.IntegrityTests.RealExecutionModesFinishCorrectly(mode: &quot;parallel&quot;, threads: 8, workers: 1)" storage="/workspace/minishop/tests/minishop.tests/bin/release/net10.0/minishop.tests.dll" id="ff7d74a2-d61e-bde8-6a2f-a41b22657182">
+      <Execution id="723c1677-3140-406c-8387-243c11cd1afc" />
+      <TestMethod codeBase="/workspace/MiniShop/tests/MiniShop.Tests/bin/Release/net10.0/MiniShop.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="MiniShop.Tests.IntegrityTests" name="RealExecutionModesFinishCorrectly" />
+    </UnitTest>
+    <UnitTest name="MiniShop.Tests.IntegrityTests.RealExecutionModesFinishCorrectly(mode: &quot;parallel&quot;, threads: 4, workers: 1)" storage="/workspace/minishop/tests/minishop.tests/bin/release/net10.0/minishop.tests.dll" id="1697237f-c6fc-7e7f-1639-bd88b2810e4e">
+      <Execution id="0a835942-b8a2-4f40-9c23-35904dd50444" />
+      <TestMethod codeBase="/workspace/MiniShop/tests/MiniShop.Tests/bin/Release/net10.0/MiniShop.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="MiniShop.Tests.IntegrityTests" name="RealExecutionModesFinishCorrectly" />
+    </UnitTest>
+    <UnitTest name="MiniShop.Tests.IntegrityTests.SufficientStock" storage="/workspace/minishop/tests/minishop.tests/bin/release/net10.0/minishop.tests.dll" id="54502371-2d1e-37c7-59ea-18387214ccd2">
+      <Execution id="dd0fd67a-808b-4826-97da-7ea734c950db" />
+      <TestMethod codeBase="/workspace/MiniShop/tests/MiniShop.Tests/bin/Release/net10.0/MiniShop.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="MiniShop.Tests.IntegrityTests" name="SufficientStock" />
+    </UnitTest>
+    <UnitTest name="MiniShop.Tests.IntegrityTests.CpuWorkIsDeterministic" storage="/workspace/minishop/tests/minishop.tests/bin/release/net10.0/minishop.tests.dll" id="349bebd7-8f2b-8b6e-f3d0-5f3d101adab1">
+      <Execution id="380b2b19-3341-48c5-8465-2353b8f92d4e" />
+      <TestMethod codeBase="/workspace/MiniShop/tests/MiniShop.Tests/bin/Release/net10.0/MiniShop.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="MiniShop.Tests.IntegrityTests" name="CpuWorkIsDeterministic" />
+    </UnitTest>
+    <UnitTest name="MiniShop.Tests.IntegrityTests.RealExecutionModesFinishCorrectly(mode: &quot;sequential&quot;, threads: 1, workers: 1)" storage="/workspace/minishop/tests/minishop.tests/bin/release/net10.0/minishop.tests.dll" id="f2791e17-801a-410f-4595-d464d0904738">
+      <Execution id="a734d630-d4d4-42a7-9cd2-1926956109b6" />
+      <TestMethod codeBase="/workspace/MiniShop/tests/MiniShop.Tests/bin/Release/net10.0/MiniShop.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="MiniShop.Tests.IntegrityTests" name="RealExecutionModesFinishCorrectly" />
+    </UnitTest>
+    <UnitTest name="MiniShop.Tests.IntegrityTests.RealExecutionModesFinishCorrectly(mode: &quot;distributed&quot;, threads: 1, workers: 1)" storage="/workspace/minishop/tests/minishop.tests/bin/release/net10.0/minishop.tests.dll" id="72b102a2-243e-6c53-9efc-b0a3076a459e">
+      <Execution id="56919007-e56f-43ed-9964-de84852b3ba0" />
+      <TestMethod codeBase="/workspace/MiniShop/tests/MiniShop.Tests/bin/Release/net10.0/MiniShop.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="MiniShop.Tests.IntegrityTests" name="RealExecutionModesFinishCorrectly" />
+    </UnitTest>
+    <UnitTest name="MiniShop.Tests.IntegrityTests.RealExecutionModesFinishCorrectly(mode: &quot;parallel&quot;, threads: 2, workers: 1)" storage="/workspace/minishop/tests/minishop.tests/bin/release/net10.0/minishop.tests.dll" id="9e0a33c2-71c1-3538-4f35-37e3493849f0">
+      <Execution id="59da2732-ab8b-4758-b9e9-09271ddad01c" />
+      <TestMethod codeBase="/workspace/MiniShop/tests/MiniShop.Tests/bin/Release/net10.0/MiniShop.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="MiniShop.Tests.IntegrityTests" name="RealExecutionModesFinishCorrectly" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="48e01bf1-e8bb-5b16-52a9-e72ab05b2caa" executionId="34f940bb-afa3-43b5-a17b-4e79ad85dac3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="01b7826c-15a5-add7-1a66-47142c79fa0b" executionId="365328a3-f188-440e-be2a-92d5c1aaaaf0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="349bebd7-8f2b-8b6e-f3d0-5f3d101adab1" executionId="380b2b19-3341-48c5-8465-2353b8f92d4e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c38c11ca-384d-d753-95ef-743eb5513cc1" executionId="e8942867-1e39-47f3-bbff-cc694dd28d72" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ee893abf-24f1-d351-7a64-906785b4fb28" executionId="79c723e3-885d-4bf9-a389-d97f216e1a41" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="54502371-2d1e-37c7-59ea-18387214ccd2" executionId="dd0fd67a-808b-4826-97da-7ea734c950db" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e960a99d-7711-0d36-a7f2-4b2ac6f32bee" executionId="b4337c78-712c-48fc-a2fe-0fba5d4c3fe1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7a3d396f-abf8-fbf3-517f-900c5359ba92" executionId="2e44bb70-f072-4bff-92fa-259dc6222eef" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9e0a33c2-71c1-3538-4f35-37e3493849f0" executionId="59da2732-ab8b-4758-b9e9-09271ddad01c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1697237f-c6fc-7e7f-1639-bd88b2810e4e" executionId="0a835942-b8a2-4f40-9c23-35904dd50444" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f2791e17-801a-410f-4595-d464d0904738" executionId="a734d630-d4d4-42a7-9cd2-1926956109b6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="00a68148-249d-01b9-1c27-bc66122ea0ef" executionId="0fbaa02a-e3d3-407e-9624-e49af625936b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ff7d74a2-d61e-bde8-6a2f-a41b22657182" executionId="723c1677-3140-406c-8387-243c11cd1afc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="72b102a2-243e-6c53-9efc-b0a3076a459e" executionId="56919007-e56f-43ed-9964-de84852b3ba0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0a401d47-d957-616f-7e38-19d799d6e3f8" executionId="041a9a4f-be4b-48ab-9b1a-397a3f42cc41" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="15" executed="15" passed="15" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.13)
+[xUnit.net 00:00:00.16]   Discovering: MiniShop.Tests
+[xUnit.net 00:00:00.27]   Discovered:  MiniShop.Tests
+[xUnit.net 00:00:00.31]   Starting:    MiniShop.Tests
+INICIO worker=worker-0 order=03b91039-65ef-467d-ad01-6ea990e94632 thread=21 active=1
+FIM worker=worker-0 order=03b91039-65ef-467d-ad01-6ea990e94632 thread=21 committed=True
+INICIO worker=worker-0 order=0509468a-6838-480a-bfcc-7be0dfef495c thread=19 active=1
+FIM worker=worker-0 order=0509468a-6838-480a-bfcc-7be0dfef495c thread=19 committed=True
+INICIO worker=worker-0 order=06a660db-e7b8-4a05-b762-250c16a5bd92 thread=17 active=1
+FIM worker=worker-0 order=06a660db-e7b8-4a05-b762-250c16a5bd92 thread=17 committed=True
+INICIO worker=worker-0 order=17acdf06-1597-46c1-a2f5-d9f6b52e016d thread=18 active=1
+FIM worker=worker-0 order=17acdf06-1597-46c1-a2f5-d9f6b52e016d thread=18 committed=True
+INICIO worker=worker-0 order=25d6dd87-21c0-4e52-ba2f-bff6a1d69009 thread=16 active=1
+FIM worker=worker-0 order=25d6dd87-21c0-4e52-ba2f-bff6a1d69009 thread=16 committed=True
+INICIO worker=worker-0 order=295d3f0f-ad60-4ab1-8abf-00a4994351cc thread=20 active=1
+FIM worker=worker-0 order=295d3f0f-ad60-4ab1-8abf-00a4994351cc thread=20 committed=True
+INICIO worker=worker-0 order=2ac4678d-f060-4418-a1c2-d530e462f1b4 thread=23 active=1
+FIM worker=worker-0 order=2ac4678d-f060-4418-a1c2-d530e462f1b4 thread=23 committed=True
+INICIO worker=worker-0 order=2d2c31d3-819e-4f58-a37a-1d75d59bbf40 thread=22 active=1
+INICIO worker=worker-0 order=2dc0d212-dc0c-4859-8602-8d72f326c559 thread=21 active=2
+FIM worker=worker-0 order=2d2c31d3-819e-4f58-a37a-1d75d59bbf40 thread=22 committed=True
+FIM worker=worker-0 order=2dc0d212-dc0c-4859-8602-8d72f326c559 thread=21 committed=True
+INICIO worker=worker-0 order=3447a7de-6600-4f26-baad-9ccdd426a2d1 thread=19 active=1
+FIM worker=worker-0 order=3447a7de-6600-4f26-baad-9ccdd426a2d1 thread=19 committed=True
+INICIO worker=worker-0 order=3955c62f-f19c-4879-a60f-ab133809e31e thread=17 active=1
+FIM worker=worker-0 order=3955c62f-f19c-4879-a60f-ab133809e31e thread=17 committed=True
+INICIO worker=worker-0 order=3a41815b-c1c7-4ee3-858c-5b054329a993 thread=18 active=1
+FIM worker=worker-0 order=3a41815b-c1c7-4ee3-858c-5b054329a993 thread=18 committed=True
+INICIO worker=worker-0 order=3a626465-985c-4921-90cd-51d6f760e4e9 thread=16 active=1
+FIM worker=worker-0 order=3a626465-985c-4921-90cd-51d6f760e4e9 thread=16 committed=True
+INICIO worker=worker-0 order=3caca7e1-1856-4705-970f-6a31477156ff thread=20 active=1
+INICIO worker=worker-0 order=44444d7f-2db0-4e72-b176-6ee59638d292 thread=23 active=2
+FIM worker=worker-0 order=3caca7e1-1856-4705-970f-6a31477156ff thread=20 committed=True
+FIM worker=worker-0 order=44444d7f-2db0-4e72-b176-6ee59638d292 thread=23 committed=True
+INICIO worker=worker-0 order=44aa6cb4-433e-4876-a0aa-0aa84b3410db thread=22 active=1
+FIM worker=worker-0 order=44aa6cb4-433e-4876-a0aa-0aa84b3410db thread=22 committed=True
+INICIO worker=worker-0 order=4a1f6dd5-a6f2-46ad-b871-a2b37226f893 thread=21 active=1
+FIM worker=worker-0 order=4a1f6dd5-a6f2-46ad-b871-a2b37226f893 thread=21 committed=True
+INICIO worker=worker-0 order=523949ed-c4b0-45fb-a9a6-b28b18eb79b6 thread=19 active=1
+FIM worker=worker-0 order=523949ed-c4b0-45fb-a9a6-b28b18eb79b6 thread=19 committed=True
+INICIO worker=worker-0 order=52ff8230-fe6d-42ff-9047-b030be82c9ff thread=17 active=1
+FIM worker=worker-0 order=52ff8230-fe6d-42ff-9047-b030be82c9ff thread=17 committed=True
+INICIO worker=worker-0 order=548aff60-d1a3-465e-8d9d-791f13c08162 thread=18 active=1
+FIM worker=worker-0 order=548aff60-d1a3-465e-8d9d-791f13c08162 thread=18 committed=True
+INICIO worker=worker-0 order=564868b2-cef5-44ba-b303-0bf567b26560 thread=16 active=1
+FIM worker=worker-0 order=564868b2-cef5-44ba-b303-0bf567b26560 thread=16 committed=True
+INICIO worker=worker-0 order=57d0a680-3dd1-43aa-831e-f4d3b4655bf8 thread=20 active=1
+FIM worker=worker-0 order=57d0a680-3dd1-43aa-831e-f4d3b4655bf8 thread=20 committed=True
+INICIO worker=worker-0 order=5e49c0b2-3e0b-493e-bdb5-a295d13a5aed thread=23 active=1
+FIM worker=worker-0 order=5e49c0b2-3e0b-493e-bdb5-a295d13a5aed thread=23 committed=True
+INICIO worker=worker-0 order=60461c57-6ecb-4b1d-8f7b-13d96618409d thread=22 active=1
+FIM worker=worker-0 order=60461c57-6ecb-4b1d-8f7b-13d96618409d thread=22 committed=True
+INICIO worker=worker-0 order=6b9cb642-37b4-404a-83a3-419b60edc877 thread=21 active=1
+FIM worker=worker-0 order=6b9cb642-37b4-404a-83a3-419b60edc877 thread=21 committed=True
+INICIO worker=worker-0 order=6cb8818c-b345-4d3c-8a77-8e664527e275 thread=19 active=1
+INICIO worker=worker-0 order=6ee98933-0494-4317-a7f4-e7e44327b227 thread=17 active=2
+FIM worker=worker-0 order=6cb8818c-b345-4d3c-8a77-8e664527e275 thread=19 committed=True
+FIM worker=worker-0 order=6ee98933-0494-4317-a7f4-e7e44327b227 thread=17 committed=True
+INICIO worker=worker-0 order=71c90dbc-c85c-4566-b6a0-d9ca55cc7c1d thread=18 active=1
+FIM worker=worker-0 order=71c90dbc-c85c-4566-b6a0-d9ca55cc7c1d thread=18 committed=True
+INICIO worker=worker-0 order=71eaa872-ad77-4ec5-bf98-138db02e4986 thread=16 active=1
+FIM worker=worker-0 order=71eaa872-ad77-4ec5-bf98-138db02e4986 thread=16 committed=True
+INICIO worker=worker-0 order=7297fb93-df1d-4c8e-9ce1-5f65a5d5bc2a thread=20 active=1
+FIM worker=worker-0 order=7297fb93-df1d-4c8e-9ce1-5f65a5d5bc2a thread=20 committed=True
+INICIO worker=worker-0 order=74cf6f1f-c88a-4baa-8270-a472d3022aea thread=23 active=1
+FIM worker=worker-0 order=74cf6f1f-c88a-4baa-8270-a472d3022aea thread=23 committed=True
+INICIO worker=worker-0 order=755dea7a-670d-4bfc-a988-7a71def7bfa5 thread=22 active=1
+FIM worker=worker-0 order=755dea7a-670d-4bfc-a988-7a71def7bfa5 thread=22 committed=True
+INICIO worker=worker-0 order=7db84f87-92d9-4cdc-92f2-8586cb7999dd thread=21 active=1
+FIM worker=worker-0 order=7db84f87-92d9-4cdc-92f2-8586cb7999dd thread=21 committed=True
+INICIO worker=worker-0 order=8009157f-43ec-4b28-9a03-08e1a8480ebc thread=19 active=1
+FIM worker=worker-0 order=8009157f-43ec-4b28-9a03-08e1a8480ebc thread=19 committed=True
+INICIO worker=worker-0 order=80375dda-e858-447d-b3ff-12f9c11aec67 thread=17 active=1
+FIM worker=worker-0 order=80375dda-e858-447d-b3ff-12f9c11aec67 thread=17 committed=True
+INICIO worker=worker-0 order=8681159b-4774-48ad-98bd-cc7ea7095ced thread=18 active=1
+INICIO worker=worker-0 order=88dc0d22-7650-4dcf-acd9-dda7b40f139d thread=16 active=2
+FIM worker=worker-0 order=8681159b-4774-48ad-98bd-cc7ea7095ced thread=18 committed=True
+FIM worker=worker-0 order=88dc0d22-7650-4dcf-acd9-dda7b40f139d thread=16 committed=True
+INICIO worker=worker-0 order=894b2155-b7ae-46da-a198-621d83359069 thread=20 active=1
+FIM worker=worker-0 order=894b2155-b7ae-46da-a198-621d83359069 thread=20 committed=True
+INICIO worker=worker-0 order=8b64db9f-6009-4d4d-bf0d-fb4b7038d3b6 thread=23 active=1
+FIM worker=worker-0 order=8b64db9f-6009-4d4d-bf0d-fb4b7038d3b6 thread=23 committed=True
+INICIO worker=worker-0 order=8d1e7def-806e-42c5-bb26-d5ac7eded546 thread=22 active=1
+FIM worker=worker-0 order=8d1e7def-806e-42c5-bb26-d5ac7eded546 thread=22 committed=True
+INICIO worker=worker-0 order=8e33f471-bf32-4e4e-a80e-8ad7749146f8 thread=21 active=1
+INICIO worker=worker-0 order=8f0814ec-8371-4168-9610-17068ff110bf thread=19 active=2
+FIM worker=worker-0 order=8e33f471-bf32-4e4e-a80e-8ad7749146f8 thread=21 committed=True
+FIM worker=worker-0 order=8f0814ec-8371-4168-9610-17068ff110bf thread=19 committed=True
+INICIO worker=worker-0 order=9046a7e5-48f1-4c8f-a417-2415a9795583 thread=17 active=1
+FIM worker=worker-0 order=9046a7e5-48f1-4c8f-a417-2415a9795583 thread=17 committed=True
+INICIO worker=worker-0 order=945c87b4-6c4a-4f16-a211-8ad9221abe3d thread=18 active=1
+FIM worker=worker-0 order=945c87b4-6c4a-4f16-a211-8ad9221abe3d thread=18 committed=True
+INICIO worker=worker-0 order=a32ed1d2-c274-4e96-a069-4f7914f24bee thread=16 active=1
+FIM worker=worker-0 order=a32ed1d2-c274-4e96-a069-4f7914f24bee thread=16 committed=True
+INICIO worker=worker-0 order=a5bff7c9-53da-4750-bc5a-9224ca540bf0 thread=20 active=1
+INICIO worker=worker-0 order=a8cec7e3-fe37-43f4-8561-974d9410a62a thread=23 active=2
+FIM worker=worker-0 order=a5bff7c9-53da-4750-bc5a-9224ca540bf0 thread=20 committed=True
+FIM worker=worker-0 order=a8cec7e3-fe37-43f4-8561-974d9410a62a thread=23 committed=True
+INICIO worker=worker-0 order=b82a2863-9f37-4a1d-a27d-fd6ece70fd56 thread=22 active=1
+FIM worker=worker-0 order=b82a2863-9f37-4a1d-a27d-fd6ece70fd56 thread=22 committed=True
+INICIO worker=worker-0 order=bcaa47ef-da8e-4482-aff7-fef24cfaa578 thread=21 active=1
+FIM worker=worker-0 order=bcaa47ef-da8e-4482-aff7-fef24cfaa578 thread=21 committed=True
+INICIO worker=worker-0 order=c2dc48b3-37f0-4420-9a97-ee72fb9a4940 thread=19 active=1
+INICIO worker=worker-0 order=c6fe6651-c614-4dab-8653-da73c61771e1 thread=17 active=2
+FIM worker=worker-0 order=c2dc48b3-37f0-4420-9a97-ee72fb9a4940 thread=19 committed=True
+FIM worker=worker-0 order=c6fe6651-c614-4dab-8653-da73c61771e1 thread=17 committed=True
+INICIO worker=worker-0 order=cfb74131-fc1d-46fe-a668-eebc952b4445 thread=18 active=1
+FIM worker=worker-0 order=cfb74131-fc1d-46fe-a668-eebc952b4445 thread=18 committed=True
+INICIO worker=worker-0 order=cffe78ec-17d6-4340-8c03-bb1c7e886ddf thread=16 active=1
+FIM worker=worker-0 order=cffe78ec-17d6-4340-8c03-bb1c7e886ddf thread=16 committed=True
+INICIO worker=worker-0 order=d31c4ff4-8917-49b0-80d9-2705b9eecc89 thread=20 active=1
+INICIO worker=worker-0 order=d5e21912-d6b9-4ae1-ae29-47d59df0f910 thread=23 active=2
+FIM worker=worker-0 order=d31c4ff4-8917-49b0-80d9-2705b9eecc89 thread=20 committed=True
+FIM worker=worker-0 order=d5e21912-d6b9-4ae1-ae29-47d59df0f910 thread=23 committed=True
+INICIO worker=worker-0 order=dfaf5684-4f99-4f70-a24c-a1291e7eda1d thread=22 active=1
+FIM worker=worker-0 order=dfaf5684-4f99-4f70-a24c-a1291e7eda1d thread=22 committed=True
+INICIO worker=worker-0 order=e89b710a-78e9-4661-9e97-899fe25f51c3 thread=21 active=1
+FIM worker=worker-0 order=e89b710a-78e9-4661-9e97-899fe25f51c3 thread=21 committed=True
+INICIO worker=worker-0 order=e9685a01-8fd2-46d3-837d-7db81c06f2ec thread=19 active=1
+FIM worker=worker-0 order=e9685a01-8fd2-46d3-837d-7db81c06f2ec thread=19 committed=True
+INICIO worker=worker-0 order=f5d2d024-0c8b-4ea9-9bd8-e1476f3cd35c thread=17 active=1
+FIM worker=worker-0 order=f5d2d024-0c8b-4ea9-9bd8-e1476f3cd35c thread=17 committed=True
+INICIO worker=worker-0 order=fefbbeae-4b94-4ef0-a6cb-23125728b81e thread=18 active=1
+FIM worker=worker-0 order=fefbbeae-4b94-4ef0-a6cb-23125728b81e thread=18 committed=True
+INICIO worker=worker-0 order=04d03b2c-91f1-450f-974d-e341ee5bc9e7 thread=31 active=1
+FIM worker=worker-0 order=04d03b2c-91f1-450f-974d-e341ee5bc9e7 thread=31 committed=True
+INICIO worker=worker-0 order=05d1dbbc-eb9a-4b72-8dc0-bc44cb0c9570 thread=31 active=1
+FIM worker=worker-0 order=05d1dbbc-eb9a-4b72-8dc0-bc44cb0c9570 thread=31 committed=True
+INICIO worker=worker-1 order=1398af76-96cf-47e9-9956-717e3d86ddbb thread=32 active=1
+FIM worker=worker-1 order=1398af76-96cf-47e9-9956-717e3d86ddbb thread=32 committed=True
+INICIO worker=worker-0 order=176ce75f-3ee2-4b4c-bd56-94cb688a0bc0 thread=31 active=1
+FIM worker=worker-0 order=176ce75f-3ee2-4b4c-bd56-94cb688a0bc0 thread=31 committed=True
+INICIO worker=worker-1 order=181e367e-0022-4f05-bacf-d7c3decca37c thread=32 active=1
+INICIO worker=worker-0 order=1a173411-66a9-42fc-a21e-f4e96f12e579 thread=31 active=1
+FIM worker=worker-1 order=181e367e-0022-4f05-bacf-d7c3decca37c thread=32 committed=True
+FIM worker=worker-0 order=1a173411-66a9-42fc-a21e-f4e96f12e579 thread=31 committed=True
+INICIO worker=worker-1 order=1aa4c588-ffe2-4928-8d53-90445a6d6baa thread=32 active=1
+FIM worker=worker-1 order=1aa4c588-ffe2-4928-8d53-90445a6d6baa thread=32 committed=True
+INICIO worker=worker-0 order=1cfd3a2c-a9a9-48c5-ab05-ef816cd740a7 thread=31 active=1
+FIM worker=worker-0 order=1cfd3a2c-a9a9-48c5-ab05-ef816cd740a7 thread=31 committed=True
+INICIO worker=worker-1 order=1d6bc47b-799e-4294-b07f-95b1aee6a5f0 thread=32 active=1
+FIM worker=worker-1 order=1d6bc47b-799e-4294-b07f-95b1aee6a5f0 thread=32 committed=True
+INICIO worker=worker-0 order=207a2ad0-9fe9-4a40-9c18-8463172e82b0 thread=31 active=1
+FIM worker=worker-0 order=207a2ad0-9fe9-4a40-9c18-8463172e82b0 thread=31 committed=True
+INICIO worker=worker-1 order=2702558e-91ea-4a33-96ac-1578e3f569af thread=32 active=1
+FIM worker=worker-1 order=2702558e-91ea-4a33-96ac-1578e3f569af thread=32 committed=True
+INICIO worker=worker-0 order=2bc3151d-7d3b-4fdc-989b-0459d5d4604a thread=31 active=1
+FIM worker=worker-0 order=2bc3151d-7d3b-4fdc-989b-0459d5d4604a thread=31 committed=True
+INICIO worker=worker-1 order=314f5eda-51ad-4e11-a253-6ade0d48fe6c thread=32 active=1
+FIM worker=worker-1 order=314f5eda-51ad-4e11-a253-6ade0d48fe6c thread=32 committed=True
+INICIO worker=worker-0 order=335f3d2a-e447-4584-ab85-5ecd539d5454 thread=31 active=1
+INICIO worker=worker-1 order=346def5f-51ff-4f9e-96d1-732eb53a2148 thread=32 active=1
+FIM worker=worker-0 order=335f3d2a-e447-4584-ab85-5ecd539d5454 thread=31 committed=True
+FIM worker=worker-1 order=346def5f-51ff-4f9e-96d1-732eb53a2148 thread=32 committed=True
+INICIO worker=worker-1 order=354681d6-16b6-4361-a757-9a5aafeed4a0 thread=32 active=1
+FIM worker=worker-1 order=354681d6-16b6-4361-a757-9a5aafeed4a0 thread=32 committed=True
+INICIO worker=worker-0 order=3553488c-20ff-4353-a6ee-5ff51f7e31d8 thread=31 active=1
+FIM worker=worker-0 order=3553488c-20ff-4353-a6ee-5ff51f7e31d8 thread=31 committed=True
+INICIO worker=worker-1 order=3bdffa7a-105f-46f1-82be-f4e577f0dd43 thread=32 active=1
+INICIO worker=worker-0 order=3e6bd158-ce39-411e-b33a-eed425ff2d86 thread=31 active=1
+FIM worker=worker-1 order=3bdffa7a-105f-46f1-82be-f4e577f0dd43 thread=32 committed=True
+FIM worker=worker-0 order=3e6bd158-ce39-411e-b33a-eed425ff2d86 thread=31 committed=True
+INICIO worker=worker-1 order=41f99321-ca6d-4171-b96d-9539c340cae6 thread=32 active=1
+FIM worker=worker-1 order=41f99321-ca6d-4171-b96d-9539c340cae6 thread=32 committed=True
+INICIO worker=worker-0 order=44e05d98-7993-408f-ad64-e8bd9ae30d21 thread=31 active=1
+FIM worker=worker-0 order=44e05d98-7993-408f-ad64-e8bd9ae30d21 thread=31 committed=True
+INICIO worker=worker-1 order=45943213-ba5f-4029-baf8-cee466799ed3 thread=32 active=1
+FIM worker=worker-1 order=45943213-ba5f-4029-baf8-cee466799ed3 thread=32 committed=True
+INICIO worker=worker-0 order=4b0f69c5-81b7-4ca6-a1ec-b821017fbffd thread=31 active=1
+INICIO worker=worker-1 order=56942e72-661a-4ae3-8e6f-f36bca153e9d thread=32 active=1
+FIM worker=worker-0 order=4b0f69c5-81b7-4ca6-a1ec-b821017fbffd thread=31 committed=True
+FIM worker=worker-1 order=56942e72-661a-4ae3-8e6f-f36bca153e9d thread=32 committed=True
+INICIO worker=worker-0 order=5e5d9044-c897-429b-8ec2-05b148dcf146 thread=31 active=1
+FIM worker=worker-0 order=5e5d9044-c897-429b-8ec2-05b148dcf146 thread=31 committed=True
+INICIO worker=worker-1 order=709e98cf-a254-4af3-8383-3eaeb1dc2801 thread=32 active=1
+FIM worker=worker-1 order=709e98cf-a254-4af3-8383-3eaeb1dc2801 thread=32 committed=True
+INICIO worker=worker-0 order=71f5efb2-2855-42ab-a9aa-1b3865b92fe6 thread=31 active=1
+FIM worker=worker-0 order=71f5efb2-2855-42ab-a9aa-1b3865b92fe6 thread=31 committed=True
+INICIO worker=worker-1 order=72c15d4a-8f52-45b2-9859-6132d5b872f1 thread=32 active=1
+FIM worker=worker-1 order=72c15d4a-8f52-45b2-9859-6132d5b872f1 thread=32 committed=True
+INICIO worker=worker-0 order=78d26604-7b4c-41e4-99ad-47199235d7c3 thread=31 active=1
+FIM worker=worker-0 order=78d26604-7b4c-41e4-99ad-47199235d7c3 thread=31 committed=True
+INICIO worker=worker-1 order=7ab548ff-a09b-4a91-95cd-6f00178de4a2 thread=32 active=1
+INICIO worker=worker-0 order=7ac60a45-9bf4-480d-8fef-464fa6a88268 thread=31 active=1
+FIM worker=worker-1 order=7ab548ff-a09b-4a91-95cd-6f00178de4a2 thread=32 committed=True
+FIM worker=worker-0 order=7ac60a45-9bf4-480d-8fef-464fa6a88268 thread=31 committed=True
+INICIO worker=worker-1 order=83bddb04-631d-4368-a358-e1e8485ee875 thread=32 active=1
+FIM worker=worker-1 order=83bddb04-631d-4368-a358-e1e8485ee875 thread=32 committed=True
+INICIO worker=worker-0 order=84ff60c8-c280-4485-9a1d-64913bf9b45a thread=31 active=1
+FIM worker=worker-0 order=84ff60c8-c280-4485-9a1d-64913bf9b45a thread=31 committed=True
+INICIO worker=worker-1 order=8c44db13-cfa6-4158-a880-333e0fe48cdd thread=32 active=1
+INICIO worker=worker-0 order=8c50315c-0817-4b9a-bd9d-4aa2007a7ebe thread=31 active=1
+FIM worker=worker-1 order=8c44db13-cfa6-4158-a880-333e0fe48cdd thread=32 committed=True
+FIM worker=worker-0 order=8c50315c-0817-4b9a-bd9d-4aa2007a7ebe thread=31 committed=True
+INICIO worker=worker-1 order=93216196-11d2-42ee-ad8c-30eb6003bc5b thread=32 active=1
+FIM worker=worker-1 order=93216196-11d2-42ee-ad8c-30eb6003bc5b thread=32 committed=True
+INICIO worker=worker-0 order=93914ffd-f794-40bf-aa2d-7a0d2c11532e thread=31 active=1
+INICIO worker=worker-1 order=95f30f64-ef50-401f-a326-9f9a30446f5a thread=32 active=1
+FIM worker=worker-0 order=93914ffd-f794-40bf-aa2d-7a0d2c11532e thread=31 committed=True
+FIM worker=worker-1 order=95f30f64-ef50-401f-a326-9f9a30446f5a thread=32 committed=True
+INICIO worker=worker-0 order=993cbf7e-2667-4c93-bb0b-4a92b22092fb thread=31 active=1
+FIM worker=worker-0 order=993cbf7e-2667-4c93-bb0b-4a92b22092fb thread=31 committed=True
+INICIO worker=worker-1 order=9c0cd733-5b3f-40be-a669-be7d0cf2ca80 thread=32 active=1
+FIM worker=worker-1 order=9c0cd733-5b3f-40be-a669-be7d0cf2ca80 thread=32 committed=True
+INICIO worker=worker-0 order=9d5d81c6-9a03-41e7-ad57-81e02b1213aa thread=31 active=1
+FIM worker=worker-0 order=9d5d81c6-9a03-41e7-ad57-81e02b1213aa thread=31 committed=True
+INICIO worker=worker-1 order=a9944c61-b0f1-4348-b8a9-5d549f336421 thread=32 active=1
+FIM worker=worker-1 order=a9944c61-b0f1-4348-b8a9-5d549f336421 thread=32 committed=True
+INICIO worker=worker-0 order=af1a17f9-c2e4-4b78-a260-aae2ee216beb thread=31 active=1
+FIM worker=worker-0 order=af1a17f9-c2e4-4b78-a260-aae2ee216beb thread=31 committed=True
+INICIO worker=worker-1 order=af8c8b0b-ae2f-42e1-93e4-26dcd3e98026 thread=32 active=1
+FIM worker=worker-1 order=af8c8b0b-ae2f-42e1-93e4-26dcd3e98026 thread=32 committed=True
+INICIO worker=worker-0 order=b2f56af0-06ec-43af-a2a8-489b08e43211 thread=31 active=1
+FIM worker=worker-0 order=b2f56af0-06ec-43af-a2a8-489b08e43211 thread=31 committed=True
+INICIO worker=worker-1 order=b8ea17c5-63a8-4b20-ad92-88e5934993a3 thread=32 active=1
+FIM worker=worker-1 order=b8ea17c5-63a8-4b20-ad92-88e5934993a3 thread=32 committed=True
+INICIO worker=worker-0 order=beb3a2dc-027b-49be-b589-0dd5cc9dc04f thread=31 active=1
+FIM worker=worker-0 order=beb3a2dc-027b-49be-b589-0dd5cc9dc04f thread=31 committed=True
+INICIO worker=worker-1 order=c68f7d20-02f8-43e1-99f7-8f36a2bfbc0f thread=32 active=1
+FIM worker=worker-1 order=c68f7d20-02f8-43e1-99f7-8f36a2bfbc0f thread=32 committed=True
+INICIO worker=worker-0 order=c912467a-25c0-4c6c-927e-f48aeb115ec9 thread=31 active=1
+FIM worker=worker-0 order=c912467a-25c0-4c6c-927e-f48aeb115ec9 thread=31 committed=True
+INICIO worker=worker-1 order=ce8d677f-8ff6-443c-bdbb-0a4f4c7ef4d4 thread=32 active=1
+INICIO worker=worker-0 order=d10c36ec-7933-4596-b170-0ddafd197571 thread=31 active=1
+FIM worker=worker-1 order=ce8d677f-8ff6-443c-bdbb-0a4f4c7ef4d4 thread=32 committed=True
+FIM worker=worker-0 order=d10c36ec-7933-4596-b170-0ddafd197571 thread=31 committed=True
+INICIO worker=worker-1 order=d38ed800-3290-4f5b-a321-b48bf80e5a0d thread=32 active=1
+FIM worker=worker-1 order=d38ed800-3290-4f5b-a321-b48bf80e5a0d thread=32 committed=True
+INICIO worker=worker-0 order=d4baadea-9536-4795-92fc-af415fe1cb15 thread=31 active=1
+INICIO worker=worker-1 order=d790ad9f-b28a-4a01-a06f-58b9ce980f70 thread=32 active=1
+FIM worker=worker-0 order=d4baadea-9536-4795-92fc-af415fe1cb15 thread=31 committed=True
+FIM worker=worker-1 order=d790ad9f-b28a-4a01-a06f-58b9ce980f70 thread=32 committed=True
+INICIO worker=worker-0 order=daecaea8-e95b-40f3-bda2-fd18fc2ab4cc thread=31 active=1
+INICIO worker=worker-1 order=ddf322df-d244-45ab-b354-77d81b20b84f thread=32 active=1
+FIM worker=worker-0 order=daecaea8-e95b-40f3-bda2-fd18fc2ab4cc thread=31 committed=True
+FIM worker=worker-1 order=ddf322df-d244-45ab-b354-77d81b20b84f thread=32 committed=True
+INICIO worker=worker-0 order=de64cd6a-fe10-4a35-aa73-ecff25ab70b1 thread=31 active=1
+INICIO worker=worker-1 order=e3d9ee16-9cac-4a5d-a8b5-ac63c09b7934 thread=32 active=1
+FIM worker=worker-0 order=de64cd6a-fe10-4a35-aa73-ecff25ab70b1 thread=31 committed=True
+FIM worker=worker-1 order=e3d9ee16-9cac-4a5d-a8b5-ac63c09b7934 thread=32 committed=True
+INICIO worker=worker-0 order=f503804f-27ce-4d69-9c1d-85f12aa2f3cd thread=31 active=1
+FIM worker=worker-0 order=f503804f-27ce-4d69-9c1d-85f12aa2f3cd thread=31 committed=True
+INICIO worker=worker-1 order=fe32ee89-aec0-4dd2-a61f-51ff5d8e915d thread=32 active=1
+FIM worker=worker-1 order=fe32ee89-aec0-4dd2-a61f-51ff5d8e915d thread=32 committed=True
+INICIO worker=worker-0 order=0102c892-76ad-415f-94d3-2926bb7bd644 thread=41 active=1
+FIM worker=worker-0 order=0102c892-76ad-415f-94d3-2926bb7bd644 thread=41 committed=True
+INICIO worker=worker-0 order=08e739e5-cfdc-4f1a-857a-d689d03c48fc thread=43 active=1
+FIM worker=worker-0 order=08e739e5-cfdc-4f1a-857a-d689d03c48fc thread=43 committed=True
+INICIO worker=worker-0 order=0c2d08db-1e3f-4794-b605-1a6d9ee113d5 thread=42 active=1
+FIM worker=worker-0 order=0c2d08db-1e3f-4794-b605-1a6d9ee113d5 thread=42 committed=True
+INICIO worker=worker-0 order=0ddee8ed-add8-4af0-bc10-5baf9b5f255f thread=40 active=1
+INICIO worker=worker-0 order=0e8471c0-fc9c-42b9-87a1-1055fbf05bcc thread=41 active=2
+FIM worker=worker-0 order=0ddee8ed-add8-4af0-bc10-5baf9b5f255f thread=40 committed=True
+FIM worker=worker-0 order=0e8471c0-fc9c-42b9-87a1-1055fbf05bcc thread=41 committed=True
+INICIO worker=worker-0 order=113ab5ab-c5e9-4115-b981-e769d31c99ee thread=43 active=1
+FIM worker=worker-0 order=113ab5ab-c5e9-4115-b981-e769d31c99ee thread=43 committed=True
+INICIO worker=worker-0 order=1508fb59-103d-476d-b20a-724673234e42 thread=42 active=1
+FIM worker=worker-0 order=1508fb59-103d-476d-b20a-724673234e42 thread=42 committed=True
+INICIO worker=worker-0 order=1da3b129-1ca0-4567-af99-511fe6778f31 thread=40 active=1
+FIM worker=worker-0 order=1da3b129-1ca0-4567-af99-511fe6778f31 thread=40 committed=True
+INICIO worker=worker-0 order=1e40f4e8-f243-4b8b-a22a-1921365519d8 thread=41 active=1
+FIM worker=worker-0 order=1e40f4e8-f243-4b8b-a22a-1921365519d8 thread=41 committed=True
+INICIO worker=worker-0 order=25272bbb-63be-4b8c-ac16-0ff05a23685f thread=43 active=1
+FIM worker=worker-0 order=25272bbb-63be-4b8c-ac16-0ff05a23685f thread=43 committed=True
+INICIO worker=worker-0 order=25ee750f-46a0-47b8-b3e4-3795ded5e8d8 thread=42 active=1
+FIM worker=worker-0 order=25ee750f-46a0-47b8-b3e4-3795ded5e8d8 thread=42 committed=True
+INICIO worker=worker-0 order=2747bac3-db67-4b2d-8b57-8133ab82e506 thread=40 active=1
+FIM worker=worker-0 order=2747bac3-db67-4b2d-8b57-8133ab82e506 thread=40 committed=True
+INICIO worker=worker-0 order=2bb50cda-1bfc-4edb-aa93-4318dc0e0fd8 thread=41 active=1
+FIM worker=worker-0 order=2bb50cda-1bfc-4edb-aa93-4318dc0e0fd8 thread=41 committed=True
+INICIO worker=worker-0 order=2c5758b6-7cba-4ef9-bd54-262819cb3f06 thread=43 active=1
+FIM worker=worker-0 order=2c5758b6-7cba-4ef9-bd54-262819cb3f06 thread=43 committed=True
+INICIO worker=worker-0 order=2fe71395-17b1-4a14-a90a-21814c68017c thread=42 active=1
+FIM worker=worker-0 order=2fe71395-17b1-4a14-a90a-21814c68017c thread=42 committed=True
+INICIO worker=worker-0 order=3c8a599d-4ac0-4086-a684-9a3201bae3d0 thread=40 active=1
+FIM worker=worker-0 order=3c8a599d-4ac0-4086-a684-9a3201bae3d0 thread=40 committed=True
+INICIO worker=worker-0 order=3e28d6ec-2877-4805-956b-36ba62ba711a thread=41 active=1
+FIM worker=worker-0 order=3e28d6ec-2877-4805-956b-36ba62ba711a thread=41 committed=True
+INICIO worker=worker-0 order=3eda9432-c799-49d1-9109-6803bbcf0221 thread=43 active=1
+FIM worker=worker-0 order=3eda9432-c799-49d1-9109-6803bbcf0221 thread=43 committed=True
+INICIO worker=worker-0 order=455952c7-e35c-4198-b550-14be5ba882ab thread=42 active=1
+FIM worker=worker-0 order=455952c7-e35c-4198-b550-14be5ba882ab thread=42 committed=True
+INICIO worker=worker-0 order=45e568dc-eeb1-4142-9a46-196a04f92049 thread=40 active=1
+FIM worker=worker-0 order=45e568dc-eeb1-4142-9a46-196a04f92049 thread=40 committed=True
+INICIO worker=worker-0 order=4bc24550-6505-4922-bbae-37f28b01d552 thread=41 active=1
+FIM worker=worker-0 order=4bc24550-6505-4922-bbae-37f28b01d552 thread=41 committed=True
+INICIO worker=worker-0 order=4eea4972-ec06-483f-9ecf-6814ee2b228d thread=43 active=1
+FIM worker=worker-0 order=4eea4972-ec06-483f-9ecf-6814ee2b228d thread=43 committed=True
+INICIO worker=worker-0 order=7382c7e3-87e0-431c-93a6-6b928142fec3 thread=42 active=1
+FIM worker=worker-0 order=7382c7e3-87e0-431c-93a6-6b928142fec3 thread=42 committed=True
+INICIO worker=worker-0 order=774b2a43-06bb-40b6-ad73-0bba0d547ff8 thread=40 active=1
+FIM worker=worker-0 order=774b2a43-06bb-40b6-ad73-0bba0d547ff8 thread=40 committed=True
+INICIO worker=worker-0 order=776b2c13-b86c-4277-83bf-f46718bacf9c thread=41 active=1
+INICIO worker=worker-0 order=78c9a579-50fd-4ec6-af2c-95cb805051d6 thread=43 active=2
+FIM worker=worker-0 order=776b2c13-b86c-4277-83bf-f46718bacf9c thread=41 committed=True
+FIM worker=worker-0 order=78c9a579-50fd-4ec6-af2c-95cb805051d6 thread=43 committed=True
+INICIO worker=worker-0 order=78cf687f-d321-4da2-aed9-aea52cca8263 thread=42 active=1
+INICIO worker=worker-0 order=7b0ab69b-c36b-493d-a875-38f466ae8ed6 thread=40 active=2
+FIM worker=worker-0 order=7b0ab69b-c36b-493d-a875-38f466ae8ed6 thread=40 committed=True
+FIM worker=worker-0 order=78cf687f-d321-4da2-aed9-aea52cca8263 thread=42 committed=True
+INICIO worker=worker-0 order=7caaaf95-df05-49de-aee3-fe3e9b5364ce thread=41 active=1
+FIM worker=worker-0 order=7caaaf95-df05-49de-aee3-fe3e9b5364ce thread=41 committed=True
+INICIO worker=worker-0 order=7f7b588b-c190-40bb-932d-505c74f3eedf thread=43 active=1
+FIM worker=worker-0 order=7f7b588b-c190-40bb-932d-505c74f3eedf thread=43 committed=True
+INICIO worker=worker-0 order=7f8b7b67-9a36-4087-9445-6315f0f3735d thread=42 active=1
+FIM worker=worker-0 order=7f8b7b67-9a36-4087-9445-6315f0f3735d thread=42 committed=True
+INICIO worker=worker-0 order=80763cb8-4287-4e79-902e-3085191c4708 thread=40 active=1
+FIM worker=worker-0 order=80763cb8-4287-4e79-902e-3085191c4708 thread=40 committed=True
+INICIO worker=worker-0 order=8666262b-4036-4c93-874d-9e351333bbfe thread=41 active=1
+FIM worker=worker-0 order=8666262b-4036-4c93-874d-9e351333bbfe thread=41 committed=True
+INICIO worker=worker-0 order=87a00f98-2c97-48e2-8fb5-00f9b22de744 thread=43 active=1
+INICIO worker=worker-0 order=8ce2fd05-2779-4240-b425-de9b439e9cfb thread=42 active=2
+FIM worker=worker-0 order=87a00f98-2c97-48e2-8fb5-00f9b22de744 thread=43 committed=True
+FIM worker=worker-0 order=8ce2fd05-2779-4240-b425-de9b439e9cfb thread=42 committed=True
+INICIO worker=worker-0 order=8f6fb7a9-c57e-4b95-a393-2c566f8dd25d thread=40 active=1
+FIM worker=worker-0 order=8f6fb7a9-c57e-4b95-a393-2c566f8dd25d thread=40 committed=True
+INICIO worker=worker-0 order=929ffb27-7ab1-4d1f-ada2-24014ed76c41 thread=41 active=1
+FIM worker=worker-0 order=929ffb27-7ab1-4d1f-ada2-24014ed76c41 thread=41 committed=True
+INICIO worker=worker-0 order=9c1e079e-1581-4edf-8b30-8487999abf1d thread=43 active=1
+FIM worker=worker-0 order=9c1e079e-1581-4edf-8b30-8487999abf1d thread=43 committed=True
+INICIO worker=worker-0 order=a097fcf9-ccb1-486a-a159-d39b6e4e3074 thread=42 active=1
+FIM worker=worker-0 order=a097fcf9-ccb1-486a-a159-d39b6e4e3074 thread=42 committed=True
+INICIO worker=worker-0 order=ac96d85a-5b3b-4e00-980e-ef6d4692c1d5 thread=40 active=1
+FIM worker=worker-0 order=ac96d85a-5b3b-4e00-980e-ef6d4692c1d5 thread=40 committed=True
+INICIO worker=worker-0 order=ac9c1710-d6a0-47f3-87e0-f19c0317b872 thread=41 active=1
+FIM worker=worker-0 order=ac9c1710-d6a0-47f3-87e0-f19c0317b872 thread=41 committed=True
+INICIO worker=worker-0 order=aea49d05-26de-4c9a-865a-7cc7e2aeb041 thread=43 active=1
+FIM worker=worker-0 order=aea49d05-26de-4c9a-865a-7cc7e2aeb041 thread=43 committed=True
+INICIO worker=worker-0 order=af724807-eb7a-4561-ab66-e7df144c5793 thread=42 active=1
+FIM worker=worker-0 order=af724807-eb7a-4561-ab66-e7df144c5793 thread=42 committed=True
+INICIO worker=worker-0 order=b522d7ee-798d-46fa-80ba-e98ab54cc2a5 thread=40 active=1
+FIM worker=worker-0 order=b522d7ee-798d-46fa-80ba-e98ab54cc2a5 thread=40 committed=True
+INICIO worker=worker-0 order=baa9866e-d41a-4e8c-aaa0-90312d17007d thread=41 active=1
+FIM worker=worker-0 order=baa9866e-d41a-4e8c-aaa0-90312d17007d thread=41 committed=True
+INICIO worker=worker-0 order=c42625f8-a1f2-494d-9073-1e22bc6d4cd6 thread=43 active=1
+FIM worker=worker-0 order=c42625f8-a1f2-494d-9073-1e22bc6d4cd6 thread=43 committed=True
+INICIO worker=worker-0 order=ce1c3a53-14ff-497e-aabe-449f0030d3fe thread=42 active=1
+FIM worker=worker-0 order=ce1c3a53-14ff-497e-aabe-449f0030d3fe thread=42 committed=True
+INICIO worker=worker-0 order=d04f5db8-35cf-4691-8c72-7dded0b489d5 thread=40 active=1
+FIM worker=worker-0 order=d04f5db8-35cf-4691-8c72-7dded0b489d5 thread=40 committed=True
+INICIO worker=worker-0 order=d3c440f1-a683-47c7-807e-b7cc9c2be70e thread=41 active=1
+FIM worker=worker-0 order=d3c440f1-a683-47c7-807e-b7cc9c2be70e thread=41 committed=True
+INICIO worker=worker-0 order=d534012b-e791-465c-9f4d-ec915f9dbcc0 thread=43 active=1
+FIM worker=worker-0 order=d534012b-e791-465c-9f4d-ec915f9dbcc0 thread=43 committed=True
+INICIO worker=worker-0 order=d9da3222-276f-40d3-acec-8329c6693b09 thread=42 active=1
+FIM worker=worker-0 order=d9da3222-276f-40d3-acec-8329c6693b09 thread=42 committed=True
+INICIO worker=worker-0 order=da9fd9bd-e5d4-43db-bf19-ab5a678e472d thread=40 active=1
+FIM worker=worker-0 order=da9fd9bd-e5d4-43db-bf19-ab5a678e472d thread=40 committed=True
+INICIO worker=worker-0 order=e278bb77-674b-4b0c-a4e8-bd801ab74555 thread=41 active=1
+FIM worker=worker-0 order=e278bb77-674b-4b0c-a4e8-bd801ab74555 thread=41 committed=True
+INICIO worker=worker-0 order=e5b56bba-f7c4-4031-88b2-f49756a9e34d thread=43 active=1
+FIM worker=worker-0 order=e5b56bba-f7c4-4031-88b2-f49756a9e34d thread=43 committed=True
+INICIO worker=worker-0 order=ee1122db-1219-443d-894e-e05dcad42da3 thread=42 active=1
+FIM worker=worker-0 order=ee1122db-1219-443d-894e-e05dcad42da3 thread=42 committed=True
+INICIO worker=worker-0 order=ee9fe97d-83dc-491b-944f-3299dad39df7 thread=40 active=1
+FIM worker=worker-0 order=ee9fe97d-83dc-491b-944f-3299dad39df7 thread=40 committed=True
+INICIO worker=worker-0 order=f2d95e17-eb1b-46e4-ae6f-ba7099fcaaae thread=41 active=1
+FIM worker=worker-0 order=f2d95e17-eb1b-46e4-ae6f-ba7099fcaaae thread=41 committed=True
+INICIO worker=worker-0 order=f42043d1-e74c-46f3-b177-ac5ce4b0d9c7 thread=43 active=1
+FIM worker=worker-0 order=f42043d1-e74c-46f3-b177-ac5ce4b0d9c7 thread=43 committed=True
+INICIO worker=worker-0 order=f5856613-504e-4264-8b43-83813551906a thread=42 active=1
+FIM worker=worker-0 order=f5856613-504e-4264-8b43-83813551906a thread=42 committed=True
+INICIO worker=worker-0 order=f86257e4-368a-404b-a6f4-d4db39089f97 thread=40 active=1
+FIM worker=worker-0 order=f86257e4-368a-404b-a6f4-d4db39089f97 thread=40 committed=True
+INICIO worker=worker-0 order=029defd7-f03c-4ec7-b1d9-16bf4944ad0f thread=29 active=1
+FIM worker=worker-0 order=029defd7-f03c-4ec7-b1d9-16bf4944ad0f thread=29 committed=True
+INICIO worker=worker-0 order=02d3cdd9-dce8-4ce1-9cbb-d9697bfc35e4 thread=31 active=1
+FIM worker=worker-0 order=02d3cdd9-dce8-4ce1-9cbb-d9697bfc35e4 thread=31 committed=True
+INICIO worker=worker-0 order=036fa340-74b4-4fc1-9f10-4af33e031860 thread=29 active=1
+FIM worker=worker-0 order=036fa340-74b4-4fc1-9f10-4af33e031860 thread=29 committed=True
+INICIO worker=worker-0 order=13df923b-05a2-43ca-859e-0015103510a7 thread=31 active=1
+FIM worker=worker-0 order=13df923b-05a2-43ca-859e-0015103510a7 thread=31 committed=True
+INICIO worker=worker-0 order=162215ff-330b-421f-82e0-6ed92a4189d1 thread=29 active=1
+FIM worker=worker-0 order=162215ff-330b-421f-82e0-6ed92a4189d1 thread=29 committed=True
+INICIO worker=worker-0 order=1b03804c-ec94-40b5-87a7-d5807850cb81 thread=31 active=1
+FIM worker=worker-0 order=1b03804c-ec94-40b5-87a7-d5807850cb81 thread=31 committed=True
+INICIO worker=worker-0 order=1cc3bbc0-0d88-4b37-9b1a-759754ad0eec thread=29 active=1
+FIM worker=worker-0 order=1cc3bbc0-0d88-4b37-9b1a-759754ad0eec thread=29 committed=True
+INICIO worker=worker-0 order=2405cae0-9d7e-4402-b8f4-0a84309dd030 thread=31 active=1
+FIM worker=worker-0 order=2405cae0-9d7e-4402-b8f4-0a84309dd030 thread=31 committed=True
+INICIO worker=worker-0 order=2517cde0-c43d-421b-a9d0-d0bba5ac8990 thread=29 active=1
+FIM worker=worker-0 order=2517cde0-c43d-421b-a9d0-d0bba5ac8990 thread=29 committed=True
+INICIO worker=worker-0 order=255ffc6d-41f3-4df8-bdea-ab5259f82e23 thread=31 active=1
+FIM worker=worker-0 order=255ffc6d-41f3-4df8-bdea-ab5259f82e23 thread=31 committed=True
+INICIO worker=worker-0 order=2594d662-5536-4e88-9da7-ded29069b6cc thread=29 active=1
+FIM worker=worker-0 order=2594d662-5536-4e88-9da7-ded29069b6cc thread=29 committed=True
+INICIO worker=worker-0 order=2cb0aee8-574e-4938-893e-269daaf8bfea thread=31 active=1
+FIM worker=worker-0 order=2cb0aee8-574e-4938-893e-269daaf8bfea thread=31 committed=True
+INICIO worker=worker-0 order=32409943-7020-4dcb-8f24-b8adea17bd11 thread=29 active=1
+FIM worker=worker-0 order=32409943-7020-4dcb-8f24-b8adea17bd11 thread=29 committed=True
+INICIO worker=worker-0 order=456cefac-d8b0-4569-b82a-0e480de2608b thread=31 active=1
+FIM worker=worker-0 order=456cefac-d8b0-4569-b82a-0e480de2608b thread=31 committed=True
+INICIO worker=worker-0 order=47f5f163-d10a-4683-a26d-bfe85d633b2e thread=29 active=1
+FIM worker=worker-0 order=47f5f163-d10a-4683-a26d-bfe85d633b2e thread=29 committed=True
+INICIO worker=worker-0 order=485cfa10-a602-419b-83a4-4942762f3fbd thread=31 active=1
+FIM worker=worker-0 order=485cfa10-a602-419b-83a4-4942762f3fbd thread=31 committed=True
+INICIO worker=worker-0 order=4ada9675-e735-4128-9429-b591399622da thread=29 active=1
+FIM worker=worker-0 order=4ada9675-e735-4128-9429-b591399622da thread=29 committed=True
+INICIO worker=worker-0 order=524d21e1-9777-49e4-9fab-60c7491d1974 thread=31 active=1
+FIM worker=worker-0 order=524d21e1-9777-49e4-9fab-60c7491d1974 thread=31 committed=True
+INICIO worker=worker-0 order=53be9369-5d45-4413-8a13-5c7dbae4282e thread=29 active=1
+FIM worker=worker-0 order=53be9369-5d45-4413-8a13-5c7dbae4282e thread=29 committed=True
+INICIO worker=worker-0 order=5493d6a0-98c7-4c8e-a864-e6bcbdd00d95 thread=31 active=1
+FIM worker=worker-0 order=5493d6a0-98c7-4c8e-a864-e6bcbdd00d95 thread=31 committed=True
+INICIO worker=worker-0 order=560a2560-08c3-42fb-954a-84baddf9cf65 thread=29 active=1
+INICIO worker=worker-0 order=56435e34-61ac-4030-b024-a937173492fe thread=31 active=2
+FIM worker=worker-0 order=560a2560-08c3-42fb-954a-84baddf9cf65 thread=29 committed=True
+FIM worker=worker-0 order=56435e34-61ac-4030-b024-a937173492fe thread=31 committed=True
+INICIO worker=worker-0 order=57222be3-71f8-472d-8ae8-49f5a91dcb06 thread=29 active=1
+FIM worker=worker-0 order=57222be3-71f8-472d-8ae8-49f5a91dcb06 thread=29 committed=True
+INICIO worker=worker-0 order=5b674f7b-994f-463f-8694-d5dfb75fb308 thread=31 active=1
+FIM worker=worker-0 order=5b674f7b-994f-463f-8694-d5dfb75fb308 thread=31 committed=True
+INICIO worker=worker-0 order=5d8d219b-74d0-4e11-a660-34f209b5a0da thread=29 active=1
+FIM worker=worker-0 order=5d8d219b-74d0-4e11-a660-34f209b5a0da thread=29 committed=True
+INICIO worker=worker-0 order=61dc7e1d-4f11-40b1-9484-6158fdd78c71 thread=31 active=1
+FIM worker=worker-0 order=61dc7e1d-4f11-40b1-9484-6158fdd78c71 thread=31 committed=True
+INICIO worker=worker-0 order=65f68e11-93fb-4e29-9736-c317fa621839 thread=31 active=1
+FIM worker=worker-0 order=65f68e11-93fb-4e29-9736-c317fa621839 thread=31 committed=True
+INICIO worker=worker-0 order=67705dd0-297a-49a8-a837-e630d5e245da thread=29 active=1
+FIM worker=worker-0 order=67705dd0-297a-49a8-a837-e630d5e245da thread=29 committed=True
+INICIO worker=worker-0 order=691e3b72-c4e6-4bb9-9c89-5055e7ad906d thread=31 active=1
+FIM worker=worker-0 order=691e3b72-c4e6-4bb9-9c89-5055e7ad906d thread=31 committed=True
+INICIO worker=worker-0 order=70593d25-7f5a-4a6d-871d-5feb4f423a53 thread=29 active=1
+INICIO worker=worker-0 order=759c915e-8136-4ca8-b500-782c6764e0ce thread=31 active=2
+FIM worker=worker-0 order=70593d25-7f5a-4a6d-871d-5feb4f423a53 thread=29 committed=True
+FIM worker=worker-0 order=759c915e-8136-4ca8-b500-782c6764e0ce thread=31 committed=True
+INICIO worker=worker-0 order=76397001-bc06-4b46-b6e9-1d1f74f96b1f thread=29 active=1
+FIM worker=worker-0 order=76397001-bc06-4b46-b6e9-1d1f74f96b1f thread=29 committed=True
+INICIO worker=worker-0 order=7783091c-4a9f-4fd4-beb6-579d2e2907fe thread=31 active=1
+FIM worker=worker-0 order=7783091c-4a9f-4fd4-beb6-579d2e2907fe thread=31 committed=True
+INICIO worker=worker-0 order=7eed1367-113b-42e0-a1f5-ee0bf636357d thread=29 active=1
+FIM worker=worker-0 order=7eed1367-113b-42e0-a1f5-ee0bf636357d thread=29 committed=True
+INICIO worker=worker-0 order=7fce72d1-7acc-4e1f-b814-656a176c1995 thread=31 active=1
+FIM worker=worker-0 order=7fce72d1-7acc-4e1f-b814-656a176c1995 thread=31 committed=True
+INICIO worker=worker-0 order=8056698d-be36-4e11-a483-3567ea6c4975 thread=29 active=1
+FIM worker=worker-0 order=8056698d-be36-4e11-a483-3567ea6c4975 thread=29 committed=True
+INICIO worker=worker-0 order=846748c3-c3a3-4a9a-b64f-e4f934836fef thread=31 active=1
+FIM worker=worker-0 order=846748c3-c3a3-4a9a-b64f-e4f934836fef thread=31 committed=True
+INICIO worker=worker-0 order=91c244d4-67ef-440d-9ed5-beae1ccb0745 thread=29 active=1
+FIM worker=worker-0 order=91c244d4-67ef-440d-9ed5-beae1ccb0745 thread=29 committed=True
+INICIO worker=worker-0 order=95c85f20-8203-41a5-9f25-3f29c8915adc thread=31 active=1
+FIM worker=worker-0 order=95c85f20-8203-41a5-9f25-3f29c8915adc thread=31 committed=True
+INICIO worker=worker-0 order=9835fa02-9ac3-440b-8c9b-f700ad2b1850 thread=29 active=1
+FIM worker=worker-0 order=9835fa02-9ac3-440b-8c9b-f700ad2b1850 thread=29 committed=True
+INICIO worker=worker-0 order=9b502c1b-589a-4c43-8ddf-b99375608b1e thread=31 active=1
+FIM worker=worker-0 order=9b502c1b-589a-4c43-8ddf-b99375608b1e thread=31 committed=True
+INICIO worker=worker-0 order=9cd3bbe1-1044-444b-94c9-2a3892af89c6 thread=29 active=1
+FIM worker=worker-0 order=9cd3bbe1-1044-444b-94c9-2a3892af89c6 thread=29 committed=True
+INICIO worker=worker-0 order=a95392fe-f76f-4f75-84de-2b11f5c266f7 thread=31 active=1
+FIM worker=worker-0 order=a95392fe-f76f-4f75-84de-2b11f5c266f7 thread=31 committed=True
+INICIO worker=worker-0 order=ae8b63d3-f082-4441-81c5-c4660417afca thread=29 active=1
+INICIO worker=worker-0 order=b20390fa-d031-4c19-8f3c-9b96cbee385d thread=31 active=2
+FIM worker=worker-0 order=ae8b63d3-f082-4441-81c5-c4660417afca thread=29 committed=True
+FIM worker=worker-0 order=b20390fa-d031-4c19-8f3c-9b96cbee385d thread=31 committed=True
+INICIO worker=worker-0 order=b24ff56d-9197-415b-a45e-cd9074735b2a thread=29 active=1
+FIM worker=worker-0 order=b24ff56d-9197-415b-a45e-cd9074735b2a thread=29 committed=True
+INICIO worker=worker-0 order=b3344c03-ece9-47a5-a1c7-b7534b9ca4ff thread=31 active=1
+FIM worker=worker-0 order=b3344c03-ece9-47a5-a1c7-b7534b9ca4ff thread=31 committed=True
+INICIO worker=worker-0 order=c49da573-7212-4c6b-8ef4-5e73f68e1fc5 thread=29 active=1
+FIM worker=worker-0 order=c49da573-7212-4c6b-8ef4-5e73f68e1fc5 thread=29 committed=True
+INICIO worker=worker-0 order=c67e4bd5-edef-4385-a1d1-cd3b99dd74d0 thread=31 active=1
+FIM worker=worker-0 order=c67e4bd5-edef-4385-a1d1-cd3b99dd74d0 thread=31 committed=True
+INICIO worker=worker-0 order=ca2edad4-5ae4-4350-9f8a-152b176357d7 thread=29 active=1
+FIM worker=worker-0 order=ca2edad4-5ae4-4350-9f8a-152b176357d7 thread=29 committed=True
+INICIO worker=worker-0 order=ca607b62-bfeb-4b57-9f4d-c77ce28e7f23 thread=31 active=1
+FIM worker=worker-0 order=ca607b62-bfeb-4b57-9f4d-c77ce28e7f23 thread=31 committed=True
+INICIO worker=worker-0 order=cf555024-29ae-4042-983f-1699f8fe3d8c thread=29 active=1
+FIM worker=worker-0 order=cf555024-29ae-4042-983f-1699f8fe3d8c thread=29 committed=True
+INICIO worker=worker-0 order=d3790b8d-ccfd-4d58-863d-91dfcf26a321 thread=31 active=1
+FIM worker=worker-0 order=d3790b8d-ccfd-4d58-863d-91dfcf26a321 thread=31 committed=True
+INICIO worker=worker-0 order=da93aa11-637b-41a4-ad8a-e566921c5595 thread=29 active=1
+FIM worker=worker-0 order=da93aa11-637b-41a4-ad8a-e566921c5595 thread=29 committed=True
+INICIO worker=worker-0 order=ded0ee88-4b30-4de0-a629-c89d49a842fd thread=31 active=1
+FIM worker=worker-0 order=ded0ee88-4b30-4de0-a629-c89d49a842fd thread=31 committed=True
+INICIO worker=worker-0 order=ed472344-efde-4fca-bc82-ae2574c54173 thread=29 active=1
+FIM worker=worker-0 order=ed472344-efde-4fca-bc82-ae2574c54173 thread=29 committed=True
+INICIO worker=worker-0 order=ef32539a-6c00-4621-be7e-14bc912e51e6 thread=31 active=1
+FIM worker=worker-0 order=ef32539a-6c00-4621-be7e-14bc912e51e6 thread=31 committed=True
+INICIO worker=worker-0 order=f3e0a676-e64f-4a10-bf37-1f7d54b7c147 thread=29 active=1
+FIM worker=worker-0 order=f3e0a676-e64f-4a10-bf37-1f7d54b7c147 thread=29 committed=True
+INICIO worker=worker-0 order=f6c79acd-75d3-4dad-9b31-1dacf96b7132 thread=31 active=1
+FIM worker=worker-0 order=f6c79acd-75d3-4dad-9b31-1dacf96b7132 thread=31 committed=True
+INICIO worker=worker-0 order=fd09183b-63e0-4402-acff-8b09345ab6bd thread=29 active=1
+FIM worker=worker-0 order=fd09183b-63e0-4402-acff-8b09345ab6bd thread=29 committed=True
+INICIO worker=worker-2 order=057d15cc-96ee-4d89-9550-a64b853910d1 thread=21 active=1
+FIM worker=worker-2 order=057d15cc-96ee-4d89-9550-a64b853910d1 thread=21 committed=True
+INICIO worker=worker-0 order=076ae527-75a4-45e7-ba74-b84a4fe13e3b thread=22 active=1
+FIM worker=worker-0 order=076ae527-75a4-45e7-ba74-b84a4fe13e3b thread=22 committed=True
+INICIO worker=worker-1 order=0899c63e-cab2-4561-bdab-e5b90976ba67 thread=20 active=1
+FIM worker=worker-1 order=0899c63e-cab2-4561-bdab-e5b90976ba67 thread=20 committed=True
+INICIO worker=worker-2 order=0afb3849-673e-49a6-ab9d-cf15bd554a21 thread=21 active=1
+FIM worker=worker-2 order=0afb3849-673e-49a6-ab9d-cf15bd554a21 thread=21 committed=True
+INICIO worker=worker-0 order=11566d29-7e1c-4379-b84c-877042b48f84 thread=22 active=1
+FIM worker=worker-0 order=11566d29-7e1c-4379-b84c-877042b48f84 thread=22 committed=True
+INICIO worker=worker-1 order=17fb34b4-c28d-4d03-a339-341d88c00f11 thread=20 active=1
+FIM worker=worker-1 order=17fb34b4-c28d-4d03-a339-341d88c00f11 thread=20 committed=True
+INICIO worker=worker-2 order=2665dc3f-4d0a-42b1-9e76-2f426ad5d4e5 thread=21 active=1
+FIM worker=worker-2 order=2665dc3f-4d0a-42b1-9e76-2f426ad5d4e5 thread=21 committed=True
+INICIO worker=worker-0 order=27c0ef72-f639-4e4e-b9c6-ea48d0feb876 thread=22 active=1
+FIM worker=worker-0 order=27c0ef72-f639-4e4e-b9c6-ea48d0feb876 thread=22 committed=True
+INICIO worker=worker-1 order=2deb8c25-78d9-4ddd-80a5-3724b4b5b90b thread=20 active=1
+FIM worker=worker-1 order=2deb8c25-78d9-4ddd-80a5-3724b4b5b90b thread=20 committed=True
+INICIO worker=worker-2 order=2fde3b3f-9b99-4138-bba9-86e2647c79a6 thread=21 active=1
+FIM worker=worker-2 order=2fde3b3f-9b99-4138-bba9-86e2647c79a6 thread=21 committed=True
+INICIO worker=worker-0 order=308e7700-ba65-409a-8881-373d304ed47a thread=22 active=1
+FIM worker=worker-0 order=308e7700-ba65-409a-8881-373d304ed47a thread=22 committed=True
+INICIO worker=worker-1 order=3638ca63-638a-485b-b3ec-1065ec42eaac thread=20 active=1
+FIM worker=worker-1 order=3638ca63-638a-485b-b3ec-1065ec42eaac thread=20 committed=True
+INICIO worker=worker-2 order=406a0c5e-b051-4b4b-82d0-0be80cc0cfd2 thread=21 active=1
+FIM worker=worker-2 order=406a0c5e-b051-4b4b-82d0-0be80cc0cfd2 thread=21 committed=True
+INICIO worker=worker-0 order=42b4ec47-2c45-446f-85b5-64559f54291e thread=22 active=1
+FIM worker=worker-0 order=42b4ec47-2c45-446f-85b5-64559f54291e thread=22 committed=True
+INICIO worker=worker-1 order=45cb7943-0bb2-4009-a425-fa9d6927cb82 thread=20 active=1
+FIM worker=worker-1 order=45cb7943-0bb2-4009-a425-fa9d6927cb82 thread=20 committed=True
+INICIO worker=worker-2 order=46cde1c6-baa0-4bec-896e-1fd650e83959 thread=21 active=1
+INICIO worker=worker-0 order=54e70032-b2e2-42f7-b451-5e0608dce2ab thread=22 active=1
+FIM worker=worker-2 order=46cde1c6-baa0-4bec-896e-1fd650e83959 thread=21 committed=True
+FIM worker=worker-0 order=54e70032-b2e2-42f7-b451-5e0608dce2ab thread=22 committed=True
+INICIO worker=worker-1 order=56d41006-bc53-4c31-81dd-48d05c9cfd27 thread=20 active=1
+FIM worker=worker-1 order=56d41006-bc53-4c31-81dd-48d05c9cfd27 thread=20 committed=True
+INICIO worker=worker-2 order=5e500b7f-562a-411b-b11c-6f284f4656f6 thread=21 active=1
+FIM worker=worker-2 order=5e500b7f-562a-411b-b11c-6f284f4656f6 thread=21 committed=True
+INICIO worker=worker-0 order=5f00ac4d-f79d-486e-9971-2087ae71edbf thread=22 active=1
+FIM worker=worker-0 order=5f00ac4d-f79d-486e-9971-2087ae71edbf thread=22 committed=True
+INICIO worker=worker-1 order=61a5373e-2c81-49ec-be6d-f6e42f16b499 thread=20 active=1
+FIM worker=worker-1 order=61a5373e-2c81-49ec-be6d-f6e42f16b499 thread=20 committed=True
+INICIO worker=worker-2 order=6b426dd9-b69c-410b-9388-493a6796f896 thread=21 active=1
+FIM worker=worker-2 order=6b426dd9-b69c-410b-9388-493a6796f896 thread=21 committed=True
+INICIO worker=worker-0 order=700bcccc-cdd2-483d-86f8-8eb4bf5958f5 thread=22 active=1
+FIM worker=worker-0 order=700bcccc-cdd2-483d-86f8-8eb4bf5958f5 thread=22 committed=True
+INICIO worker=worker-1 order=714356d8-8323-48b8-9ba0-9d8d108b86c8 thread=20 active=1
+FIM worker=worker-1 order=714356d8-8323-48b8-9ba0-9d8d108b86c8 thread=20 committed=True
+INICIO worker=worker-2 order=777a8eca-6b91-429a-b47b-390fa956c9c0 thread=21 active=1
+FIM worker=worker-2 order=777a8eca-6b91-429a-b47b-390fa956c9c0 thread=21 committed=True
+INICIO worker=worker-0 order=7c9966e7-7ed3-4e05-b6e4-373dbba06e36 thread=22 active=1
+FIM worker=worker-0 order=7c9966e7-7ed3-4e05-b6e4-373dbba06e36 thread=22 committed=True
+INICIO worker=worker-1 order=8054f2be-e7f6-4d5c-9ac4-0b587ff082c0 thread=20 active=1
+FIM worker=worker-1 order=8054f2be-e7f6-4d5c-9ac4-0b587ff082c0 thread=20 committed=True
+INICIO worker=worker-2 order=823967ed-56bf-4c7b-a8fe-beeb1db0e772 thread=21 active=1
+FIM worker=worker-2 order=823967ed-56bf-4c7b-a8fe-beeb1db0e772 thread=21 committed=True
+INICIO worker=worker-0 order=87b427b9-a673-42a6-a20a-59d3009b1ef3 thread=22 active=1
+FIM worker=worker-0 order=87b427b9-a673-42a6-a20a-59d3009b1ef3 thread=22 committed=True
+INICIO worker=worker-1 order=894f03e1-b13a-4792-bd53-d4f2f28d3d73 thread=20 active=1
+FIM worker=worker-1 order=894f03e1-b13a-4792-bd53-d4f2f28d3d73 thread=20 committed=True
+INICIO worker=worker-2 order=9347d8f2-e590-4f30-a6c8-db51baf08a61 thread=21 active=1
+FIM worker=worker-2 order=9347d8f2-e590-4f30-a6c8-db51baf08a61 thread=21 committed=True
+INICIO worker=worker-0 order=970c0ba5-fac5-4a20-a248-71c429007617 thread=22 active=1
+FIM worker=worker-0 order=970c0ba5-fac5-4a20-a248-71c429007617 thread=22 committed=True
+INICIO worker=worker-1 order=977ccc9a-87c3-4236-a3b1-0ed5d11af2d0 thread=20 active=1
+FIM worker=worker-1 order=977ccc9a-87c3-4236-a3b1-0ed5d11af2d0 thread=20 committed=True
+INICIO worker=worker-2 order=9dc8b806-ce70-453e-bd20-aeeda4faa873 thread=21 active=1
+FIM worker=worker-2 order=9dc8b806-ce70-453e-bd20-aeeda4faa873 thread=21 committed=True
+INICIO worker=worker-0 order=9dd32f73-aa0c-46cf-944b-49bbccd8415a thread=22 active=1
+FIM worker=worker-0 order=9dd32f73-aa0c-46cf-944b-49bbccd8415a thread=22 committed=True
+INICIO worker=worker-1 order=a232e14d-ff11-4d73-b7a5-051596b0e7c6 thread=20 active=1
+FIM worker=worker-1 order=a232e14d-ff11-4d73-b7a5-051596b0e7c6 thread=20 committed=True
+INICIO worker=worker-2 order=a73d4aa0-4210-4542-93eb-9fa536d9cca4 thread=21 active=1
+FIM worker=worker-2 order=a73d4aa0-4210-4542-93eb-9fa536d9cca4 thread=21 committed=True
+INICIO worker=worker-0 order=ace5450f-82e3-4f07-bc0f-e68d0e994636 thread=22 active=1
+FIM worker=worker-0 order=ace5450f-82e3-4f07-bc0f-e68d0e994636 thread=22 committed=True
+INICIO worker=worker-1 order=aef57ad5-d1aa-4af9-a53c-d35b6682deb6 thread=20 active=1
+FIM worker=worker-1 order=aef57ad5-d1aa-4af9-a53c-d35b6682deb6 thread=20 committed=True
+INICIO worker=worker-2 order=b36805ad-507f-4de6-84fd-1aa9b77d24a3 thread=21 active=1
+FIM worker=worker-2 order=b36805ad-507f-4de6-84fd-1aa9b77d24a3 thread=21 committed=True
+INICIO worker=worker-0 order=b3e7ef74-24d6-4bfd-acec-3f2784ad918b thread=22 active=1
+FIM worker=worker-0 order=b3e7ef74-24d6-4bfd-acec-3f2784ad918b thread=22 committed=True
+INICIO worker=worker-1 order=b749ab8e-61dc-44a9-9fa2-e318e3656630 thread=20 active=1
+FIM worker=worker-1 order=b749ab8e-61dc-44a9-9fa2-e318e3656630 thread=20 committed=True
+INICIO worker=worker-2 order=b9f4d64d-bf8a-4b23-bdfc-e8446dc5d774 thread=21 active=1
+FIM worker=worker-2 order=b9f4d64d-bf8a-4b23-bdfc-e8446dc5d774 thread=21 committed=True
+INICIO worker=worker-0 order=bac2c875-e28d-4b6a-aef6-f2d49e7969c6 thread=22 active=1
+FIM worker=worker-0 order=bac2c875-e28d-4b6a-aef6-f2d49e7969c6 thread=22 committed=True
+INICIO worker=worker-1 order=bf94ad8a-0c04-4769-aa53-69fe5f16f5c2 thread=20 active=1
+FIM worker=worker-1 order=bf94ad8a-0c04-4769-aa53-69fe5f16f5c2 thread=20 committed=True
+INICIO worker=worker-2 order=c22e76bc-46a3-4e3c-b323-656af5ed3d5d thread=21 active=1
+FIM worker=worker-2 order=c22e76bc-46a3-4e3c-b323-656af5ed3d5d thread=21 committed=True
+INICIO worker=worker-0 order=cf923fbc-7142-4bf6-bb1f-8ceae163397b thread=22 active=1
+FIM worker=worker-0 order=cf923fbc-7142-4bf6-bb1f-8ceae163397b thread=22 committed=True
+INICIO worker=worker-1 order=d4b847be-23c0-44e4-80de-77ccaffb8d1b thread=20 active=1
+FIM worker=worker-1 order=d4b847be-23c0-44e4-80de-77ccaffb8d1b thread=20 committed=True
+INICIO worker=worker-2 order=de7e5881-8376-4c5b-bef7-868418ccee44 thread=21 active=1
+FIM worker=worker-2 order=de7e5881-8376-4c5b-bef7-868418ccee44 thread=21 committed=True
+INICIO worker=worker-0 order=e0ef5abf-2a63-429d-abcf-2e168dba29d0 thread=22 active=1
+FIM worker=worker-0 order=e0ef5abf-2a63-429d-abcf-2e168dba29d0 thread=22 committed=True
+INICIO worker=worker-1 order=eb652c10-e142-40f2-8654-db4091f33318 thread=20 active=1
+INICIO worker=worker-2 order=ed61e605-30fb-49c0-97c8-efc47c775e8a thread=21 active=1
+FIM worker=worker-1 order=eb652c10-e142-40f2-8654-db4091f33318 thread=20 committed=True
+FIM worker=worker-2 order=ed61e605-30fb-49c0-97c8-efc47c775e8a thread=21 committed=True
+INICIO worker=worker-0 order=f282d676-c6fb-44ed-b933-155c3d8dcc21 thread=22 active=1
+FIM worker=worker-0 order=f282d676-c6fb-44ed-b933-155c3d8dcc21 thread=22 committed=True
+INICIO worker=worker-1 order=f35a4e27-cc36-4f25-930d-1f6448315938 thread=20 active=1
+FIM worker=worker-1 order=f35a4e27-cc36-4f25-930d-1f6448315938 thread=20 committed=True
+INICIO worker=worker-2 order=f7e53d2d-0527-4198-a7f6-d8d2945a00b1 thread=21 active=1
+FIM worker=worker-2 order=f7e53d2d-0527-4198-a7f6-d8d2945a00b1 thread=21 committed=True
+INICIO worker=worker-0 order=f9c8f074-3416-4f1d-9c5d-8bfbd6514980 thread=22 active=1
+FIM worker=worker-0 order=f9c8f074-3416-4f1d-9c5d-8bfbd6514980 thread=22 committed=True
+INICIO worker=worker-1 order=fa098b56-88cb-426e-8efc-8a58b4b0fdcc thread=20 active=1
+FIM worker=worker-1 order=fa098b56-88cb-426e-8efc-8a58b4b0fdcc thread=20 committed=True
+INICIO worker=worker-2 order=fe6c15fc-594f-4b2b-9f6e-ea055e2eb282 thread=21 active=1
+FIM worker=worker-2 order=fe6c15fc-594f-4b2b-9f6e-ea055e2eb282 thread=21 committed=True
+INICIO worker=worker-0 order=ff3e17db-819a-4f4e-ab34-784331725598 thread=22 active=1
+INICIO worker=worker-1 order=ffe6d633-f53a-4da6-8ff5-dd691630a6b7 thread=20 active=1
+FIM worker=worker-0 order=ff3e17db-819a-4f4e-ab34-784331725598 thread=22 committed=True
+FIM worker=worker-1 order=ffe6d633-f53a-4da6-8ff5-dd691630a6b7 thread=20 committed=True
+INICIO worker=worker-0 order=00766a16-73c6-4c4e-a8ee-4ca0d183b8b8 thread=13 active=1
+FIM worker=worker-0 order=00766a16-73c6-4c4e-a8ee-4ca0d183b8b8 thread=13 committed=True
+INICIO worker=worker-0 order=0d9eab45-7541-41d3-b2c3-2d937b6136b1 thread=13 active=1
+FIM worker=worker-0 order=0d9eab45-7541-41d3-b2c3-2d937b6136b1 thread=13 committed=True
+INICIO worker=worker-0 order=1291ee62-60b7-431c-914e-edc23a9eb79f thread=13 active=1
+FIM worker=worker-0 order=1291ee62-60b7-431c-914e-edc23a9eb79f thread=13 committed=True
+INICIO worker=worker-0 order=12ad5750-203b-4e50-8cdb-a0ea7636ca45 thread=13 active=1
+FIM worker=worker-0 order=12ad5750-203b-4e50-8cdb-a0ea7636ca45 thread=13 committed=True
+INICIO worker=worker-0 order=16c17157-bfbd-4501-94c0-876ea35d059d thread=13 active=1
+FIM worker=worker-0 order=16c17157-bfbd-4501-94c0-876ea35d059d thread=13 committed=True
+INICIO worker=worker-0 order=1a12e799-3969-4dd8-9bc3-2f77243ec751 thread=13 active=1
+FIM worker=worker-0 order=1a12e799-3969-4dd8-9bc3-2f77243ec751 thread=13 committed=True
+INICIO worker=worker-0 order=2d138766-c2c2-4ee6-a8dd-a8ea0be618aa thread=13 active=1
+FIM worker=worker-0 order=2d138766-c2c2-4ee6-a8dd-a8ea0be618aa thread=13 committed=True
+INICIO worker=worker-0 order=2e9d65ba-dda0-4608-a19a-fd60867eed74 thread=13 active=1
+FIM worker=worker-0 order=2e9d65ba-dda0-4608-a19a-fd60867eed74 thread=13 committed=True
+INICIO worker=worker-0 order=327bfcc1-3ab6-4aa5-afc3-426528d5ca12 thread=13 active=1
+FIM worker=worker-0 order=327bfcc1-3ab6-4aa5-afc3-426528d5ca12 thread=13 committed=True
+INICIO worker=worker-0 order=3537fa26-c8e6-4a00-8b7c-ef1e88b1f3eb thread=13 active=1
+FIM worker=worker-0 order=3537fa26-c8e6-4a00-8b7c-ef1e88b1f3eb thread=13 committed=True
+INICIO worker=worker-0 order=366331f4-ce25-4db1-b258-9deeb2059122 thread=13 active=1
+FIM worker=worker-0 order=366331f4-ce25-4db1-b258-9deeb2059122 thread=13 committed=True
+INICIO worker=worker-0 order=36e01189-5d75-473d-a4b6-a33c37bcc299 thread=13 active=1
+FIM worker=worker-0 order=36e01189-5d75-473d-a4b6-a33c37bcc299 thread=13 committed=True
+INICIO worker=worker-0 order=3ba5072c-f7a4-46c9-94bd-0155cbd0118b thread=13 active=1
+FIM worker=worker-0 order=3ba5072c-f7a4-46c9-94bd-0155cbd0118b thread=13 committed=True
+INICIO worker=worker-0 order=401c0369-c9f9-418a-83a1-3b3ee1b35605 thread=13 active=1
+FIM worker=worker-0 order=401c0369-c9f9-418a-83a1-3b3ee1b35605 thread=13 committed=True
+INICIO worker=worker-0 order=41e424de-2d36-4d68-b5b5-1b360f096edb thread=13 active=1
+FIM worker=worker-0 order=41e424de-2d36-4d68-b5b5-1b360f096edb thread=13 committed=True
+INICIO worker=worker-0 order=4427f4f0-e533-4f13-8fa3-cc0aa9bd71b3 thread=13 active=1
+FIM worker=worker-0 order=4427f4f0-e533-4f13-8fa3-cc0aa9bd71b3 thread=13 committed=True
+INICIO worker=worker-0 order=4763d279-42df-41cc-909b-66a74c3943e0 thread=13 active=1
+FIM worker=worker-0 order=4763d279-42df-41cc-909b-66a74c3943e0 thread=13 committed=True
+INICIO worker=worker-0 order=4bab4ca5-e6a7-4f1c-825b-e3dce70fa18c thread=13 active=1
+FIM worker=worker-0 order=4bab4ca5-e6a7-4f1c-825b-e3dce70fa18c thread=13 committed=True
+INICIO worker=worker-0 order=4cfd5a98-1274-4197-8a94-b03e1c82f7a6 thread=13 active=1
+FIM worker=worker-0 order=4cfd5a98-1274-4197-8a94-b03e1c82f7a6 thread=13 committed=True
+INICIO worker=worker-0 order=4d6c1beb-cb47-40c9-b024-f4f636ae3372 thread=13 active=1
+FIM worker=worker-0 order=4d6c1beb-cb47-40c9-b024-f4f636ae3372 thread=13 committed=True
+INICIO worker=worker-0 order=5566130a-dc1a-4331-83f7-05790aee6e0a thread=13 active=1
+FIM worker=worker-0 order=5566130a-dc1a-4331-83f7-05790aee6e0a thread=13 committed=True
+INICIO worker=worker-0 order=597769f1-0e6d-42ab-8cdc-8e58e37dae2a thread=13 active=1
+FIM worker=worker-0 order=597769f1-0e6d-42ab-8cdc-8e58e37dae2a thread=13 committed=True
+INICIO worker=worker-0 order=5d8a692b-df8a-4db8-ab62-017c989449d4 thread=13 active=1
+FIM worker=worker-0 order=5d8a692b-df8a-4db8-ab62-017c989449d4 thread=13 committed=True
+INICIO worker=worker-0 order=63cb0916-d9c9-4bc8-83c2-d5619f6f452f thread=13 active=1
+FIM worker=worker-0 order=63cb0916-d9c9-4bc8-83c2-d5619f6f452f thread=13 committed=True
+INICIO worker=worker-0 order=65245d76-289a-4f8e-8f96-a343f3e4204e thread=13 active=1
+FIM worker=worker-0 order=65245d76-289a-4f8e-8f96-a343f3e4204e thread=13 committed=True
+INICIO worker=worker-0 order=655b7764-8de4-43ee-ae3c-c0b4f4765e13 thread=13 active=1
+FIM worker=worker-0 order=655b7764-8de4-43ee-ae3c-c0b4f4765e13 thread=13 committed=True
+INICIO worker=worker-0 order=66ed9b08-6221-4f52-8bc8-a00a47b6f424 thread=13 active=1
+FIM worker=worker-0 order=66ed9b08-6221-4f52-8bc8-a00a47b6f424 thread=13 committed=True
+INICIO worker=worker-0 order=67f9329c-3e8a-436d-90d1-9d11826c33e6 thread=13 active=1
+FIM worker=worker-0 order=67f9329c-3e8a-436d-90d1-9d11826c33e6 thread=13 committed=True
+INICIO worker=worker-0 order=6afba244-06fd-47aa-b7df-34535bac18dd thread=13 active=1
+FIM worker=worker-0 order=6afba244-06fd-47aa-b7df-34535bac18dd thread=13 committed=True
+INICIO worker=worker-0 order=6d73ab85-2e40-4f32-b764-2d3e32b3cae5 thread=13 active=1
+FIM worker=worker-0 order=6d73ab85-2e40-4f32-b764-2d3e32b3cae5 thread=13 committed=True
+INICIO worker=worker-0 order=72a01c03-4394-40b3-9174-fdf336b850c0 thread=13 active=1
+FIM worker=worker-0 order=72a01c03-4394-40b3-9174-fdf336b850c0 thread=13 committed=True
+INICIO worker=worker-0 order=7482acc6-5f8c-4406-bc1d-dfe6dde92a50 thread=13 active=1
+FIM worker=worker-0 order=7482acc6-5f8c-4406-bc1d-dfe6dde92a50 thread=13 committed=True
+INICIO worker=worker-0 order=78907213-2789-4c37-a0ff-afedaad6543f thread=13 active=1
+FIM worker=worker-0 order=78907213-2789-4c37-a0ff-afedaad6543f thread=13 committed=True
+INICIO worker=worker-0 order=7bf697e6-7d54-488b-9832-d23d7c305a82 thread=13 active=1
+FIM worker=worker-0 order=7bf697e6-7d54-488b-9832-d23d7c305a82 thread=13 committed=True
+INICIO worker=worker-0 order=7e391bcb-8d00-43f7-b8b3-074277fcab1f thread=13 active=1
+FIM worker=worker-0 order=7e391bcb-8d00-43f7-b8b3-074277fcab1f thread=13 committed=True
+INICIO worker=worker-0 order=867d3132-9ef7-4187-85b7-8ba86b8e55e9 thread=13 active=1
+FIM worker=worker-0 order=867d3132-9ef7-4187-85b7-8ba86b8e55e9 thread=13 committed=True
+INICIO worker=worker-0 order=891f57f0-2de9-4257-bd7b-426520d287f4 thread=13 active=1
+FIM worker=worker-0 order=891f57f0-2de9-4257-bd7b-426520d287f4 thread=13 committed=True
+INICIO worker=worker-0 order=8aaa1a75-545b-4da2-9897-c624d39ff01e thread=13 active=1
+FIM worker=worker-0 order=8aaa1a75-545b-4da2-9897-c624d39ff01e thread=13 committed=True
+INICIO worker=worker-0 order=99eb6dfa-51d7-485b-b9d7-0c1110625d1e thread=13 active=1
+FIM worker=worker-0 order=99eb6dfa-51d7-485b-b9d7-0c1110625d1e thread=13 committed=True
+INICIO worker=worker-0 order=9caeac07-a49c-4477-bf57-e67483fb699d thread=13 active=1
+FIM worker=worker-0 order=9caeac07-a49c-4477-bf57-e67483fb699d thread=13 committed=True
+INICIO worker=worker-0 order=9e423c33-06d4-421a-bef2-722dfad96158 thread=13 active=1
+FIM worker=worker-0 order=9e423c33-06d4-421a-bef2-722dfad96158 thread=13 committed=True
+INICIO worker=worker-0 order=a6f6c213-4c60-49c0-9c9a-ab4c4db6c807 thread=13 active=1
+FIM worker=worker-0 order=a6f6c213-4c60-49c0-9c9a-ab4c4db6c807 thread=13 committed=True
+INICIO worker=worker-0 order=aa306c5b-ca65-4cb6-9f87-0f78b36210ab thread=13 active=1
+FIM worker=worker-0 order=aa306c5b-ca65-4cb6-9f87-0f78b36210ab thread=13 committed=True
+INICIO worker=worker-0 order=aa45bfca-be68-4a30-909b-d6282c6cc0e2 thread=13 active=1
+FIM worker=worker-0 order=aa45bfca-be68-4a30-909b-d6282c6cc0e2 thread=13 committed=True
+INICIO worker=worker-0 order=aa4a0660-d4d1-44ff-8758-b0e1fd565967 thread=13 active=1
+FIM worker=worker-0 order=aa4a0660-d4d1-44ff-8758-b0e1fd565967 thread=13 committed=True
+INICIO worker=worker-0 order=b94c00c1-188c-41d3-9f57-0ce05cc152e8 thread=13 active=1
+FIM worker=worker-0 order=b94c00c1-188c-41d3-9f57-0ce05cc152e8 thread=13 committed=True
+INICIO worker=worker-0 order=bfa3a9af-535f-49bb-b2f7-174260e9ad96 thread=13 active=1
+FIM worker=worker-0 order=bfa3a9af-535f-49bb-b2f7-174260e9ad96 thread=13 committed=True
+INICIO worker=worker-0 order=c13498f8-9e31-47ce-ba90-bb97f66d6b3b thread=13 active=1
+FIM worker=worker-0 order=c13498f8-9e31-47ce-ba90-bb97f66d6b3b thread=13 committed=True
+INICIO worker=worker-0 order=c787f97b-c126-4f09-bb9a-ea170a091197 thread=13 active=1
+FIM worker=worker-0 order=c787f97b-c126-4f09-bb9a-ea170a091197 thread=13 committed=True
+INICIO worker=worker-0 order=c8f15243-ea23-4262-8106-c2b7ce987632 thread=13 active=1
+FIM worker=worker-0 order=c8f15243-ea23-4262-8106-c2b7ce987632 thread=13 committed=True
+INICIO worker=worker-0 order=cc8f6789-5e19-4824-80ed-09600203cbc3 thread=13 active=1
+FIM worker=worker-0 order=cc8f6789-5e19-4824-80ed-09600203cbc3 thread=13 committed=True
+INICIO worker=worker-0 order=cf6bd987-4ed1-4ba3-b869-d203c7ccc39a thread=13 active=1
+FIM worker=worker-0 order=cf6bd987-4ed1-4ba3-b869-d203c7ccc39a thread=13 committed=True
+INICIO worker=worker-0 order=d4bc7091-0752-4c8a-861e-1cc497062ec0 thread=13 active=1
+FIM worker=worker-0 order=d4bc7091-0752-4c8a-861e-1cc497062ec0 thread=13 committed=True
+INICIO worker=worker-0 order=e049a808-5777-4d6f-a2e7-bfdf029f8da6 thread=13 active=1
+FIM worker=worker-0 order=e049a808-5777-4d6f-a2e7-bfdf029f8da6 thread=13 committed=True
+INICIO worker=worker-0 order=e4e6f056-d358-40e2-afaa-79c1ca51a99d thread=13 active=1
+FIM worker=worker-0 order=e4e6f056-d358-40e2-afaa-79c1ca51a99d thread=13 committed=True
+INICIO worker=worker-0 order=eb1746b3-924a-44f3-b166-172c2fe88d46 thread=13 active=1
+FIM worker=worker-0 order=eb1746b3-924a-44f3-b166-172c2fe88d46 thread=13 committed=True
+INICIO worker=worker-0 order=ef1340c4-86e2-4316-85ec-b00930412a31 thread=13 active=1
+FIM worker=worker-0 order=ef1340c4-86e2-4316-85ec-b00930412a31 thread=13 committed=True
+INICIO worker=worker-0 order=f68b1c4a-94ea-4405-9f31-43b74441ae13 thread=13 active=1
+FIM worker=worker-0 order=f68b1c4a-94ea-4405-9f31-43b74441ae13 thread=13 committed=True
+INICIO worker=worker-0 order=fb6240e0-313a-4dac-b480-1156e75537fd thread=13 active=1
+FIM worker=worker-0 order=fb6240e0-313a-4dac-b480-1156e75537fd thread=13 committed=True
+INICIO worker=worker-0 order=ff016eb1-123c-46f6-ac91-c302028d806e thread=13 active=1
+FIM worker=worker-0 order=ff016eb1-123c-46f6-ac91-c302028d806e thread=13 committed=True
+INICIO worker=worker-0 order=07d322b9-2c21-4e05-b5cc-e37b7d496e21 thread=51 active=1
+FIM worker=worker-0 order=07d322b9-2c21-4e05-b5cc-e37b7d496e21 thread=51 committed=True
+INICIO worker=worker-0 order=09243570-4531-48b4-85f1-554d12572501 thread=51 active=1
+FIM worker=worker-0 order=09243570-4531-48b4-85f1-554d12572501 thread=51 committed=True
+INICIO worker=worker-0 order=0b4a4287-f01a-4b96-af79-579bc267d387 thread=51 active=1
+FIM worker=worker-0 order=0b4a4287-f01a-4b96-af79-579bc267d387 thread=51 committed=True
+INICIO worker=worker-0 order=0ff1141f-16fb-432a-b527-9a24c24c9933 thread=51 active=1
+FIM worker=worker-0 order=0ff1141f-16fb-432a-b527-9a24c24c9933 thread=51 committed=True
+INICIO worker=worker-0 order=11f98621-db21-451c-ae98-f261f42024b9 thread=51 active=1
+FIM worker=worker-0 order=11f98621-db21-451c-ae98-f261f42024b9 thread=51 committed=True
+INICIO worker=worker-0 order=1785cb22-a7ae-44b8-85a3-7eb2cc21db3b thread=51 active=1
+FIM worker=worker-0 order=1785cb22-a7ae-44b8-85a3-7eb2cc21db3b thread=51 committed=True
+INICIO worker=worker-0 order=189f50fc-6dd1-4221-aa80-1e7f64c8f442 thread=51 active=1
+FIM worker=worker-0 order=189f50fc-6dd1-4221-aa80-1e7f64c8f442 thread=51 committed=True
+INICIO worker=worker-0 order=1ba96c52-8a4c-47a4-ac5a-c76139b8bf24 thread=51 active=1
+FIM worker=worker-0 order=1ba96c52-8a4c-47a4-ac5a-c76139b8bf24 thread=51 committed=True
+INICIO worker=worker-0 order=23f47ecd-06bf-4332-bd38-8cfa7aea5d68 thread=51 active=1
+FIM worker=worker-0 order=23f47ecd-06bf-4332-bd38-8cfa7aea5d68 thread=51 committed=True
+INICIO worker=worker-0 order=2d4c1c42-d46c-42d4-a547-3f20c39459ac thread=51 active=1
+FIM worker=worker-0 order=2d4c1c42-d46c-42d4-a547-3f20c39459ac thread=51 committed=True
+INICIO worker=worker-0 order=3cbd5f60-9b4c-4a72-b9f5-a0ef6aa7a028 thread=51 active=1
+FIM worker=worker-0 order=3cbd5f60-9b4c-4a72-b9f5-a0ef6aa7a028 thread=51 committed=True
+INICIO worker=worker-0 order=3e6844e1-0d10-48ae-ba1d-ab6c51a7abfc thread=51 active=1
+FIM worker=worker-0 order=3e6844e1-0d10-48ae-ba1d-ab6c51a7abfc thread=51 committed=True
+INICIO worker=worker-0 order=3e8c3c76-1352-47a3-a6c3-2270591bb72d thread=51 active=1
+FIM worker=worker-0 order=3e8c3c76-1352-47a3-a6c3-2270591bb72d thread=51 committed=True
+INICIO worker=worker-0 order=408bb63f-d959-46bb-aa10-a0c8c5e83353 thread=51 active=1
+FIM worker=worker-0 order=408bb63f-d959-46bb-aa10-a0c8c5e83353 thread=51 committed=True
+INICIO worker=worker-0 order=40a00255-2fd3-4aff-9f3f-df4271157db5 thread=51 active=1
+FIM worker=worker-0 order=40a00255-2fd3-4aff-9f3f-df4271157db5 thread=51 committed=True
+INICIO worker=worker-0 order=44983478-595f-45a0-b5cb-8cf557e7816e thread=51 active=1
+FIM worker=worker-0 order=44983478-595f-45a0-b5cb-8cf557e7816e thread=51 committed=True
+INICIO worker=worker-0 order=47b6250b-af36-43db-8160-9d2d772c5e44 thread=51 active=1
+FIM worker=worker-0 order=47b6250b-af36-43db-8160-9d2d772c5e44 thread=51 committed=True
+INICIO worker=worker-0 order=48578dfc-6415-4c92-b31f-b8965d5bb377 thread=51 active=1
+FIM worker=worker-0 order=48578dfc-6415-4c92-b31f-b8965d5bb377 thread=51 committed=True
+INICIO worker=worker-0 order=48decd1f-5402-4778-b1f9-f0cef3da92af thread=51 active=1
+FIM worker=worker-0 order=48decd1f-5402-4778-b1f9-f0cef3da92af thread=51 committed=True
+INICIO worker=worker-0 order=4eaf9ab2-e7af-4a9f-9a7b-b6e588bc5049 thread=51 active=1
+FIM worker=worker-0 order=4eaf9ab2-e7af-4a9f-9a7b-b6e588bc5049 thread=51 committed=True
+INICIO worker=worker-0 order=4f125af2-d757-4540-997b-fbc1c49bd4e2 thread=51 active=1
+FIM worker=worker-0 order=4f125af2-d757-4540-997b-fbc1c49bd4e2 thread=51 committed=True
+INICIO worker=worker-0 order=522ba784-ec4d-4c5e-99b9-91b87320e636 thread=51 active=1
+FIM worker=worker-0 order=522ba784-ec4d-4c5e-99b9-91b87320e636 thread=51 committed=True
+INICIO worker=worker-0 order=532c2e39-a78c-4f64-b10c-7c865229139e thread=51 active=1
+FIM worker=worker-0 order=532c2e39-a78c-4f64-b10c-7c865229139e thread=51 committed=True
+INICIO worker=worker-0 order=5615764c-05af-4d17-a81b-d58a147834db thread=51 active=1
+FIM worker=worker-0 order=5615764c-05af-4d17-a81b-d58a147834db thread=51 committed=True
+INICIO worker=worker-0 order=592e7ffc-e387-4931-8be9-1478d3faa688 thread=51 active=1
+FIM worker=worker-0 order=592e7ffc-e387-4931-8be9-1478d3faa688 thread=51 committed=True
+INICIO worker=worker-0 order=5b8d3543-8604-4cf1-835c-9d322e4c1822 thread=51 active=1
+FIM worker=worker-0 order=5b8d3543-8604-4cf1-835c-9d322e4c1822 thread=51 committed=True
+INICIO worker=worker-0 order=5fad20a2-6574-4ab3-ac82-43211dbebcee thread=51 active=1
+FIM worker=worker-0 order=5fad20a2-6574-4ab3-ac82-43211dbebcee thread=51 committed=True
+INICIO worker=worker-0 order=6131ad51-4619-439a-817b-22f01677bdab thread=51 active=1
+FIM worker=worker-0 order=6131ad51-4619-439a-817b-22f01677bdab thread=51 committed=True
+INICIO worker=worker-0 order=64034614-eefb-48a5-a701-1167e81eb37b thread=51 active=1
+FIM worker=worker-0 order=64034614-eefb-48a5-a701-1167e81eb37b thread=51 committed=True
+INICIO worker=worker-0 order=78a59135-a8ab-479a-b8bb-98dad008166b thread=51 active=1
+FIM worker=worker-0 order=78a59135-a8ab-479a-b8bb-98dad008166b thread=51 committed=True
+INICIO worker=worker-0 order=7dec7fca-486d-47bf-9c39-827bd02c950b thread=51 active=1
+FIM worker=worker-0 order=7dec7fca-486d-47bf-9c39-827bd02c950b thread=51 committed=True
+INICIO worker=worker-0 order=867c89ee-99a8-401b-9412-3d0ca4df57ae thread=51 active=1
+FIM worker=worker-0 order=867c89ee-99a8-401b-9412-3d0ca4df57ae thread=51 committed=True
+INICIO worker=worker-0 order=89cdb8f8-c93c-4774-87e5-cf29eb3e8e9f thread=51 active=1
+FIM worker=worker-0 order=89cdb8f8-c93c-4774-87e5-cf29eb3e8e9f thread=51 committed=True
+INICIO worker=worker-0 order=89fed2e3-d625-4f29-8adb-9d01c00f1af5 thread=51 active=1
+FIM worker=worker-0 order=89fed2e3-d625-4f29-8adb-9d01c00f1af5 thread=51 committed=True
+INICIO worker=worker-0 order=8d93a55f-cc03-4468-aacf-283c24eb3d8d thread=51 active=1
+FIM worker=worker-0 order=8d93a55f-cc03-4468-aacf-283c24eb3d8d thread=51 committed=True
+INICIO worker=worker-0 order=92f456b6-1b9a-4fba-b030-32924e3caeba thread=51 active=1
+FIM worker=worker-0 order=92f456b6-1b9a-4fba-b030-32924e3caeba thread=51 committed=True
+INICIO worker=worker-0 order=937c16d7-e872-42c4-9d25-f98fa4206c6a thread=51 active=1
+FIM worker=worker-0 order=937c16d7-e872-42c4-9d25-f98fa4206c6a thread=51 committed=True
+INICIO worker=worker-0 order=94b3e0f7-9d4c-41ca-be8b-4584a966790d thread=51 active=1
+FIM worker=worker-0 order=94b3e0f7-9d4c-41ca-be8b-4584a966790d thread=51 committed=True
+INICIO worker=worker-0 order=9572d84d-6776-4f8c-b348-558465b152f2 thread=51 active=1
+FIM worker=worker-0 order=9572d84d-6776-4f8c-b348-558465b152f2 thread=51 committed=True
+INICIO worker=worker-0 order=9e4ff464-cd39-4234-847f-3e8722c35b23 thread=51 active=1
+FIM worker=worker-0 order=9e4ff464-cd39-4234-847f-3e8722c35b23 thread=51 committed=True
+INICIO worker=worker-0 order=9f64fad1-3b36-4d86-8d65-a85831e1c4cd thread=51 active=1
+FIM worker=worker-0 order=9f64fad1-3b36-4d86-8d65-a85831e1c4cd thread=51 committed=True
+INICIO worker=worker-0 order=9f970e4f-0847-4ada-9c04-ff9b884df6e1 thread=51 active=1
+FIM worker=worker-0 order=9f970e4f-0847-4ada-9c04-ff9b884df6e1 thread=51 committed=True
+INICIO worker=worker-0 order=b06451bf-2466-4d91-a992-f835fee09746 thread=51 active=1
+FIM worker=worker-0 order=b06451bf-2466-4d91-a992-f835fee09746 thread=51 committed=True
+INICIO worker=worker-0 order=b4613450-9e7d-4f96-bd11-b781415c3ede thread=51 active=1
+FIM worker=worker-0 order=b4613450-9e7d-4f96-bd11-b781415c3ede thread=51 committed=True
+INICIO worker=worker-0 order=ba3e45e6-34d0-4332-9abd-6c1fa98204ef thread=51 active=1
+FIM worker=worker-0 order=ba3e45e6-34d0-4332-9abd-6c1fa98204ef thread=51 committed=True
+INICIO worker=worker-0 order=be93b875-990f-4c25-9c80-cf76c1eae874 thread=51 active=1
+FIM worker=worker-0 order=be93b875-990f-4c25-9c80-cf76c1eae874 thread=51 committed=True
+INICIO worker=worker-0 order=c208f1c9-a6dd-48c0-b171-ee5fa6dba3a3 thread=51 active=1
+FIM worker=worker-0 order=c208f1c9-a6dd-48c0-b171-ee5fa6dba3a3 thread=51 committed=True
+INICIO worker=worker-0 order=c44a2aaf-1e19-4e82-b39e-bab36cedfaf7 thread=51 active=1
+FIM worker=worker-0 order=c44a2aaf-1e19-4e82-b39e-bab36cedfaf7 thread=51 committed=True
+INICIO worker=worker-0 order=cbd1d851-3b7b-46eb-af78-07cd1b4a2a18 thread=51 active=1
+FIM worker=worker-0 order=cbd1d851-3b7b-46eb-af78-07cd1b4a2a18 thread=51 committed=True
+INICIO worker=worker-0 order=ce52b917-07c6-4f8c-b455-d4698d75260b thread=51 active=1
+FIM worker=worker-0 order=ce52b917-07c6-4f8c-b455-d4698d75260b thread=51 committed=True
+INICIO worker=worker-0 order=d371eb97-f0aa-4231-b07e-866e198bf14e thread=51 active=1
+FIM worker=worker-0 order=d371eb97-f0aa-4231-b07e-866e198bf14e thread=51 committed=True
+INICIO worker=worker-0 order=d47d35a7-09ed-4324-b83a-742a9b4598d1 thread=51 active=1
+FIM worker=worker-0 order=d47d35a7-09ed-4324-b83a-742a9b4598d1 thread=51 committed=True
+INICIO worker=worker-0 order=d82ba822-161f-4517-8fb1-068ae1dbb447 thread=51 active=1
+FIM worker=worker-0 order=d82ba822-161f-4517-8fb1-068ae1dbb447 thread=51 committed=True
+INICIO worker=worker-0 order=de9d38ea-3ffa-4db9-a6a4-c401d1b0363e thread=51 active=1
+FIM worker=worker-0 order=de9d38ea-3ffa-4db9-a6a4-c401d1b0363e thread=51 committed=True
+INICIO worker=worker-0 order=e12501cf-1d49-4897-bef3-d066aecd3dbb thread=51 active=1
+FIM worker=worker-0 order=e12501cf-1d49-4897-bef3-d066aecd3dbb thread=51 committed=True
+INICIO worker=worker-0 order=e311140e-94c9-48dc-9da4-7ef1ffab0d06 thread=51 active=1
+FIM worker=worker-0 order=e311140e-94c9-48dc-9da4-7ef1ffab0d06 thread=51 committed=True
+INICIO worker=worker-0 order=efc0be6e-e086-4f45-b6b7-122dd58bf2d9 thread=51 active=1
+FIM worker=worker-0 order=efc0be6e-e086-4f45-b6b7-122dd58bf2d9 thread=51 committed=True
+INICIO worker=worker-0 order=f15a9530-1383-4ae0-9cb1-fd6f6f68cab0 thread=51 active=1
+FIM worker=worker-0 order=f15a9530-1383-4ae0-9cb1-fd6f6f68cab0 thread=51 committed=True
+INICIO worker=worker-0 order=f6f3bcee-4ccf-4558-ae72-d9919bcf61c0 thread=51 active=1
+FIM worker=worker-0 order=f6f3bcee-4ccf-4558-ae72-d9919bcf61c0 thread=51 committed=True
+INICIO worker=worker-0 order=f9892bb4-4b7d-41f6-9c31-74aaab3c2624 thread=51 active=1
+FIM worker=worker-0 order=f9892bb4-4b7d-41f6-9c31-74aaab3c2624 thread=51 committed=True
+INICIO worker=30bab06d-012d-4533-8230-5ee86383e76d order=e2001313-26d6-4848-9e3a-a7dd938801e9 thread=56 active=1
+FIM worker=30bab06d-012d-4533-8230-5ee86383e76d order=e2001313-26d6-4848-9e3a-a7dd938801e9 thread=56 committed=True
+INICIO worker=15f9f833-dc17-471d-aa41-a25e4158ee4e order=270fffce-92d1-4391-a76b-a5748291afc1 thread=30 active=1
+FIM worker=15f9f833-dc17-471d-aa41-a25e4158ee4e order=270fffce-92d1-4391-a76b-a5748291afc1 thread=30 committed=True
+INICIO worker=0a3ec2c5-2532-4faa-b409-f6e8130478f1 order=f8660935-bcbe-43c4-b896-6ee53e115d2e thread=38 active=1
+FIM worker=0a3ec2c5-2532-4faa-b409-f6e8130478f1 order=f8660935-bcbe-43c4-b896-6ee53e115d2e thread=38 committed=True
+INICIO worker=953d8c1b-3b26-4710-a91c-d65a1cb0f427 order=980ea5a2-eccf-4bec-ad45-7c8c871f9ef8 thread=57 active=1
+FIM worker=953d8c1b-3b26-4710-a91c-d65a1cb0f427 order=980ea5a2-eccf-4bec-ad45-7c8c871f9ef8 thread=57 committed=True
+INICIO worker=9d47f6e7-e8c7-4c89-8b06-e311ebdea7b4 order=bc597b69-295d-4072-ba58-9ddc43a6688d thread=39 active=1
+FIM worker=9d47f6e7-e8c7-4c89-8b06-e311ebdea7b4 order=bc597b69-295d-4072-ba58-9ddc43a6688d thread=39 committed=True
+INICIO worker=a order=6bad8a98-8345-4511-b259-c18c55e2599b thread=56 active=1
+FIM worker=a order=6bad8a98-8345-4511-b259-c18c55e2599b thread=56 committed=True
+INICIO worker=test order=53cbf0e2-c4f8-4730-a111-446b2e99f6d7 thread=56 active=1
+FIM worker=test order=53cbf0e2-c4f8-4730-a111-446b2e99f6d7 thread=56 committed=True
+INICIO worker=replacement order=8f694a1a-8e4f-4e75-8081-d6e57a579002 thread=56 active=1
+FIM worker=replacement order=8f694a1a-8e4f-4e75-8081-d6e57a579002 thread=56 committed=True
+[xUnit.net 00:00:10.85]   Finished:    MiniShop.Tests
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

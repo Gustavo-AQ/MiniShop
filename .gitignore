@@ -1,0 +1,16 @@
+**/bin/
+**/obj/
+.env
+.env.*
+!.env.example
+*.user
+*.suo
+TestResults/
+.vs/
+.idea/
+results/live/
+**/secrets/
+*.pem
+*.key
+__pycache__/
+*.pyc

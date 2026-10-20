@@ -1,0 +1,15 @@
+.git
+**/bin
+**/obj
+**/.env
+**/.env.*
+**/TestResults
+results
+docs
+.env
+TestResults
+**/__pycache__
+**/*.pyc
+**/secrets
+**/*.pem
+**/*.key

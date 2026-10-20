@@ -1,0 +1,94 @@
+name: minishop-home
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-minishop}
+      POSTGRES_USER: ${POSTGRES_USER:-minishop}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Defina POSTGRES_PASSWORD}
+    volumes:
+    - shop-data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"
+      interval: 5s
+      timeout: 3s
+      retries: 15
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+  api:
+    image: minishop-api:local
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+      args:
+        PROJECT: Api
+    environment:
+      ConnectionStrings__Shop: Host=db;Database=${POSTGRES_DB:-minishop};Username=${POSTGRES_USER:-minishop};Password=${POSTGRES_PASSWORD:?Defina
+        POSTGRES_PASSWORD};Timeout=5;Command Timeout=30;GSS Encryption Mode=Disable
+      ServiceKey: ${SERVICE_KEY:?Defina SERVICE_KEY}
+      AdminKey: ${ADMIN_KEY:?Defina ADMIN_KEY}
+    ports:
+    - ${HOME_TAILSCALE_IP:?Defina HOME_TAILSCALE_IP}:5081:8080
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+  worker-1: &id001
+    image: minishop-worker:local
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+      args:
+        PROJECT: Worker
+    environment:
+      ConnectionStrings__Shop: Host=db;Database=${POSTGRES_DB:-minishop};Username=${POSTGRES_USER:-minishop};Password=${POSTGRES_PASSWORD:?Defina
+        POSTGRES_PASSWORD};Timeout=5;Command Timeout=30;GSS Encryption Mode=Disable
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    stop_grace_period: 5s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+  worker-2: *id001
+  worker-3: *id001
+  benchmark:
+    image: minishop-benchmarks:local
+    healthcheck:
+      disable: true
+    profiles:
+    - tools
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+      args:
+        PROJECT: Benchmarks
+    environment:
+      ConnectionStrings__Shop: Host=db;Database=${POSTGRES_DB:-minishop};Username=${POSTGRES_USER:-minishop};Password=${POSTGRES_PASSWORD:?Defina
+        POSTGRES_PASSWORD};Timeout=5;Command Timeout=30;GSS Encryption Mode=Disable
+      BENCH_ITERATIONS: ${BENCH_ITERATIONS:-50000}
+    volumes:
+    - ../results/live:/results
+    command:
+    - '5000'
+    - '3'
+    - /results
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  shop-data: null
