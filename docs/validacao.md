@@ -27,4 +27,8 @@ Não use os tempos deste ambiente para prometer desempenho no Ryzen. A carga pad
 
 Não foram testados nem alterados: Oracle ARM64, Hyper-V/Windows, Coolify existente, Traefik, DNS/HTTPS Cloudflare, chaves SSH reais, Tailscale entre hosts e worker físico na Oracle. O build/execução efetiva ARM64 permanece a validar. Os arquivos e o manual preparam essas etapas, mas uma imagem base multiarch não prova execução ARM nesta sessão.
 
-O workflow GitHub Actions foi preparado, mas não executado remotamente: nenhum repositório GitHub de destino foi fornecido.
+## Validação no GitHub
+
+Após o proprietário criar o repositório público `Gustavo-AQ/MiniShop`, os fontes e evidências foram enviados à branch `main`. A primeira execução encontrou um problema de aspas no health check do serviço PostgreSQL; o workflow foi corrigido. A execução seguinte compilou a solução e aprovou os 15 testes C# de integração em runner GitHub com PostgreSQL real.
+
+Evidência: https://github.com/Gustavo-AQ/MiniShop/actions/runs/39461154897 (concluída com sucesso em 20/10/2026 UTC). O resultado TRX está disponível como artefato da execução. Essa validação remota não substitui os testes pendentes na Oracle/ARM64 e na VM doméstica.

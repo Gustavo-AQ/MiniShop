@@ -7,6 +7,8 @@ Loja acadêmica funcional com dois produtos, Razor Pages, API ASP.NET Core, Post
 Pré-requisitos: Docker Engine + Compose v2 (ou Docker Desktop), Git, Bash e Python 3 para gerar segredos. A aplicação não precisa de Python: toda a lógica e os testes são C#.
 
 ```bash
+git clone https://github.com/Gustavo-AQ/MiniShop.git
+cd MiniShop
 bash scripts/new-env.sh
 bash scripts/compose.sh up -d --build
 ```
@@ -68,7 +70,11 @@ PostgreSQL é a fonte de verdade. A admissão é idempotente; a reserva é trans
 As médias foram 45,60 s no sequencial, 31,26/29,27/30,30 s com 2/4/8 threads e 44,52/28,93/29,52 s com 1/2/3 workers. Esses tempos são do ambiente de desenvolvimento; repita na VM final. Os CSV/JSON e exportações dos 21 lotes estão em `results/reference-codex/`. Consulte as limitações e os testes ainda pendentes no relatório.
 
 
-## Publicar o código no GitHub
+## Repositório GitHub
+
+Publicado em **https://github.com/Gustavo-AQ/MiniShop**, branch `main`. O GitHub Actions compilou a solução e aprovou os 15 testes de integração em [execução remota verificada](https://github.com/Gustavo-AQ/MiniShop/actions/runs/39461154897).
+
+### Publicar uma cópia na sua conta
 
 O ZIP contém fontes e evidências, sem credenciais nem metadados `.git`. Se estiver usando o ZIP, inicialize o Git e configure sua identidade Git antes do primeiro commit. Crie um repositório vazio na sua conta e execute na raiz:
 
