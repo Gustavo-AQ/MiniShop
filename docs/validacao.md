@@ -11,7 +11,7 @@ Ambiente de desenvolvimento Codex Linux amd64, 3 processadores lógicos disponib
 - Três processos em três contêineres: interrupção abrupta de worker-2 quando tinha uma reserva; outro recuperou o pedido com segunda tentativa, finalização única, sobreviventes continuaram. IDs/evidência em `results/validation/smoke.json`.
 - Reinício real do PostgreSQL e API com cinco pedidos aguardando e workers parados: pedidos preservados e concluídos depois da retomada (`durability.json`).
 - API parada: HTML da loja permaneceu disponível e consulta respondeu 503 em prazo limitado.
-- Chromium real: catálogo com dois produtos da API, carrinho, quantidade, remoção, compra pela interface com antiforgery até estado final, versão móvel sem overflow, acesso protegido e login do painel. Capturas e `ui.json` em `results/validation/`.
+- Chromium real: catálogo com dois produtos da API, carrinho, quantidade, remoção, compra pela interface com antiforgery até estado final, versão móvel sem overflow, acesso protegido, login do painel e compra pela loja já aberta antes do login em outra aba. Capturas e `ui.json` em `results/validation/`.
 - OpenAPI em Development: documento gerado realmente, dez caminhos, rotas de pedidos e testes presentes (`openapi.json`).
 - Manifesto da imagem oficial ASP.NET 10 confirmado com linux/amd64 e linux/arm64.
 

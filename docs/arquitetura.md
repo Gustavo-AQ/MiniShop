@@ -11,7 +11,7 @@ flowchart LR
     Y[Worker ARM opcional na Oracle] -.->|Tailscale, papel restrito| P
 ```
 
-O site e o painel são um único ASP.NET Core com Razor Pages. O navegador acessa o mesmo domínio; chaves da API permanecem no servidor web. A página da loja carrega mesmo sem API e limita suas chamadas a quatro segundos. A API aceita pedidos e responde 202 com ID; o site consulta o status. O catálogo pode estar desatualizado: a validação definitiva ocorre ao reservar.
+O site e o painel são um único ASP.NET Core com Razor Pages. O checkout renova seu token antiforgery antes de enviar, inclusive quando o operador fez login administrativo em outra aba depois de abrir a loja. O navegador acessa o mesmo domínio; chaves da API permanecem no servidor web. A página da loja carrega mesmo sem API e limita suas chamadas a quatro segundos. A API aceita pedidos e responde 202 com ID; o site consulta o status. O catálogo pode estar desatualizado: a validação definitiva ocorre ao reservar.
 
 Não há Redis, broker externo, Kubernetes ou GPU. A fila é a tabela `orders`; os itens e preços são snapshots em `order_items`. Valores são `decimal`/`numeric`, calculados no backend. O cliente é sempre fictício. O pagamento é determinístico e recusa aproximadamente 5% dos pedidos; não existe efeito financeiro externo.
 

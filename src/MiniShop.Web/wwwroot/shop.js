@@ -21,7 +21,7 @@ function render() {
 }
 function savePending(){localStorage.setItem('minishop-pending',JSON.stringify(pending));render();}
 async function send() {
- try {const d=await call('/?handler=Checkout',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-TOKEN':$('input[name="__RequestVerificationToken"]').value,'Idempotency-Key':pending.key},body:JSON.stringify(pending.body)});
+ try {const csrf=await call('/?handler=Csrf');const d=await call('/?handler=Checkout',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-TOKEN':csrf.token,'Idempotency-Key':pending.key},body:JSON.stringify(pending.body)});
  pending.id=d.id;savePending();$('#order-id').textContent=d.id;$('#order-status').textContent='Pedido recebido. Aguardando processamento…';poll();
  }catch(e){ $('#order-status').textContent=(e.message||'Falha de conexão.')+' Use “Consultar novamente” para reenviar com a mesma chave.';retry(send); }
 }

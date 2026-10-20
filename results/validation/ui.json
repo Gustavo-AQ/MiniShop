@@ -1,5 +1,5 @@
 {
-  "date_utc": "2026-10-20T16:20:19.555Z",
+  "date_utc": "2026-10-20T16:28:01.998Z",
   "checks": [
     "2 produtos vindos da API",
     "adicionar/alterar/remover carrinho",
@@ -9,6 +9,7 @@
     "login com cookie",
     "painel e métricas reais",
     "compra real pela interface com antiforgery e consulta até o estado final",
+    "compra em aba aberta antes do login administrativo",
     "nenhum erro JavaScript"
   ],
   "screenshots": [
