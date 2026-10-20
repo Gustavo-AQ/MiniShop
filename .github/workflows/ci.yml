@@ -14,7 +14,7 @@ jobs:
           POSTGRES_DB: minishop_test
         ports: ['5432:5432']
         options: >-
-          --health-cmd 'pg_isready -U minishop -d minishop_test'
+          --health-cmd "pg_isready -U minishop -d minishop_test"
           --health-interval 5s --health-timeout 3s --health-retries 15
     env:
       MINISHOP_TEST_DB: Host=localhost;Database=minishop_test;Username=minishop;Password=ci-disposable-password
