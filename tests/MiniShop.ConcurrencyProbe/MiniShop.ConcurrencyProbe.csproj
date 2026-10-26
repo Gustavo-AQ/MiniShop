@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType><UseAppHost>false</UseAppHost></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/MiniShop.Infrastructure/MiniShop.Infrastructure.csproj" />
+    <ProjectReference Include="../../src/MiniShop.Worker/MiniShop.Worker.csproj" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+</Project>

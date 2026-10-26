@@ -1,0 +1,9 @@
+# Opcional: restringe as CPUs elegíveis dos workers; não é o limite de threads C#.
+# Ex.: MINISHOP_WORKER_CPUSET=0 (demonstração em uma CPU) ou 0-3 (VM com 4 vCPU).
+# Os IDs precisam existir na VM. API e PostgreSQL continuam com suas CPUs normais.
+x-affinity: &affinity
+  cpuset: ${MINISHOP_WORKER_CPUSET:?Defina as CPUs elegíveis dos workers}
+services:
+  worker-1: *affinity
+  worker-2: *affinity
+  worker-3: *affinity

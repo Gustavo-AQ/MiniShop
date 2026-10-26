@@ -6,6 +6,9 @@ public record Purchase(Item[] Items);
 public record Settings(string Mode = "sequential", int Threads = 1, int Workers = 1,
     int Iterations = 50000, int DelayMs = 0, int QueueLimit = 10000)
 {
+    // Threads de cálculo por processo são diferentes do limite global de pedidos.
+    public int ProcessingThreadsPerWorker => Mode == "parallel" ? Threads : 1;
+    public int MaxConcurrentOrders => Mode == "distributed" ? Workers : ProcessingThreadsPerWorker;
     public void Validate()
     {
         if (Mode is not ("sequential" or "parallel" or "distributed") ||

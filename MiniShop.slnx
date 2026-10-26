@@ -8,6 +8,7 @@
     <Project Path="src/MiniShop.Worker/MiniShop.Worker.csproj" />
   </Folder>
   <Folder Name="/tests/">
+    <Project Path="tests/MiniShop.ConcurrencyProbe/MiniShop.ConcurrencyProbe.csproj" />
     <Project Path="tests/MiniShop.Tests/MiniShop.Tests.csproj" />
   </Folder>
 </Solution>

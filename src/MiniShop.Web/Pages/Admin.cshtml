@@ -2,7 +2,9 @@
 @model MiniShop.Web.Pages.AdminModel
 @Html.AntiForgeryToken()
 <div class="section-title"><div><p class="eyebrow">CENTRAL DO EXPERIMENTO</p><h1>O processamento, à vista.</h1></div><form method="post" asp-page-handler="Logout"><button class="ghost">Sair</button></form></div>
-<p id="message" role="status">Conectando ao laboratório…</p><div id="counts" class="stats"></div>
+<p id="message" role="status">Conectando ao laboratório…</p>
+<section class="panel"><h2>Configuração aplicada no backend</h2><p id="applied-settings">Consultando a API…</p><p id="worker-summary"></p><p class="muted">O Beszel mostra a CPU da VM inteira, incluindo PostgreSQL, API e tarefas auxiliares. Uma thread de cálculo pode migrar entre núcleos; isso não significa vários pedidos simultâneos.</p></section>
+<div id="counts" class="stats"></div>
 <div class="admin-grid"><section class="panel"><h2>Condições de execução</h2><form id="settings-form">
 <label>Modo<select id="mode"><option value="sequential">Sequencial</option><option value="parallel">Paralelo</option><option value="distributed">Distribuído</option></select></label>
 <label>Threads no modo paralelo<select id="threads"><option>1</option><option>2</option><option>4</option><option>8</option></select></label>
@@ -10,11 +12,11 @@
 <label>Iterações SHA-256<input id="iterations" type="number" min="1" max="5000000" value="50000"></label>
 <label>Atraso visual (ms; benchmark exige 0)<input id="delayMs" type="number" min="0" max="3000" value="0"></label>
 <label>Limite de pedidos na fila<input id="queueLimit" type="number" min="1" max="50000" value="10000"></label>
-<button>Aplicar configuração</button></form><p class="muted">Aguarde a fila zerar para alterar configurações. Os workers precisam estar iniciados no Docker.</p></section>
+<p id="draft-status" role="status">Os valores abaixo são o formulário de configuração.</p><button>Aplicar configuração</button></form><p id="action-result" role="status"></p><p class="muted">Aguarde a fila zerar para alterar configurações. Os workers precisam estar iniciados no Docker.</p></section>
 <section class="panel"><h2>Estoque & carga</h2><div id="stock"></div><form id="stock-form"><label>Unidades de cada produto<input id="stock-value" type="number" min="0" max="1000000" value="100"></label><button>Repor estoque</button></form>
-<hr><form id="test-form"><label>Pedidos por benchmark<select id="test-count"><option>100</option><option>500</option><option>1000</option><option selected>5000</option></select></label><button>Iniciar benchmark real</button></form><p class="muted">Restaura o estoque para o lote. Semente 42. Cada pedido executa a mesma carga CPU. Progresso abaixo; novas compras ficam suspensas durante o benchmark.</p>
+<hr><form id="test-form"><label>Pedidos por benchmark<select id="test-count"><option>100</option><option>500</option><option>1000</option><option selected>5000</option></select></label><button>Iniciar benchmark real</button></form><p class="muted">Aplica os valores do formulário e restaura o estoque para o lote. Semente 42. Cada pedido executa a mesma carga CPU. Progresso abaixo; novas compras ficam suspensas durante o benchmark.</p>
 <form id="load-form"><label>Compras simultâneas de 1 unidade (máx. 200)<input id="load-count" type="number" min="1" max="200" value="20"></label><button>Demonstrar concorrência / sobrecarga</button></form><p id="load-result"></p></section></div>
-<section class="panel"><h2>Workers & concorrência real</h2><div id="worker-table" class="scroll"></div><p class="muted">Ativos = pedidos em execução no processo; pico = maior valor desde que o processo iniciou. Heartbeat expira em 5 s. Thread não equivale a núcleo.</p></section>
+<section class="panel"><h2>Workers & concorrência real</h2><div id="worker-table" class="scroll"></div><p class="muted">Pedidos ativos incluem espera e finalização. “Cálculos ativos” conta somente a rotina CPU. Os picos reiniciam quando a configuração muda. “Threads do SO” inclui runtime, coleta de lixo e rede, além das threads de cálculo. CPU: 100% equivale a um processador lógico; o valor pode passar de 100%. Heartbeat expira em 5 s.</p></section>
 <section class="panel"><h2>Comparação dos benchmarks</h2><p>Tempo total menor é melhor. Speedup = média sequencial ÷ média do cenário. Agrupamento inclui tamanho e carga.</p><div id="chart"></div><div class="scroll" id="run-table"></div><button id="export">Exportar histórico JSON</button></section>
 <section class="panel"><h2>Pedidos recentes</h2><div id="order-table" class="scroll"></div></section><section class="panel"><h2>Auditoria & recuperação</h2><div id="event-table" class="scroll"></div></section>
 @section Scripts {<script src="/admin.js" defer></script>}

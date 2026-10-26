@@ -27,3 +27,15 @@ CREATE TABLE IF NOT EXISTS workers(id text PRIMARY KEY, host text NOT NULL, pid 
 CREATE INDEX IF NOT EXISTS orders_run_idx ON orders(run_id);
 CREATE INDEX IF NOT EXISTS orders_recent_idx ON orders(created_at DESC);
 CREATE INDEX IF NOT EXISTS queue_order_idx ON orders(created_at,id) WHERE status IN('PENDENTE','PROCESSANDO');
+
+-- Migração aditiva: snapshots de workers antigos continuam legíveis durante o deployment.
+ALTER TABLE workers ADD COLUMN IF NOT EXISTS execution_mode text;
+ALTER TABLE workers ADD COLUMN IF NOT EXISTS execution_state text;
+ALTER TABLE workers ADD COLUMN IF NOT EXISTS processing_threads int;
+ALTER TABLE workers ADD COLUMN IF NOT EXISTS configured_threads int;
+ALTER TABLE workers ADD COLUMN IF NOT EXISTS configured_workers int;
+ALTER TABLE workers ADD COLUMN IF NOT EXISTS cpu_active int;
+ALTER TABLE workers ADD COLUMN IF NOT EXISTS max_cpu_active int;
+ALTER TABLE workers ADD COLUMN IF NOT EXISTS os_threads int;
+ALTER TABLE workers ADD COLUMN IF NOT EXISTS cpu_percent_one_core double precision;
+CREATE INDEX IF NOT EXISTS unfinished_run_idx ON orders(run_id) WHERE finished_at IS NULL;

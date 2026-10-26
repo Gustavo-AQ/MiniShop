@@ -50,3 +50,8 @@ PostgreSQL é um ponto único de falha: sua queda suspende o processamento; o vo
 Chaves diferentes protegem chamadas de serviço e administração. O painel usa cookie HttpOnly, SameSite Strict, senha, limite de tentativas e antiforgery. Mutações administrativas são POST/PUT e exigem autenticação. Não há rota de shell nem acesso ao socket Docker pelo site. O limite de fila é global e previsível; o site também limita a taxa HTTP para proteger o laboratório. As páginas não dependem de CDN.
 
 Configurações e reposição só mudam com fila e benchmark inativos, sob a mesma trava da admissão. O benchmark restaura estoque e publica todo o lote em uma transação; compras públicas ficam suspensas durante sua execução. Resultados antigos são preservados. O esquema inicial é criado de forma idempotente; futuras mudanças de estrutura devem ter migrações versionadas antes de atualizar instalações existentes.
+
+
+## Diagnóstico de CPU e limites aplicados
+
+O limite de cálculo é diferente do total de threads do SO e da CPU somada da VM. O painel mostra a configuração aplicada, o papel de cada worker, threads de cálculo e CPU específica do processo. Os picos são reiniciados por configuração. A espera da fila vazia usa backoff até 1 s; a verificação de mudanças ocorre no supervisor a cada 500 ms. A reserva ainda valida os limites na mesma transação. Consulte [validação de concorrência e Beszel](validacao-concorrencia.md) para dados medidos, reprodução e afinidade opcional.

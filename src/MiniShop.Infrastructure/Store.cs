@@ -33,6 +33,7 @@ public sealed partial class Store : IDisposable
     }
     public List<Dictionary<string,object?>> Read(string sql, params (string,object?)[] args) { using var c=Source.OpenConnection(); return Query(c,sql,args); }
     public Settings GetSettings() { using var c=Source.OpenConnection(); return Config(c); }
+    internal Settings GetSettings(NpgsqlConnection connection) => Config(connection);
     static Settings Config(NpgsqlConnection c)
     {
         using var cmd=Command(c,"SELECT mode,threads,workers,iterations,delay_ms,queue_limit FROM settings WHERE id=1"); using var r=cmd.ExecuteReader(); r.Read();
@@ -89,22 +90,24 @@ public sealed partial class Store : IDisposable
         if(row!=null) row["items"]=Read("SELECT product_id,quantity,price FROM order_items WHERE order_id=@id",("id",id)); return row;
     }
     public Job? Claim(string worker,int leaseSeconds=15, Settings? expected=null, int? ownerPid=null, int? ownerLock=null)
+        => ClaimNext(worker,leaseSeconds,expected,ownerPid,ownerLock).Job;
+    internal ClaimResult ClaimNext(string worker,int leaseSeconds,Settings? expected,int? ownerPid,int? ownerLock)
     {
         using var c=Source.OpenConnection(); using var tx=c.BeginTransaction();
         Exec(c,"SELECT pg_advisory_xact_lock_shared(7001)");
         var current=Config(c);
-        if(expected!=null && current!=expected) { tx.Commit(); return null; }
-        if(ownerPid.HasValue && !Scalar<bool>(c,"SELECT EXISTS(SELECT 1 FROM pg_locks WHERE locktype='advisory' AND pid=@pid AND objid=CAST(@key AS oid) AND granted)",("pid",ownerPid.Value),("key",ownerLock!.Value))) { tx.Commit(); return null; }
+        if(expected!=null && current!=expected) { tx.Commit(); return new(null,false); }
+        if(ownerPid.HasValue && !Scalar<bool>(c,"SELECT EXISTS(SELECT 1 FROM pg_locks WHERE locktype='advisory' AND pid=@pid AND objid=CAST(@key AS oid) AND granted)",("pid",ownerPid.Value),("key",ownerLock!.Value))) { tx.Commit(); return new(null,false); }
         // Limite global também cobre reconexões/perda da sessão de coordenação.
         Exec(c,"SELECT pg_advisory_xact_lock(7002)");
-        int limit=current.Mode=="parallel"?current.Threads:current.Mode=="distributed"?current.Workers:1;
-        if(Scalar<long>(c,"SELECT count(*) FROM orders WHERE status='PROCESSANDO' AND lease_until>clock_timestamp()")>=limit) { tx.Commit(); return null; }
+        int limit=current.MaxConcurrentOrders;
+        if(Scalar<long>(c,"SELECT count(*) FROM orders WHERE status='PROCESSANDO' AND lease_until>clock_timestamp()")>=limit) { tx.Commit(); return new(null,false); }
         var rows=Query(c,"""
             SELECT id,reserved,seed,payment_fails,iterations,delay_ms,status FROM orders
             WHERE status='PENDENTE' OR (status='PROCESSANDO' AND lease_until<clock_timestamp())
             ORDER BY created_at,id FOR UPDATE SKIP LOCKED LIMIT 1
             """);
-        if(rows.Count==0) { tx.Commit(); return null; }
+        if(rows.Count==0) { tx.Commit(); return new(null,false); }
         var r=rows[0]; var id=(Guid)r["id"]!; var token=Guid.NewGuid();
         bool reserved=(bool)r["reserved"]!;
         if(!reserved)
@@ -115,7 +118,7 @@ public sealed partial class Store : IDisposable
             if(items.Any(i => (int)stocks.Single(p=>(int)p["id"]! == (int)i["product_id"]!)["stock"]! < (int)i["quantity"]!))
             {
                 Exec(c,"UPDATE orders SET status='RECUSADO',reason='Sem estoque',finished_at=clock_timestamp(),service_ms=0 WHERE id=@id",("id",id));
-                Event(c,id,"FINALIZADO",worker,token,"Sem estoque"); tx.Commit(); return null;
+                Event(c,id,"FINALIZADO",worker,token,"Sem estoque"); tx.Commit(); return new(null,true);
             }
             foreach(var i in items) Exec(c,"UPDATE products SET stock=stock-@q WHERE id=@p",("q",i["quantity"]),("p",i["product_id"]));
         }
@@ -124,7 +127,7 @@ public sealed partial class Store : IDisposable
             lease_until=clock_timestamp()+make_interval(secs=>@lease),started_at=COALESCE(started_at,clock_timestamp()),attempts=attempts+1 WHERE id=@id
             """,("token",token),("w",worker),("lease",leaseSeconds),("id",id));
         Event(c,id,(string)r["status"]! == "PROCESSANDO"?"RECUPERADO":"RESERVADO",worker,token,null);
-        tx.Commit(); return new(id,token,(int)r["seed"]!,(bool)r["payment_fails"]!,(int)r["iterations"]!,(int)r["delay_ms"]!);
+        tx.Commit(); return new(new Job(id,token,(int)r["seed"]!,(bool)r["payment_fails"]!,(int)r["iterations"]!,(int)r["delay_ms"]!),true);
     }
     static void Event(NpgsqlConnection c,Guid id,string kind,string worker,Guid token,string? detail) => Exec(c,"INSERT INTO events(order_id,kind,worker,token,detail) VALUES(@id,@kind,@w,@t,CAST(@d AS text))",("id",id),("kind",kind),("w",worker),("t",token),("d",detail));
     public void RecordError(Job job,string worker,string message)

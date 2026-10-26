@@ -1,0 +1,913 @@
+{
+  "date_utc": "2026-10-26T21:18:05.5305735Z",
+  "logical_processors": 2,
+  "results": [
+    {
+      "settings": {
+        "Mode": "sequential",
+        "Threads": 8,
+        "Workers": 3,
+        "Iterations": 200000,
+        "DelayMs": 0,
+        "QueueLimit": 10000,
+        "ProcessingThreadsPerWorker": 1,
+        "MaxConcurrentOrders": 1
+      },
+      "run_id": "22e79aba-ea26-4f64-b57f-0ed6d68d02cf",
+      "expected_concurrency": 1,
+      "peak_inflight": 1,
+      "cpu_execution_threads": 1,
+      "lane_threads": [
+        {
+          "pid": 16354,
+          "tid": 16400,
+          "name": "MiniShop-0",
+          "cpu_seconds": 7.96,
+          "processors_seen": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "actual_workers": 1,
+      "idle_workers_cpu_seconds_per_1_5s": 0.43,
+      "workers_cpu_seconds": 10.13,
+      "observed_wall_seconds": 9.1506888,
+      "workers": [
+        {
+          "id": "ac17dcc2d14b-16354-9148db8b7e384080b78dafc508830553",
+          "host": "ac17dcc2d14b",
+          "pid": 16354,
+          "seen_at": "2026-10-26T21:16:55.579826Z",
+          "active": 1,
+          "max_active": 1,
+          "cpu_seconds": 9.337754,
+          "memory_bytes": 72552448,
+          "processors": 2,
+          "execution_mode": "sequential",
+          "execution_state": "enabled",
+          "processing_threads": 1,
+          "configured_threads": 8,
+          "configured_workers": 3,
+          "cpu_active": 1,
+          "max_cpu_active": 1,
+          "os_threads": 16,
+          "cpu_percent_one_core": 104.38462521311729
+        },
+        {
+          "id": "ac17dcc2d14b-16356-b6c6280c2a0a4612a3a71e771fe6419a",
+          "host": "ac17dcc2d14b",
+          "pid": 16356,
+          "seen_at": "2026-10-26T21:16:55.606537Z",
+          "active": 0,
+          "max_active": 0,
+          "cpu_seconds": 0.986541,
+          "memory_bytes": 66088960,
+          "processors": 2,
+          "execution_mode": "sequential",
+          "execution_state": "waiting_slot",
+          "processing_threads": 0,
+          "configured_threads": 8,
+          "configured_workers": 3,
+          "cpu_active": 0,
+          "max_cpu_active": 0,
+          "os_threads": 15,
+          "cpu_percent_one_core": 1.9630308516685302
+        },
+        {
+          "id": "ac17dcc2d14b-16357-415b1a99b9b84818ac7718b4d4ab875d",
+          "host": "ac17dcc2d14b",
+          "pid": 16357,
+          "seen_at": "2026-10-26T21:16:55.662943Z",
+          "active": 0,
+          "max_active": 0,
+          "cpu_seconds": 0.992508,
+          "memory_bytes": 66088960,
+          "processors": 2,
+          "execution_mode": "sequential",
+          "execution_state": "waiting_slot",
+          "processing_threads": 0,
+          "configured_threads": 8,
+          "configured_workers": 3,
+          "cpu_active": 0,
+          "max_cpu_active": 0,
+          "os_threads": 14,
+          "cpu_percent_one_core": 1.8689961320027708
+        }
+      ],
+      "passed": true
+    },
+    {
+      "settings": {
+        "Mode": "parallel",
+        "Threads": 1,
+        "Workers": 3,
+        "Iterations": 200000,
+        "DelayMs": 0,
+        "QueueLimit": 10000,
+        "ProcessingThreadsPerWorker": 1,
+        "MaxConcurrentOrders": 1
+      },
+      "run_id": "611687a9-7439-4706-b091-024816b6d636",
+      "expected_concurrency": 1,
+      "peak_inflight": 1,
+      "cpu_execution_threads": 1,
+      "lane_threads": [
+        {
+          "pid": 16600,
+          "tid": 16641,
+          "name": "MiniShop-0",
+          "cpu_seconds": 8.8,
+          "processors_seen": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "actual_workers": 1,
+      "idle_workers_cpu_seconds_per_1_5s": 0.46999989999999997,
+      "workers_cpu_seconds": 11.360000100000002,
+      "observed_wall_seconds": 10.209148,
+      "workers": [
+        {
+          "id": "ac17dcc2d14b-16599-a3a2f6ffe92e4157a1ef37fddf5a6473",
+          "host": "ac17dcc2d14b",
+          "pid": 16599,
+          "seen_at": "2026-10-26T21:17:08.469511Z",
+          "active": 0,
+          "max_active": 0,
+          "cpu_seconds": 1.01028,
+          "memory_bytes": 66142208,
+          "processors": 2,
+          "execution_mode": "parallel",
+          "execution_state": "waiting_slot",
+          "processing_threads": 0,
+          "configured_threads": 1,
+          "configured_workers": 3,
+          "cpu_active": 0,
+          "max_cpu_active": 0,
+          "os_threads": 14,
+          "cpu_percent_one_core": 2.3527908688321313
+        },
+        {
+          "id": "ac17dcc2d14b-16600-ea9dbeaa31754ce69af31527e609c41f",
+          "host": "ac17dcc2d14b",
+          "pid": 16600,
+          "seen_at": "2026-10-26T21:17:08.393361Z",
+          "active": 0,
+          "max_active": 1,
+          "cpu_seconds": 10.088748,
+          "memory_bytes": 72245248,
+          "processors": 2,
+          "execution_mode": "parallel",
+          "execution_state": "enabled",
+          "processing_threads": 1,
+          "configured_threads": 1,
+          "configured_workers": 3,
+          "cpu_active": 0,
+          "max_cpu_active": 1,
+          "os_threads": 16,
+          "cpu_percent_one_core": 93.72871444975632
+        },
+        {
+          "id": "ac17dcc2d14b-16601-5f740e1acb954501822df065da51e4a7",
+          "host": "ac17dcc2d14b",
+          "pid": 16601,
+          "seen_at": "2026-10-26T21:17:08.500208Z",
+          "active": 0,
+          "max_active": 0,
+          "cpu_seconds": 1.03158,
+          "memory_bytes": 65970176,
+          "processors": 2,
+          "execution_mode": "parallel",
+          "execution_state": "waiting_slot",
+          "processing_threads": 0,
+          "configured_threads": 1,
+          "configured_workers": 3,
+          "cpu_active": 0,
+          "max_cpu_active": 0,
+          "os_threads": 14,
+          "cpu_percent_one_core": 2.796174216210411
+        }
+      ],
+      "passed": true
+    },
+    {
+      "settings": {
+        "Mode": "parallel",
+        "Threads": 2,
+        "Workers": 3,
+        "Iterations": 200000,
+        "DelayMs": 0,
+        "QueueLimit": 10000,
+        "ProcessingThreadsPerWorker": 2,
+        "MaxConcurrentOrders": 2
+      },
+      "run_id": "0f733962-a3ae-4248-9ec5-cafb9aa61f75",
+      "expected_concurrency": 2,
+      "peak_inflight": 2,
+      "cpu_execution_threads": 2,
+      "lane_threads": [
+        {
+          "pid": 16859,
+          "tid": 16918,
+          "name": "MiniShop-0",
+          "cpu_seconds": 4.53,
+          "processors_seen": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "pid": 16859,
+          "tid": 16919,
+          "name": "MiniShop-1",
+          "cpu_seconds": 4.42,
+          "processors_seen": [
+            1,
+            2
+          ]
+        }
+      ],
+      "actual_workers": 1,
+      "idle_workers_cpu_seconds_per_1_5s": 0.5,
+      "workers_cpu_seconds": 10.979999999999999,
+      "observed_wall_seconds": 6.8014797,
+      "workers": [
+        {
+          "id": "ac17dcc2d14b-16858-277c53c4f2f2417a8000b997cae73248",
+          "host": "ac17dcc2d14b",
+          "pid": 16858,
+          "seen_at": "2026-10-26T21:17:17.470557Z",
+          "active": 0,
+          "max_active": 0,
+          "cpu_seconds": 0.86585,
+          "memory_bytes": 65744896,
+          "processors": 2,
+          "execution_mode": "parallel",
+          "execution_state": "waiting_slot",
+          "processing_threads": 0,
+          "configured_threads": 2,
+          "configured_workers": 3,
+          "cpu_active": 0,
+          "max_cpu_active": 0,
+          "os_threads": 14,
+          "cpu_percent_one_core": 4.381052181483991
+        },
+        {
+          "id": "ac17dcc2d14b-16859-3d4c4c44eddb4235bc33817c8ca4856d",
+          "host": "ac17dcc2d14b",
+          "pid": 16859,
+          "seen_at": "2026-10-26T21:17:17.290535Z",
+          "active": 2,
+          "max_active": 2,
+          "cpu_seconds": 8.88132,
+          "memory_bytes": 69357568,
+          "processors": 2,
+          "execution_mode": "parallel",
+          "execution_state": "enabled",
+          "processing_threads": 2,
+          "configured_threads": 2,
+          "configured_workers": 3,
+          "cpu_active": 2,
+          "max_cpu_active": 2,
+          "os_threads": 18,
+          "cpu_percent_one_core": 135.57592145437135
+        },
+        {
+          "id": "ac17dcc2d14b-16860-fb9e7932983241b88d4e711935be1aa5",
+          "host": "ac17dcc2d14b",
+          "pid": 16860,
+          "seen_at": "2026-10-26T21:17:17.459916Z",
+          "active": 0,
+          "max_active": 0,
+          "cpu_seconds": 0.894287,
+          "memory_bytes": 65699840,
+          "processors": 2,
+          "execution_mode": "parallel",
+          "execution_state": "waiting_slot",
+          "processing_threads": 0,
+          "configured_threads": 2,
+          "configured_workers": 3,
+          "cpu_active": 0,
+          "max_cpu_active": 0,
+          "os_threads": 14,
+          "cpu_percent_one_core": 1.9327227879981148
+        }
+      ],
+      "passed": true
+    },
+    {
+      "settings": {
+        "Mode": "parallel",
+        "Threads": 4,
+        "Workers": 3,
+        "Iterations": 200000,
+        "DelayMs": 0,
+        "QueueLimit": 10000,
+        "ProcessingThreadsPerWorker": 4,
+        "MaxConcurrentOrders": 4
+      },
+      "run_id": "902b61be-6dc5-492d-aa60-53680e580757",
+      "expected_concurrency": 4,
+      "peak_inflight": 4,
+      "cpu_execution_threads": 4,
+      "lane_threads": [
+        {
+          "pid": 17045,
+          "tid": 17086,
+          "name": "MiniShop-0",
+          "cpu_seconds": 2.22,
+          "processors_seen": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "pid": 17045,
+          "tid": 17087,
+          "name": "MiniShop-1",
+          "cpu_seconds": 1.99,
+          "processors_seen": [
+            1,
+            2
+          ]
+        },
+        {
+          "pid": 17045,
+          "tid": 17089,
+          "name": "MiniShop-2",
+          "cpu_seconds": 2.44,
+          "processors_seen": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "pid": 17045,
+          "tid": 17092,
+          "name": "MiniShop-3",
+          "cpu_seconds": 2.33,
+          "processors_seen": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "actual_workers": 1,
+      "idle_workers_cpu_seconds_per_1_5s": 0.5999999999999999,
+      "workers_cpu_seconds": 10.549999999999999,
+      "observed_wall_seconds": 6.03271,
+      "workers": [
+        {
+          "id": "ac17dcc2d14b-17043-18474bd746284b8f8cfdf41ed132fed0",
+          "host": "ac17dcc2d14b",
+          "pid": 17043,
+          "seen_at": "2026-10-26T21:17:26.780919Z",
+          "active": 0,
+          "max_active": 0,
+          "cpu_seconds": 0.836052,
+          "memory_bytes": 65728512,
+          "processors": 2,
+          "execution_mode": "parallel",
+          "execution_state": "waiting_slot",
+          "processing_threads": 0,
+          "configured_threads": 4,
+          "configured_workers": 3,
+          "cpu_active": 0,
+          "max_cpu_active": 0,
+          "os_threads": 14,
+          "cpu_percent_one_core": 1.1621023263942853
+        },
+        {
+          "id": "ac17dcc2d14b-17044-509f9230643e4089adc656c8024cbfbc",
+          "host": "ac17dcc2d14b",
+          "pid": 17044,
+          "seen_at": "2026-10-26T21:17:26.79979Z",
+          "active": 0,
+          "max_active": 0,
+          "cpu_seconds": 0.787178,
+          "memory_bytes": 65540096,
+          "processors": 2,
+          "execution_mode": "parallel",
+          "execution_state": "waiting_slot",
+          "processing_threads": 0,
+          "configured_threads": 4,
+          "configured_workers": 3,
+          "cpu_active": 0,
+          "max_cpu_active": 0,
+          "os_threads": 14,
+          "cpu_percent_one_core": 1.4439771049607684
+        },
+        {
+          "id": "ac17dcc2d14b-17045-7342b3c43e02405ba48d98655c056254",
+          "host": "ac17dcc2d14b",
+          "pid": 17045,
+          "seen_at": "2026-10-26T21:17:26.781567Z",
+          "active": 2,
+          "max_active": 4,
+          "cpu_seconds": 10.253332,
+          "memory_bytes": 70385664,
+          "processors": 2,
+          "execution_mode": "parallel",
+          "execution_state": "enabled",
+          "processing_threads": 4,
+          "configured_threads": 4,
+          "configured_workers": 3,
+          "cpu_active": 2,
+          "max_cpu_active": 4,
+          "os_threads": 20,
+          "cpu_percent_one_core": 174.35102082734912
+        }
+      ],
+      "passed": true
+    },
+    {
+      "settings": {
+        "Mode": "parallel",
+        "Threads": 8,
+        "Workers": 3,
+        "Iterations": 200000,
+        "DelayMs": 0,
+        "QueueLimit": 10000,
+        "ProcessingThreadsPerWorker": 8,
+        "MaxConcurrentOrders": 8
+      },
+      "run_id": "310c7071-e34e-468c-8c3d-66b2a93b201d",
+      "expected_concurrency": 8,
+      "peak_inflight": 8,
+      "cpu_execution_threads": 8,
+      "lane_threads": [
+        {
+          "pid": 17216,
+          "tid": 17257,
+          "name": "MiniShop-0",
+          "cpu_seconds": 1.05,
+          "processors_seen": [
+            0,
+            1
+          ]
+        },
+        {
+          "pid": 17216,
+          "tid": 17258,
+          "name": "MiniShop-1",
+          "cpu_seconds": 1.17,
+          "processors_seen": [
+            0,
+            1
+          ]
+        },
+        {
+          "pid": 17216,
+          "tid": 17259,
+          "name": "MiniShop-2",
+          "cpu_seconds": 1.01,
+          "processors_seen": [
+            0
+          ]
+        },
+        {
+          "pid": 17216,
+          "tid": 17260,
+          "name": "MiniShop-3",
+          "cpu_seconds": 1.24,
+          "processors_seen": [
+            1,
+            2
+          ]
+        },
+        {
+          "pid": 17216,
+          "tid": 17261,
+          "name": "MiniShop-4",
+          "cpu_seconds": 1.16,
+          "processors_seen": [
+            1,
+            2
+          ]
+        },
+        {
+          "pid": 17216,
+          "tid": 17262,
+          "name": "MiniShop-5",
+          "cpu_seconds": 1.13,
+          "processors_seen": [
+            0,
+            2
+          ]
+        },
+        {
+          "pid": 17216,
+          "tid": 17264,
+          "name": "MiniShop-6",
+          "cpu_seconds": 1.52,
+          "processors_seen": [
+            2
+          ]
+        },
+        {
+          "pid": 17216,
+          "tid": 17272,
+          "name": "MiniShop-7",
+          "cpu_seconds": 1.2,
+          "processors_seen": [
+            0
+          ]
+        }
+      ],
+      "actual_workers": 1,
+      "idle_workers_cpu_seconds_per_1_5s": 0.7300000000000001,
+      "workers_cpu_seconds": 11.03,
+      "observed_wall_seconds": 6.832895,
+      "workers": [
+        {
+          "id": "ac17dcc2d14b-17215-f2eebd9395154c4da7451ddac9449a9f",
+          "host": "ac17dcc2d14b",
+          "pid": 17215,
+          "seen_at": "2026-10-26T21:17:35.395665Z",
+          "active": 0,
+          "max_active": 0,
+          "cpu_seconds": 0.863109,
+          "memory_bytes": 65638400,
+          "processors": 2,
+          "execution_mode": "parallel",
+          "execution_state": "waiting_slot",
+          "processing_threads": 0,
+          "configured_threads": 8,
+          "configured_workers": 3,
+          "cpu_active": 0,
+          "max_cpu_active": 0,
+          "os_threads": 14,
+          "cpu_percent_one_core": 2.9671538852510633
+        },
+        {
+          "id": "ac17dcc2d14b-17216-31c4ce8001d44d41b62df6f4456970fd",
+          "host": "ac17dcc2d14b",
+          "pid": 17216,
+          "seen_at": "2026-10-26T21:17:36.386757Z",
+          "active": 0,
+          "max_active": 8,
+          "cpu_seconds": 10.864499,
+          "memory_bytes": 71356416,
+          "processors": 2,
+          "execution_mode": "parallel",
+          "execution_state": "enabled",
+          "processing_threads": 8,
+          "configured_threads": 8,
+          "configured_workers": 3,
+          "cpu_active": 0,
+          "max_cpu_active": 8,
+          "os_threads": 26,
+          "cpu_percent_one_core": 142.09597995115323
+        },
+        {
+          "id": "ac17dcc2d14b-17217-f5c92f831849432ea32d1131190e1d14",
+          "host": "ac17dcc2d14b",
+          "pid": 17217,
+          "seen_at": "2026-10-26T21:17:35.567768Z",
+          "active": 0,
+          "max_active": 0,
+          "cpu_seconds": 0.909025,
+          "memory_bytes": 65802240,
+          "processors": 2,
+          "execution_mode": "parallel",
+          "execution_state": "waiting_slot",
+          "processing_threads": 0,
+          "configured_threads": 8,
+          "configured_workers": 3,
+          "cpu_active": 0,
+          "max_cpu_active": 0,
+          "os_threads": 14,
+          "cpu_percent_one_core": 1.1514751576634115
+        }
+      ],
+      "passed": true
+    },
+    {
+      "settings": {
+        "Mode": "distributed",
+        "Threads": 8,
+        "Workers": 1,
+        "Iterations": 200000,
+        "DelayMs": 0,
+        "QueueLimit": 10000,
+        "ProcessingThreadsPerWorker": 1,
+        "MaxConcurrentOrders": 1
+      },
+      "run_id": "fb017aea-a4a4-4be6-9c6c-3698f02120d0",
+      "expected_concurrency": 1,
+      "peak_inflight": 1,
+      "cpu_execution_threads": 1,
+      "lane_threads": [
+        {
+          "pid": 17486,
+          "tid": 17527,
+          "name": "MiniShop-0",
+          "cpu_seconds": 7.37,
+          "processors_seen": [
+            0,
+            2
+          ]
+        }
+      ],
+      "actual_workers": 1,
+      "idle_workers_cpu_seconds_per_1_5s": 0.3799999999999999,
+      "workers_cpu_seconds": 9.25,
+      "observed_wall_seconds": 8.1423861,
+      "workers": [
+        {
+          "id": "ac17dcc2d14b-17485-0e94470dd27d49b8888d6d77329aaefa",
+          "host": "ac17dcc2d14b",
+          "pid": 17485,
+          "seen_at": "2026-10-26T21:17:46.807824Z",
+          "active": 0,
+          "max_active": 0,
+          "cpu_seconds": 0.809929,
+          "memory_bytes": 66191360,
+          "processors": 2,
+          "execution_mode": "distributed",
+          "execution_state": "waiting_slot",
+          "processing_threads": 0,
+          "configured_threads": 8,
+          "configured_workers": 1,
+          "cpu_active": 0,
+          "max_cpu_active": 0,
+          "os_threads": 14,
+          "cpu_percent_one_core": 0.4464305795950407
+        },
+        {
+          "id": "ac17dcc2d14b-17486-f2a1e89c092b47de98b981d32b2eca48",
+          "host": "ac17dcc2d14b",
+          "pid": 17486,
+          "seen_at": "2026-10-26T21:17:46.804681Z",
+          "active": 1,
+          "max_active": 1,
+          "cpu_seconds": 8.552424,
+          "memory_bytes": 72589312,
+          "processors": 2,
+          "execution_mode": "distributed",
+          "execution_state": "enabled",
+          "processing_threads": 1,
+          "configured_threads": 8,
+          "configured_workers": 1,
+          "cpu_active": 1,
+          "max_cpu_active": 1,
+          "os_threads": 17,
+          "cpu_percent_one_core": 98.16220792947591
+        },
+        {
+          "id": "ac17dcc2d14b-17487-22e898b99bfd4945a8571f4e30aa0c3c",
+          "host": "ac17dcc2d14b",
+          "pid": 17487,
+          "seen_at": "2026-10-26T21:17:46.857382Z",
+          "active": 0,
+          "max_active": 0,
+          "cpu_seconds": 0.775554,
+          "memory_bytes": 66011136,
+          "processors": 2,
+          "execution_mode": "distributed",
+          "execution_state": "waiting_slot",
+          "processing_threads": 0,
+          "configured_threads": 8,
+          "configured_workers": 1,
+          "cpu_active": 0,
+          "max_cpu_active": 0,
+          "os_threads": 14,
+          "cpu_percent_one_core": 0.5063459621816151
+        }
+      ],
+      "passed": true
+    },
+    {
+      "settings": {
+        "Mode": "distributed",
+        "Threads": 8,
+        "Workers": 2,
+        "Iterations": 200000,
+        "DelayMs": 0,
+        "QueueLimit": 10000,
+        "ProcessingThreadsPerWorker": 1,
+        "MaxConcurrentOrders": 2
+      },
+      "run_id": "a974be34-6c85-4585-aa77-d357c1e4a195",
+      "expected_concurrency": 2,
+      "peak_inflight": 2,
+      "cpu_execution_threads": 2,
+      "lane_threads": [
+        {
+          "pid": 17608,
+          "tid": 17675,
+          "name": "MiniShop-0",
+          "cpu_seconds": 4.11,
+          "processors_seen": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "pid": 17610,
+          "tid": 17684,
+          "name": "MiniShop-0",
+          "cpu_seconds": 4.19,
+          "processors_seen": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "actual_workers": 2,
+      "idle_workers_cpu_seconds_per_1_5s": 0.33,
+      "workers_cpu_seconds": 10.3899999,
+      "observed_wall_seconds": 6.1342634,
+      "workers": [
+        {
+          "id": "ac17dcc2d14b-17608-1dbc270766e54625ada41f9796f2b745",
+          "host": "ac17dcc2d14b",
+          "pid": 17608,
+          "seen_at": "2026-10-26T21:17:55.451548Z",
+          "active": 1,
+          "max_active": 1,
+          "cpu_seconds": 5.010941,
+          "memory_bytes": 68378624,
+          "processors": 2,
+          "execution_mode": "distributed",
+          "execution_state": "enabled",
+          "processing_threads": 1,
+          "configured_threads": 8,
+          "configured_workers": 2,
+          "cpu_active": 1,
+          "max_cpu_active": 1,
+          "os_threads": 16,
+          "cpu_percent_one_core": 86.14151302561594
+        },
+        {
+          "id": "ac17dcc2d14b-17609-2c617727a15d48b2ab1cc84e903934fc",
+          "host": "ac17dcc2d14b",
+          "pid": 17609,
+          "seen_at": "2026-10-26T21:17:55.673169Z",
+          "active": 0,
+          "max_active": 0,
+          "cpu_seconds": 0.824406,
+          "memory_bytes": 65662976,
+          "processors": 2,
+          "execution_mode": "distributed",
+          "execution_state": "waiting_slot",
+          "processing_threads": 0,
+          "configured_threads": 8,
+          "configured_workers": 2,
+          "cpu_active": 0,
+          "max_cpu_active": 0,
+          "os_threads": 14,
+          "cpu_percent_one_core": 2.7814784097894285
+        },
+        {
+          "id": "ac17dcc2d14b-17610-1215cc1a618a4e5c8279c049d2e7084b",
+          "host": "ac17dcc2d14b",
+          "pid": 17610,
+          "seen_at": "2026-10-26T21:17:55.584658Z",
+          "active": 1,
+          "max_active": 1,
+          "cpu_seconds": 5.231213,
+          "memory_bytes": 68411392,
+          "processors": 2,
+          "execution_mode": "distributed",
+          "execution_state": "enabled",
+          "processing_threads": 1,
+          "configured_threads": 8,
+          "configured_workers": 2,
+          "cpu_active": 1,
+          "max_cpu_active": 1,
+          "os_threads": 17,
+          "cpu_percent_one_core": 83.29585172462008
+        }
+      ],
+      "passed": true
+    },
+    {
+      "settings": {
+        "Mode": "distributed",
+        "Threads": 8,
+        "Workers": 3,
+        "Iterations": 200000,
+        "DelayMs": 0,
+        "QueueLimit": 10000,
+        "ProcessingThreadsPerWorker": 1,
+        "MaxConcurrentOrders": 3
+      },
+      "run_id": "4f693c66-a767-4f0c-a80f-cd26bc201e43",
+      "expected_concurrency": 3,
+      "peak_inflight": 3,
+      "cpu_execution_threads": 3,
+      "lane_threads": [
+        {
+          "pid": 17838,
+          "tid": 17881,
+          "name": "MiniShop-0",
+          "cpu_seconds": 2.99,
+          "processors_seen": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "pid": 17839,
+          "tid": 17883,
+          "name": "MiniShop-0",
+          "cpu_seconds": 3.2300000000000004,
+          "processors_seen": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "pid": 17840,
+          "tid": 17885,
+          "name": "MiniShop-0",
+          "cpu_seconds": 3.0100000000000002,
+          "processors_seen": [
+            0,
+            1
+          ]
+        }
+      ],
+      "actual_workers": 3,
+      "idle_workers_cpu_seconds_per_1_5s": 0.3,
+      "workers_cpu_seconds": 11.6,
+      "observed_wall_seconds": 7.1237109,
+      "workers": [
+        {
+          "id": "ac17dcc2d14b-17838-247f21ce3cf2434b930b0ce15a09502a",
+          "host": "ac17dcc2d14b",
+          "pid": 17838,
+          "seen_at": "2026-10-26T21:18:05.247541Z",
+          "active": 1,
+          "max_active": 1,
+          "cpu_seconds": 4.086414,
+          "memory_bytes": 67911680,
+          "processors": 2,
+          "execution_mode": "distributed",
+          "execution_state": "enabled",
+          "processing_threads": 1,
+          "configured_threads": 8,
+          "configured_workers": 3,
+          "cpu_active": 1,
+          "max_cpu_active": 1,
+          "os_threads": 17,
+          "cpu_percent_one_core": 62.1110868956007
+        },
+        {
+          "id": "ac17dcc2d14b-17839-d51268373f1b4a988be220a556f2f1b2",
+          "host": "ac17dcc2d14b",
+          "pid": 17839,
+          "seen_at": "2026-10-26T21:18:05.276453Z",
+          "active": 1,
+          "max_active": 1,
+          "cpu_seconds": 4.282942,
+          "memory_bytes": 68268032,
+          "processors": 2,
+          "execution_mode": "distributed",
+          "execution_state": "enabled",
+          "processing_threads": 1,
+          "configured_threads": 8,
+          "configured_workers": 3,
+          "cpu_active": 1,
+          "max_cpu_active": 1,
+          "os_threads": 17,
+          "cpu_percent_one_core": 59.81789999999996
+        },
+        {
+          "id": "ac17dcc2d14b-17840-95e8c7cfb3844671b1ff8ad13809ec00",
+          "host": "ac17dcc2d14b",
+          "pid": 17840,
+          "seen_at": "2026-10-26T21:18:05.344736Z",
+          "active": 1,
+          "max_active": 1,
+          "cpu_seconds": 4.080373,
+          "memory_bytes": 68263936,
+          "processors": 2,
+          "execution_mode": "distributed",
+          "execution_state": "enabled",
+          "processing_threads": 1,
+          "configured_threads": 8,
+          "configured_workers": 3,
+          "cpu_active": 1,
+          "max_cpu_active": 1,
+          "os_threads": 17,
+          "cpu_percent_one_core": 52.6573587271896
+        }
+      ],
+      "passed": true
+    }
+  ]
+}

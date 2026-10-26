@@ -51,4 +51,72 @@ public class IntegrityTests : IDisposable
         var peaks=db.Read("SELECT max_active FROM workers").Select(w=>(int)w["max_active"]!).ToArray();Assert.NotEmpty(peaks);
         Assert.All(peaks,p=>Assert.InRange(p,0,mode=="parallel"?threads:1));
     }
+    [Fact]
+    public async Task ModeChangesReportEffectiveLanesAndResetCpuPeaks()
+    {
+        using var stop=new CancellationTokenSource(TimeSpan.FromSeconds(45));
+        var engines=Enumerable.Range(0,3).Select(i=>Task.Run(()=>new WorkerEngine(db,$"transition-{i}").Run(stop.Token))).ToArray();
+        try
+        {
+            var scenarios=new[] {new Settings("parallel",8,3,50000),new Settings("sequential",8,3,50000),
+                new Settings("parallel",2,3,50000),new Settings("distributed",8,2,50000)};
+            foreach(var settings in scenarios)
+            {
+                var id=db.StartRun(32,settings);
+                await Until(()=>db.Read("SELECT id FROM orders WHERE run_id=@id AND finished_at IS NULL",("id",id)).Count==0);
+                db.RefreshRuns();
+                await Until(()=>
+                {
+                    var rows=db.Read("SELECT * FROM workers WHERE id LIKE 'transition-%'");
+                    return rows.Count==3 && rows.All(w=>(string?)w["execution_mode"]==settings.Mode &&
+                        (int?)w["configured_threads"]==settings.Threads && (int?)w["configured_workers"]==settings.Workers) &&
+                        rows.Sum(w=>(int?)w["processing_threads"]??0)==settings.MaxConcurrentOrders &&
+                        rows.Any(w=>(int?)w["max_cpu_active"]>0);
+                });
+                var workers=db.Read("SELECT * FROM workers WHERE id LIKE 'transition-%'");
+                Assert.All(workers,w=>
+                {
+                    Assert.InRange((int)w["processing_threads"]!,0,settings.ProcessingThreadsPerWorker);
+                    Assert.InRange((int)w["max_cpu_active"]!,0,settings.ProcessingThreadsPerWorker);
+                    Assert.InRange((int)w["max_active"]!,0,settings.ProcessingThreadsPerWorker);
+                });
+                // Varrer os intervalos persistidos verifica o teto global, não apenas o pico de cada processo.
+                var peak=db.Read("""
+                    SELECT max(n) peak FROM (
+                        SELECT sum(delta) OVER(ORDER BY at,delta) n FROM (
+                            SELECT started_at at,1 delta FROM orders WHERE run_id=@id
+                            UNION ALL SELECT finished_at,-1 FROM orders WHERE run_id=@id
+                        ) boundaries
+                    ) totals
+                    """,("id",id));
+                Assert.InRange(Convert.ToInt32(peak[0]["peak"]),1,settings.MaxConcurrentOrders);
+                Assert.Equal(32,db.Read("SELECT e.id FROM events e JOIN orders o ON e.order_id=o.id WHERE o.run_id=@id AND e.kind='FINALIZADO'",("id",id)).Count);
+            }
+        }
+        finally { stop.Cancel();await Task.WhenAll(engines); }
+        Assert.All(db.Read("SELECT execution_state FROM workers"),w=>Assert.Equal("stopped",w["execution_state"]));
+    }
+    [Fact]
+    public void FinalizesRunOnlyAfterEveryOrderAndKeepsHistoricalProgress()
+    {
+        var id=db.StartRun(3,new Settings(Iterations:100));
+        var first=db.Claim("test")!;new Processor(db,"test").Process(first);db.RefreshRuns();
+        Assert.Null(db.Read("SELECT finished_at FROM runs WHERE id=@id",("id",id))[0]["finished_at"]);
+        Drain();db.ResetStock(100);
+        Assert.NotNull(db.Read("SELECT finished_at FROM runs WHERE id=@id",("id",id))[0]["finished_at"]);
+        var next=db.StartRun(2,new Settings(Iterations:100));db.RefreshRuns();
+        Assert.NotNull(db.Read("SELECT finished_at FROM runs WHERE id=@id",("id",id))[0]["finished_at"]);
+        Assert.Null(db.Read("SELECT finished_at FROM runs WHERE id=@id",("id",next))[0]["finished_at"]);
+        Drain();
+    }
+    static async Task Until(Func<bool> condition)
+    {
+        var timeout=DateTime.UtcNow.AddSeconds(15);
+        while(!condition())
+        {
+            if(DateTime.UtcNow>timeout) throw new TimeoutException("Workers não convergiram para os limites esperados.");
+            await Task.Delay(50);
+        }
+    }
+
 }

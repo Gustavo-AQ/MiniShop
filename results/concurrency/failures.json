@@ -1,0 +1,32 @@
+{
+  "date_utc": "2026-10-26T21:26:03Z",
+  "environment": "Docker local amd64; não Oracle/Hyper-V",
+  "checks": [
+    "API saudável",
+    "API protegida",
+    "Admin protegido",
+    "Configuração {'mode': 'parallel', 'threads': 4, 'workers': 1, 'iterations': 1000, 'delayMs': 0, 'queueLimit': 10000}",
+    "Reposição 5",
+    "20 pedidos aceitos",
+    "Sem venda excedente e estoque reconciliado",
+    "Idempotência HTTP",
+    "Configuração {'mode': 'parallel', 'threads': 2, 'workers': 1, 'iterations': 1000, 'delayMs': 2500, 'queueLimit': 3}",
+    "Reposição 100",
+    "Sobrecarga controlada 503",
+    "Configuração {'mode': 'distributed', 'threads': 4, 'workers': 3, 'iterations': 1000, 'delayMs': 2500, 'queueLimit': 10000}",
+    "Reposição 100",
+    "Lote para falha admitido",
+    "Worker a interromper possui pedido reservado",
+    "Pedido abandonado recuperado",
+    "Todos finalizados após falha",
+    "Dois processos sobreviventes continuaram",
+    "Um único evento final por pedido",
+    "Loja carrega com API parada",
+    "Frontend informa indisponibilidade sem espera infinita"
+  ],
+  "recovery": {
+    "order_id": "2a4b599e-66d6-4000-b498-c710ae210d1a",
+    "attempts": 2,
+    "final_status": "APROVADO"
+  }
+}

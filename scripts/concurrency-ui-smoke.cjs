@@ -1,0 +1,48 @@
+const {chromium}=require('playwright');
+const fs=require('fs'),path=require('path');
+(async()=>{
+ const root=path.resolve(__dirname,'..');
+ const env=Object.fromEntries(fs.readFileSync(path.join(root,'.env'),'utf8').split('\n').filter(s=>s&&!s.startsWith('#')&&s.includes('=')).map(s=>[s.slice(0,s.indexOf('=')),s.slice(s.indexOf('=')+1)]));
+ const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
+ const context=await browser.newContext({viewport:{width:1440,height:1100}}),page=await context.newPage(),errors=[];
+ page.on('pageerror',e=>errors.push(e.message));const checks=[];
+ const api=async(path,body,method)=>{const response=await context.request.fetch('http://127.0.0.1:5081'+path,{method:method||'GET',headers:{'X-Service-Key':env.SERVICE_KEY,'X-Admin-Key':env.ADMIN_KEY},data:body});if(!response.ok())throw Error(await response.text());return response.json();};
+ const config=(mode,threads,workers=3,delayMs=0)=>({mode,threads,workers,iterations:1000,delayMs,queueLimit:10000});
+ const set=s=>api('/api/admin/settings',s,'PUT');
+ const applied=(mode,limit)=>page.waitForFunction(({mode,limit})=>{const t=document.querySelector('#applied-settings').textContent;return t.includes(mode)&&t.includes('limite global: '+limit+' ');},{mode,limit});
+ async function workerLanes(expected){await page.waitForFunction(async({expected})=>{const r=await fetch('/Admin?handler=Metrics');const d=await r.json();const s=d.settings;return d.workers.filter(w=>w.alive&&w.execution_mode===s.mode&&w.configured_threads===s.threads&&w.configured_workers===s.workers).reduce((a,w)=>a+w.processing_threads,0)===expected;},{expected},{timeout:15000});}
+ await set(config('parallel',8));
+ await page.goto('http://127.0.0.1:8080/Admin');await page.waitForURL('**/Login**');
+ await page.locator('input[name=Password]').fill(env.ADMIN_PASSWORD);await page.locator('button').click();await page.waitForURL('**/Admin');
+ await applied('Paralelo',8);await workerLanes(8);checks.push('Paralelo 8: configuração e oito threads habilitadas confirmadas pelos workers');
+ await page.locator('#mode').selectOption('sequential');
+ if(!await page.locator('#threads').isDisabled()||!await page.locator('#workers').isDisabled())throw Error('Campos inativos não foram desabilitados');
+ if(!(await page.locator('#draft-status').innerText()).includes('ainda não aplicadas'))throw Error('Rascunho não sinalizado');
+ await applied('Paralelo',8);checks.push('Mudar apenas o formulário não altera a configuração aplicada');
+ await page.locator('#settings-form button').click();await applied('Sequencial',1);await workerLanes(1);
+ const seq=await api('/api/admin/metrics');
+ for(const w of seq.workers.filter(w=>w.alive&&w.execution_mode==='sequential'))if(w.max_cpu_active>1)throw Error('Pico antigo sobreviveu à troca de modo');
+ checks.push('Sequencial limita uma thread mesmo com valor 8 no campo paralelo; picos reiniciados');
+ await set(config('parallel',2));await applied('Paralelo',2);
+ await page.waitForFunction(()=>document.querySelector('#threads').value==='2'&&!document.querySelector('#threads').disabled);
+ checks.push('Alteração externa sincroniza o formulário quando não há rascunho');
+ await page.locator('#threads').selectOption('4');await set(config('sequential',8));await applied('Sequencial',1);
+ if(await page.locator('#mode').inputValue()!=='parallel'||await page.locator('#threads').inputValue()!=='4')throw Error('Rascunho foi perdido');
+ checks.push('Rascunho preservado e configuração real visível durante alteração externa');
+ await set(config('distributed',8,3));await applied('Distribuído',3);await workerLanes(3);
+ checks.push('Distribuído 3 habilita três threads totais, uma por contêiner');
+ await page.screenshot({path:path.join(root,'results/concurrency/admin-applied.png'),fullPage:true});
+ await set(config('sequential',8,3,2500));await applied('Sequencial',1);await workerLanes(1);
+ const order=await context.request.post('http://127.0.0.1:5081/api/orders',{headers:{'X-Service-Key':env.SERVICE_KEY,'Idempotency-Key':crypto.randomUUID()},data:{items:[{productId:1,quantity:1}]}});if(order.status()!==202)throw Error('Compra não admitida');const id=(await order.json()).id;
+ await page.locator('#settings-form button').click();await page.waitForFunction(()=>document.querySelector('#action-result').textContent.includes('Aguarde a fila'));
+ await page.waitForTimeout(2200);
+ if(!(await page.locator('#action-result').innerText()).includes('Aguarde a fila'))throw Error('Erro de aplicação foi apagado pela atualização periódica');
+ checks.push('Erro 409 de configuração durante fila ativa continua visível');
+ for(let i=0;i<60;i++){const o=await api('/api/orders/'+id);if(['APROVADO','RECUSADO'].includes(o.status))break;await page.waitForTimeout(200);}
+ await set(config('sequential',1,1));
+ await page.setViewportSize({width:390,height:844});
+ if(await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth))throw Error('Overflow mobile');
+ if(errors.length)throw Error(errors.join('\n'));
+ fs.writeFileSync(path.join(root,'results/concurrency/ui.json'),JSON.stringify({date_utc:new Date().toISOString(),checks},null,2));
+ await browser.close();console.log('Painel validado: '+checks.length+' verificações.');
+})().catch(e=>{console.error(e);process.exit(1);});

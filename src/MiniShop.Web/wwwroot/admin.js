@@ -1,19 +1,40 @@
-const $=s=>document.querySelector(s);let history=[],initialized=false;
+const $=s=>document.querySelector(s);let history=[],initialized=false,draftChanged=false;
 async function api(handler,body){const r=await fetch('/Admin?handler='+handler,{method:body?'POST':'GET',headers:body?{'Content-Type':'application/json','X-CSRF-TOKEN':$('input[name="__RequestVerificationToken"]').value}:{},body:body?JSON.stringify(body):undefined,signal:AbortSignal.timeout(35000)});if(r.redirected)location.href='/Login';const d=await r.json();if(!r.ok)throw Error(d.message||'Operação indisponível');return d;}
 function table(target,rows,columns){const t=document.createElement('table'),head=t.createTHead().insertRow();for(const [,label]of columns){const th=document.createElement('th');th.textContent=label;head.append(th);}const b=t.createTBody();for(const row of rows){const tr=b.insertRow();for(const [key]of columns){const td=tr.insertCell();const v=row[key];td.textContent=v==null?'—':String(v);}}$(target).replaceChildren(t);}
 function settings(){return {mode:$('#mode').value,threads:Number($('#threads').value),workers:Number($('#workers').value),iterations:Number($('#iterations').value),delayMs:Number($('#delayMs').value),queueLimit:Number($('#queueLimit').value)};}
+function modeFields(){const mode=$('#mode').value;$('#threads').disabled=mode!=='parallel';$('#workers').disabled=mode!=='distributed';}
+function fillSettings(s){for(const [k,v] of Object.entries(s))if($('#'+k))$('#'+k).value=v;draftChanged=false;initialized=true;modeFields();$('#draft-status').textContent='Formulário sincronizado com a configuração aplicada.';}
+function appliedSummary(d){
+ const s=d.settings,limit=s.maxConcurrentOrders??(s.mode==='parallel'?s.threads:s.mode==='distributed'?s.workers:1);
+ const names={sequential:'Sequencial',parallel:'Paralelo',distributed:'Distribuído'};
+ $('#applied-settings').textContent=`${names[s.mode]} · limite global: ${limit} pedido(s) simultâneo(s) · ${s.mode==='parallel'?s.threads:1} thread(s) de cálculo por worker autorizado.`;
+ const online=d.workers.filter(w=>w.alive);
+ const current=online.filter(w=>w.execution_mode===s.mode&&w.configured_threads===s.threads&&w.configured_workers===s.workers);
+ const lanes=current.reduce((a,w)=>a+(w.processing_threads||0),0),cpu=current.reduce((a,w)=>a+(w.cpu_active||0),0);
+ $('#worker-summary').textContent=`Workers conectados: ${online.length} · threads de cálculo habilitadas reportadas: ${lanes} · cálculos ativos na última amostra: ${cpu}.`+(current.length!==online.length?' Aguardando confirmação da configuração pelos workers; confira se todos foram atualizados.':'');
+}
+$('#settings-form').addEventListener('input',()=>{draftChanged=true;modeFields();$('#draft-status').textContent='Alterações ainda não aplicadas. Clique em “Aplicar configuração” ou inicie um benchmark com estes valores.';});
 function result(r){return typeof r.result==='string'?JSON.parse(r.result):r.result;}
 function config(r){return typeof r.settings==='string'?JSON.parse(r.settings):r.settings;}
 async function refresh(){try{const d=await api('Metrics');$('#message').textContent='API conectada · atualizado '+new Date().toLocaleTimeString();
- if(!initialized){for(const [k,v]of Object.entries(d.settings))if($('#'+k))$('#'+k).value=v;initialized=true;}
+ if(!initialized||!draftChanged)fillSettings(d.settings);appliedSummary(d);
  $('#counts').replaceChildren();for(const status of ['PENDENTE','PROCESSANDO','APROVADO','RECUSADO']){const el=document.createElement('div');el.className='stat';const n=d.counts.find(x=>x.status===status)?.count||0;el.textContent=status+' · '+n;$('#counts').append(el);}
  $('#stock').textContent=d.products.map(p=>p.name+': '+p.stock+' disponíveis').join(' · ');
- table('#worker-table',d.workers.map(w=>({...w,alive:w.alive?'Online':'Offline',memory:Math.round(w.memory_bytes/1048576)+' MB',cpu:w.cpu_seconds.toFixed(2)+' s'})),[['host','Host'],['pid','PID'],['alive','Estado'],['active','Ativos'],['max_active','Pico'],['processors','CPU lógicas disponíveis'],['cpu','CPU processo acumulada'],['memory','RAM']]);
+ table('#worker-table',d.workers.map(w=>({...w,alive:w.alive?'Online':'Offline',
+ role:({enabled:'Habilitado',waiting_slot:'Aguardando vaga',stopped:'Encerrado'})[w.execution_state]||'Versão sem diagnóstico',
+ memory:Math.round(w.memory_bytes/1048576)+' MB',cpu:w.cpu_seconds.toFixed(2)+' s',
+ cpu_now:w.cpu_percent_one_core==null?'—':w.cpu_percent_one_core.toFixed(1)+'%'})),
+ [['host','Host'],['pid','PID'],['alive','Estado'],['execution_mode','Modo observado'],['role','Papel'],
+ ['processing_threads','Threads de cálculo habilitadas'],['cpu_active','Cálculos ativos'],['max_cpu_active','Pico de cálculo (configuração)'],
+ ['active','Pedidos ativos'],['max_active','Pico de pedidos (configuração)'],['os_threads','Threads do SO'],
+ ['cpu_now','CPU atual (100% = 1 CPU)'],['cpu','CPU processo acumulada'],['memory','RAM']]);
  history=d.runs;table('#run-table',history.map(r=>{const s=config(r),x=result(r);return {id:r.id,mode:s.Mode+' '+(s.Mode==='parallel'?s.Threads+' threads':s.Mode==='distributed'?s.Workers+' workers':'1 thread'),count:r.count,elapsed:x?(x.elapsed_ms/1000).toFixed(3)+' s':'Em execução',done:(x?x.approved+x.rejected:r.completed)+' / '+r.count,p95:x?x.p95_latency_ms.toFixed(1)+' ms':'—',rate:x?x.throughput.toFixed(2):'—'};}),[['id','Lote'],['mode','Modo'],['count','Pedidos'],['elapsed','Tempo'],['done','Finalizados'],['p95','p95 (fila incluída)'],['rate','pedidos/s']]);
  draw();table('#order-table',d.orders,[['id','Pedido'],['status','Estado'],['reason','Resultado'],['worker','Worker'],['attempts','Tentativas']]);table('#event-table',d.events,[['at','Horário UTC'],['order_id','Pedido'],['kind','Evento'],['worker','Worker']]);
  }catch(e){$('#message').textContent=e.message||'Serviço indisponível';}finally{setTimeout(refresh,2000);}}
 function draw(){const groups=new Map();for(const r of history.filter(r=>r.finished_at)){const s=config(r),k=`${r.count} pedidos / ${s.Iterations} it. / ${s.Mode} / ${s.Mode==='parallel'?s.Threads:s.Mode==='distributed'?s.Workers:1}`;if(!groups.has(k))groups.set(k,[]);groups.get(k).push(result(r).elapsed_ms);}const entries=[...groups].map(([k,v])=>({k,mean:v.reduce((a,b)=>a+b,0)/v.length,n:v.length}));const max=Math.max(1,...entries.map(e=>e.mean));$('#chart').replaceChildren();for(const e of entries){const ref=entries.find(x=>x.k.split(' / ').slice(0,2).join('/')===e.k.split(' / ').slice(0,2).join('/')&&x.k.includes('/ sequential /'));const row=document.createElement('div');row.className='chart-row';const label=document.createElement('span');label.textContent=`${e.k} · média ${(e.mean/1000).toFixed(3)} s (n=${e.n}) · speedup ${ref?(ref.mean/e.mean).toFixed(2):'—'}×`;const bar=document.createElement('div');bar.className='bar';bar.style.width=(e.mean/max*100)+'%';row.append(label,bar);$('#chart').append(row);}}
-async function action(fn){try{await fn();$('#message').textContent='Operação aceita.';}catch(e){$('#message').textContent=e.message;}}
-$('#settings-form').onsubmit=e=>{e.preventDefault();action(()=>api('Settings',settings()));};$('#stock-form').onsubmit=e=>{e.preventDefault();action(()=>api('Stock',{stock:Number($('#stock-value').value)}));};$('#test-form').onsubmit=e=>{e.preventDefault();action(()=>api('Test',{count:Number($('#test-count').value),settings:settings(),seed:42}));};
+async function action(fn,message='Operação aceita.'){try{await fn();$('#action-result').textContent=message;}catch(e){$('#action-result').textContent=e.message;}}
+$('#settings-form').onsubmit=e=>{e.preventDefault();action(async()=>{const s=await api('Settings',settings());fillSettings(s);},'Configuração aceita pela API. A confirmação dos workers aparece acima em até alguns segundos.');};
+$('#stock-form').onsubmit=e=>{e.preventDefault();action(()=>api('Stock',{stock:Number($('#stock-value').value)}));};
+$('#test-form').onsubmit=e=>{e.preventDefault();const s=settings();action(async()=>{await api('Test',{count:Number($('#test-count').value),settings:s,seed:42});fillSettings(s);},'Benchmark recebido. A configuração efetivamente aplicada é mostrada acima.');};
 $('#load-form').onsubmit=async e=>{e.preventDefault();const n=Math.max(1,Math.min(200,Number($('#load-count').value)));const token=$('input[name="__RequestVerificationToken"]').value;const out=await Promise.allSettled(Array.from({length:n},()=>fetch('/?handler=Checkout',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-TOKEN':token,'Idempotency-Key':crypto.randomUUID()},body:JSON.stringify({items:[{productId:1,quantity:1}]}),signal:AbortSignal.timeout(8000)})));const codes={};for(const x of out){const code=x.status==='fulfilled'?x.value.status:'rede';codes[code]=(codes[code]||0)+1;}$('#load-result').textContent=JSON.stringify(codes)+' · HTTP 202 indica aceitação; consulte o estado final na tabela.';};
 $('#export').onclick=()=>{const a=document.createElement('a');const url=URL.createObjectURL(new Blob([JSON.stringify(history,null,2)],{type:'application/json'}));a.href=url;a.download='minishop-historico.json';a.click();URL.revokeObjectURL(url);};refresh();
