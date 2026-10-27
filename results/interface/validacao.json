@@ -1,0 +1,25 @@
+{
+  "date_utc": "2026-10-27T00:43:37.613Z",
+  "checks": [
+    "Painel autenticado com quatro indicadores, seis seções e três controles de experimento",
+    "Quatro benchmarks reais concluídos: sequencial, paralelo, distribuído e outra carga; progresso confirma 100%",
+    "Gráfico mostra três cenários de condições iguais, calcula a média registrada e preserva o filtro na atualização",
+    "Gráfico de distribuição e total correspondem aos dados reais da API, com alternativa textual",
+    "Histórico limita as linhas conforme a seleção; exportação JSON contém o histórico real dos benchmarks",
+    "Detalhes expansíveis e layout em 1440, 1024, 768, 390 e 320 px sem rolagem horizontal na página",
+    "Indisponibilidade simulada no navegador identifica os dados como desatualizados",
+    "Base vazia mostra orientações claras, zero pedidos e ausência de workers sem dados inventados"
+  ],
+  "real_run_ids": [
+    "c307949e-b1ae-47d7-a7bd-4e6baba1fdf8",
+    "9a23ad8f-07f4-4ae4-880f-985f7108ea55",
+    "fd709b93-b4c8-4be3-837a-4f67e46167a5",
+    "d2f6986f-e2d5-4ae9-9dd6-e3c1585fea19"
+  ],
+  "javascript_errors": [],
+  "screenshots": [
+    "painel-desktop.png",
+    "painel-resultados.png",
+    "painel-mobile.png"
+  ]
+}

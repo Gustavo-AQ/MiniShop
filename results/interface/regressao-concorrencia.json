@@ -1,0 +1,12 @@
+{
+  "date_utc": "2026-10-27T00:43:52.696Z",
+  "checks": [
+    "Paralelo 8: configuração e oito threads habilitadas confirmadas pelos workers",
+    "Mudar apenas o formulário não altera a configuração aplicada",
+    "Sequencial limita uma thread mesmo com valor 8 no campo paralelo; picos reiniciados",
+    "Alteração externa sincroniza o formulário quando não há rascunho",
+    "Rascunho preservado e configuração real visível durante alteração externa",
+    "Distribuído 3 habilita três threads totais, uma por contêiner",
+    "Erro 409 de configuração durante fila ativa continua visível"
+  ]
+}

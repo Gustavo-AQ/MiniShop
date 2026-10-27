@@ -1,0 +1,15 @@
+{
+  "date_utc": "2026-10-27T00:44:02.581Z",
+  "checks": [
+    "2 produtos vindos da API",
+    "adicionar/alterar/remover carrinho",
+    "total exibido",
+    "layout desktop e mobile sem overflow",
+    "redirecionamento administrativo",
+    "login com cookie",
+    "painel e métricas reais",
+    "compra real pela interface com antiforgery e consulta até o estado final",
+    "compra em aba aberta antes do login administrativo",
+    "nenhum erro JavaScript"
+  ]
+}

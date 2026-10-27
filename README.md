@@ -53,6 +53,7 @@ Resultados reais são gravados em `results/live/`. O painel também inicia lotes
 - [Roteiro de 10 minutos e contingência](docs/apresentacao.md)
 - [Relatório de validação realizada](docs/validacao.md)
 - [Validação de limites de threads e interpretação do Beszel](docs/validacao-concorrencia.md)
+- [Painel do moderador: gráficos, controles e tema Sálvia](docs/painel-moderador.md)
 - [Comparação real dos sete cenários](docs/comparacao.md)
 - [Apresentação em PDF — 9 slides](docs/apresentacao.pdf)
 - [Slides HTML para abrir no navegador](docs/slides.html)
