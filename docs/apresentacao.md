@@ -1,5 +1,7 @@
 # Apresentação presencial — aproximadamente 10 minutos
 
+A aba administrativa **Apresentação** (`/Presentation`) oferece nove slides interativos para explicar o projeto. Veja os [controles e modelos didáticos](apresentacao-interativa.md). As animações são explicativas; use o roteiro abaixo para demonstrar o comportamento real no painel.
+
 ## Preparação (antes da aula)
 
 Teste a VM, internet doméstica, energia, Tailscale, SSH, recursos Coolify, DNS e HTTPS. Desative suspensão do Windows. Abra loja e painel em abas separadas. Deixe um terminal SSH do operador conectado à VM para controlar apenas os contêineres MiniShop, ou abra os controles individuais de serviço no Coolify. O computador da faculdade pode usar o terminal web do Coolify no navegador; não precisa de SDK ou Docker.

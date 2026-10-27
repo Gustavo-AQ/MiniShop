@@ -1,1 +1,31 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MiniShop · Laboratório de pedidos</title><link rel="stylesheet" href="/site.css" asp-append-version="true">@if (ViewData["AdminLayout"] is true) {<link rel="stylesheet" href="/admin.css" asp-append-version="true">}</head><body class="@(ViewData["AdminLayout"] is true ? "admin-page" : "store-page")"><header><a class="brand" href="/">mini<span>shop</span><small>LAB DE COMPUTAÇÃO</small></a><nav aria-label="Navegação principal"><a href="/">Loja</a><a href="/Admin">Painel de demonstração →</a></nav></header><main id="main-content">@RenderBody()</main><footer>MiniShop · Engenharia da Computação <span>Pedidos reais. Pagamentos fictícios.</span></footer>@await RenderSectionAsync("Scripts",required:false)</body></html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MiniShop · @(ViewData["PresentationLayout"] is true ? "Aula interativa" : "Laboratório de pedidos")</title>
+    <link rel="stylesheet" href="/site.css" asp-append-version="true">
+    @if (ViewData["AdminLayout"] is true) {<link rel="stylesheet" href="/admin.css" asp-append-version="true">}
+    @if (ViewData["PresentationLayout"] is true) {<link rel="stylesheet" href="/presentation.css" asp-append-version="true">}
+</head>
+<body class="@(ViewData["AdminLayout"] is true ? "admin-page" : ViewData["PresentationLayout"] is true ? "presentation-page" : "store-page")">
+    <header>
+        <a class="brand" href="/">mini<span>shop</span><small>LAB DE COMPUTAÇÃO</small></a>
+        <nav class="site-nav" aria-label="Navegação principal">
+            <a href="/">Loja</a>
+            @if (User.Identity?.IsAuthenticated is true)
+            {
+                <a href="/Admin">Painel</a>
+                <a href="/Presentation">Apresentação</a>
+            }
+            else
+            {
+                <a href="/Admin">Painel de demonstração →</a>
+            }
+        </nav>
+    </header>
+    <main id="main-content">@RenderBody()</main>
+    <footer>MiniShop · Engenharia da Computação <span>Pedidos reais. Pagamentos fictícios.</span></footer>
+    @await RenderSectionAsync("Scripts",required:false)
+</body>
+</html>
