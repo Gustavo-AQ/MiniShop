@@ -28,9 +28,9 @@ const fs = require('fs'), path = require('path'), assert = require('node:assert/
     await page.locator('input[name=Password]').fill(env.ADMIN_PASSWORD); await page.locator('button').click(); await page.waitForURL('**/Admin');
     await page.waitForFunction(() => document.querySelector('#message').textContent.includes('API conectada'));
     assert.equal(await page.locator('.metric-card').count(), 4);
-    assert.equal(await page.locator('.lab-nav a').count(), 6);
+    assert.equal(await page.locator('.lab-nav a').count(), 7);
     assert.equal(await page.locator('.experiment-grid form').count(), 3);
-    checks.push('Painel autenticado com quatro indicadores, seis seções e três controles de experimento');
+    checks.push('Painel autenticado com quatro indicadores, sete seções e três controles de experimento');
     // Real CPU runs on the local PostgreSQL/worker stack, not fabricated chart values.
     const runs = [];
     for (const [mode, threads, workers, iterations] of [['sequential', 1, 1, 10000], ['parallel', 2, 1, 10000], ['distributed', 1, 3, 10000], ['sequential', 1, 1, 12000]]) {

@@ -1,0 +1,12 @@
+{
+  "date_utc": "2026-10-27T00:56:18.364Z",
+  "environment": "Banco local descartável minishop_history_ui",
+  "offline_records": "Fixtures sintéticas de 1, 10 e 40 dias; processos online reais",
+  "checks": [
+    "API exige chave de serviço e administrativa; confirmação inválida e requisição Web sem antiforgery são bloqueadas",
+    "Online por padrão; filtros de 7 e 30 dias aplicados aos cartões e tabela, preservados após atualização; resumo online independente",
+    "Confirmação literal obrigatória; limpeza pela interface recebe 409 enquanto há pedido ativo sem apagá-lo",
+    "Exclusão real zera pedidos, eventos, benchmarks e gráficos; preserva estoque, configuração e online; pedido antigo retorna 404, reenvio 409 e nova compra 202",
+    "Controles de filtro e limpeza sem overflow de 320 a 1440 px e sem erros JavaScript"
+  ]
+}

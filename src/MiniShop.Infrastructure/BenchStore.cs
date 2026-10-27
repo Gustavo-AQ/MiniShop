@@ -49,6 +49,7 @@ public sealed partial class Store
     {
         RefreshRuns();
         return new {
+            observed_at=DateTimeOffset.UtcNow,
             settings=GetSettings(),
             counts=Read("SELECT status,count(*) count FROM orders GROUP BY status"),
             queue=Read("SELECT count(*) pending FROM orders WHERE status='PENDENTE'"),

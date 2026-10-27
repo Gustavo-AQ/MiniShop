@@ -9,7 +9,7 @@ public class IntegrityTests : IDisposable
     public IntegrityTests()
     {
         var connection=Environment.GetEnvironmentVariable("MINISHOP_TEST_DB")??throw new InvalidOperationException("Defina MINISHOP_TEST_DB apontando para banco DESCARTÁVEL. Os testes apagam suas tabelas.");
-        db=new Store(connection);db.Initialize();using var c=db.Source.OpenConnection();Store.Exec(c,"TRUNCATE events,order_items,orders,runs,workers RESTART IDENTITY CASCADE; UPDATE products SET stock=100");db.Configure(new Settings(Iterations:100));
+        db=new Store(connection);db.Initialize();using var c=db.Source.OpenConnection();Store.Exec(c,"TRUNCATE events,order_items,orders,runs,workers,retired_order_keys RESTART IDENTITY CASCADE; UPDATE products SET stock=100");db.Configure(new Settings(Iterations:100));
     }
     public void Dispose()=>db.Dispose();
     Guid Buy(int q=1,string? key=null)=>db.Submit(new Purchase([new Item(1,q)]),key??Guid.NewGuid().ToString());
@@ -108,6 +108,42 @@ public class IntegrityTests : IDisposable
         Assert.NotNull(db.Read("SELECT finished_at FROM runs WHERE id=@id",("id",id))[0]["finished_at"]);
         Assert.Null(db.Read("SELECT finished_at FROM runs WHERE id=@id",("id",next))[0]["finished_at"]);
         Drain();
+    }
+    [Fact]
+    public void HistoryClearRequiresConfirmationAndIdleQueue()
+    {
+        var id=Buy();Payment(id,false);
+        Assert.Equal(400,Assert.Throws<BusinessException>(()=>db.ClearHistory("apagar")).Status);
+        Assert.Equal(409,Assert.Throws<BusinessException>(()=>db.ClearHistory("APAGAR HISTORICO")).Status);
+        Assert.NotNull(db.Order(id));
+        var job=db.Claim("test")!;
+        Assert.Equal(409,Assert.Throws<BusinessException>(()=>db.ClearHistory("APAGAR HISTORICO")).Status);
+        Assert.Equal(99,Stock());
+        new Processor(db,"test").Process(job);
+        db.StartRun(1,new Settings(Iterations:100));
+        var benchmarkJob=db.Claim("test")!;new Processor(db,"test").Process(benchmarkJob);
+        // Mesmo sem pedidos pendentes, o fechamento do benchmark deve terminar primeiro.
+        Assert.Equal(409,Assert.Throws<BusinessException>(()=>db.ClearHistory("APAGAR HISTORICO")).Status);
+        Assert.NotEmpty(db.Read("SELECT * FROM events"));
+    }
+    [Fact]
+    public void HistoryClearPreservesInventoryConfigurationOnlineWorkersAndReplayProtection()
+    {
+        var settings=new Settings("parallel",2,Iterations:100);db.Configure(settings);
+        var key=Guid.NewGuid().ToString();var id=Buy(2,key);Payment(id,false);Drain();
+        db.StartRun(3,settings);Drain();
+        db.Heartbeat("online",0,0);db.Heartbeat("offline",0,0);
+        using(var c=db.Source.OpenConnection()) Store.Exec(c,"UPDATE workers SET seen_at=clock_timestamp()-interval '8 days' WHERE id='offline'");
+        var stock=Stock();var eventCount=db.Read("SELECT * FROM events").Count;
+        var result=db.ClearHistory("APAGAR HISTORICO");
+        Assert.Equal(4,result.Orders);Assert.Equal(1,result.Benchmarks);Assert.Equal(eventCount,result.Events);Assert.Equal(1,result.OfflineWorkers);
+        foreach(var table in new[]{"orders","order_items","events","runs"}) Assert.Empty(db.Read($"SELECT * FROM {table}"));
+        Assert.Equal(stock,Stock());Assert.Equal(settings,db.GetSettings());Assert.Equal(2,db.Read("SELECT * FROM products").Count);
+        Assert.Equal("online",Assert.Single(db.Read("SELECT id FROM workers"))["id"]);Assert.Null(db.Order(id));
+        Assert.Equal(409,Assert.Throws<BusinessException>(()=>Buy(2,key)).Status);
+        Assert.Equal(409,Assert.Throws<BusinessException>(()=>Buy(1,key)).Status);
+        Assert.Equal(stock,Stock());Assert.Empty(db.Read("SELECT * FROM orders"));
+        Buy();Assert.Single(db.Read("SELECT * FROM orders"));
     }
     static async Task Until(Func<bool> condition)
     {

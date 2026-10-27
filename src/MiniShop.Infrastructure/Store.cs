@@ -60,6 +60,8 @@ public sealed partial class Store : IDisposable
         var items=Normalize(purchase);
         var hash=Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(JsonSerializer.Serialize(items))));
         using var c=Source.OpenConnection(); using var tx=c.BeginTransaction(); Admission(c);
+        if(Scalar<bool>(c,"SELECT EXISTS(SELECT 1 FROM retired_order_keys WHERE key_hash=@h)",("h",SHA256.HashData(Encoding.UTF8.GetBytes(key)))))
+            throw new BusinessException(409,"Este pedido pertence a um histórico apagado e não será processado novamente. Inicie uma nova compra para usar outra chave.");
         var old=Query(c,"SELECT id,request_hash FROM orders WHERE idempotency_key=@k",("k",key));
         if(old.Count>0) { if((string)old[0]["request_hash"]! != hash) throw new BusinessException(409,"Chave já usada para outro carrinho."); tx.Commit(); return (Guid)old[0]["id"]!; }
         if(Scalar<long>(c,"SELECT count(*) FROM runs WHERE finished_at IS NULL")>0) throw new BusinessException(503,"Benchmark em execução; tente novamente após a demonstração.");

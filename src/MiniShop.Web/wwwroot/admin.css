@@ -1302,3 +1302,44 @@
     gap: 0;
   }
 }
+.worker-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+.worker-filter-bar label {
+  min-width: 245px;
+}
+.worker-filter-bar p {
+  max-width: 430px;
+}
+.danger-card {
+  border-color: #e3cfc6;
+  background: #fffaf6;
+}
+.danger-card>p {
+  font-size: 12px;
+  line-height: 1.8;
+}
+.danger-card form {
+  max-width: 520px;
+  margin-top: 20px;
+}
+.admin-page .danger-button {
+  background: #9b594b;
+}
+.admin-page .danger-button:hover:not(:disabled) {
+  background: #7b4036;
+}
+#history-result.is-error {
+  color: #995346;
+}
+@media (max-width: 560px) {
+  .worker-filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+}

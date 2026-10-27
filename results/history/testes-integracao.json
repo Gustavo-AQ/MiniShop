@@ -1,0 +1,23 @@
+{
+  "source": "TestResults/history/_ac17dcc2d14b_2026-10-27_00_54_09_net10.0.trx",
+  "framework": ".NET 10 / xUnit",
+  "database": "PostgreSQL descartável minishop_test",
+  "counters": {
+    "total": "19",
+    "executed": "19",
+    "passed": "19",
+    "failed": "0",
+    "error": "0",
+    "timeout": "0",
+    "aborted": "0",
+    "inconclusive": "0",
+    "passedButRunAborted": "0",
+    "notRunnable": "0",
+    "notExecuted": "0",
+    "disconnected": "0",
+    "warning": "0",
+    "completed": "0",
+    "inProgress": "0",
+    "pending": "0"
+  }
+}

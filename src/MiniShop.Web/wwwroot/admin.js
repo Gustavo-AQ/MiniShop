@@ -10,6 +10,7 @@ const number = (value, digits = 0) => Number(value).toLocaleString('pt-BR', {min
 const date = value => value ? new Date(value).toLocaleString('pt-BR') : '—';
 const shortId = value => value ? String(value).slice(0, 8) : '—';
 let history = [], initialized = false, draftChanged = false;
+let lastWorkers = [], workersObservedAt, metricsRequest = 0;
 
 function element(tag, className, text) {
   const el = document.createElement(tag);
@@ -118,11 +119,18 @@ function drawStock(products) {
   }
 }
 const roles = {enabled: 'Habilitado para processar', waiting_slot: 'Aguardando vaga neste modo', stopped: 'Processo encerrado'};
-function drawWorkers(workers) {
-  const online = workers.filter(w => w.alive);
-  const visible = online.length ? online : [...workers].sort((a, b) => new Date(b.seen_at) - new Date(a.seen_at)).slice(0, 3);
+function drawWorkers(workers, observedAt) {
+  lastWorkers = workers; workersObservedAt = observedAt;
+  const filter = $('#worker-filter').value, days = Number(filter);
+  const cutoff = new Date(observedAt || Date.now()).getTime() - days * 86400000;
+  const visible = workers.filter(w => filter === 'online' ? w.alive : !w.alive && new Date(w.seen_at).getTime() >= cutoff)
+    .sort((a, b) => new Date(b.seen_at) - new Date(a.seen_at));
+  $('#worker-filter-description').textContent = filter === 'online'
+    ? 'Apenas processos com sinal recente. O resumo geral continua mostrando os workers online.'
+    : `Workers offline cujo último sinal foi recebido nos últimos ${days} dias. Horários no fuso do navegador. O resumo geral continua mostrando os workers online.`;
   $('#worker-cards').replaceChildren();
-  if (!visible.length) empty('#worker-cards', 'Nenhum worker conectado', 'Inicie os contêineres de workers para processar os pedidos.');
+  if (!visible.length) empty('#worker-cards', filter === 'online' ? 'Nenhum worker conectado' : 'Nenhum worker offline neste período',
+    filter === 'online' ? 'Inicie os contêineres de workers ou consulte o histórico pelo filtro acima.' : 'Amplie o período ou volte ao filtro de workers online.');
   for (const worker of visible) {
     const card = element('article', 'worker-card'), heading = element('div', 'worker-title');
     heading.append(element('strong', '', worker.host), element('span', 'pill ' + (worker.alive ? '' : 'offline'), worker.alive ? 'Online' : 'Offline'));
@@ -140,14 +148,15 @@ function drawWorkers(workers) {
     card.append(heading, element('p', 'worker-role', worker.alive ? (roles[worker.execution_state] || 'Versão sem diagnóstico') : 'Sem sinal recente do processo'), values, cpuBox);
     $('#worker-cards').append(card);
   }
-  table('#worker-table', workers.map(w => ({...w, alive: w.alive ? 'Online' : 'Offline',
+  table('#worker-table', visible.map(w => ({...w, alive: w.alive ? 'Online' : 'Offline',
     role: roles[w.execution_state] || 'Versão sem diagnóstico', memory: number(w.memory_bytes / 1048576) + ' MB',
     cpu: number(w.cpu_seconds, 2) + ' s', cpu_now: w.cpu_percent_one_core == null ? '—' : number(w.cpu_percent_one_core, 1) + '%'})),
-    [['host', 'Host'], ['pid', 'PID'], ['alive', 'Estado'], ['execution_mode', 'Modo observado', v => modes[v] || v], ['role', 'Papel'],
+    [['host', 'Host'], ['pid', 'PID'], ['alive', 'Estado'], ['execution_mode', 'Modo observado', v => modes[v] || v], ['role', 'Papel no último sinal'],
       ['processing_threads', 'Threads de cálculo habilitadas'], ['cpu_active', 'Cálculos ativos'], ['max_cpu_active', 'Pico de cálculo (configuração)'],
       ['active', 'Pedidos ativos'], ['max_active', 'Pico de pedidos (configuração)'], ['os_threads', 'Threads do SO'],
-      ['cpu_now', 'CPU atual (100% = 1 CPU)'], ['cpu', 'CPU processo acumulada'], ['memory', 'RAM']]);
+      ['cpu_now', 'CPU no último sinal (100% = 1 CPU)'], ['cpu', 'CPU processo acumulada'], ['memory', 'RAM']]);
 }
+$('#worker-filter').addEventListener('change', () => drawWorkers(lastWorkers, workersObservedAt));
 function result(run) { return typeof run.result === 'string' ? JSON.parse(run.result) : run.result; }
 function config(run) { return typeof run.settings === 'string' ? JSON.parse(run.settings) : run.settings; }
 function scenario(s) { return modes[s.Mode] + ' · ' + (s.Mode === 'parallel' ? s.Threads + ' threads' : s.Mode === 'distributed' ? s.Workers + ' workers' : '1 thread'); }
@@ -227,22 +236,43 @@ function drawRuns() {
     ['elapsed', 'Tempo total'], ['done', 'Finalizados'], ['p95', 'p95 · fila incluída'], ['rate', 'Pedidos/s']]);
 }
 $('#run-limit').addEventListener('change', drawRuns);
-async function refresh() {
+async function refresh(schedule = true) {
+  const request = ++metricsRequest;
   try {
     const data = await api('Metrics');
+    if (request !== metricsRequest) return;
     $('#message').textContent = 'API conectada · atualizado ' + new Date().toLocaleTimeString('pt-BR');
     $('#connection-indicator').className = 'status-dot connected'; $('.connection-strip').classList.remove('is-offline');
     if (!initialized || !draftChanged) fillSettings(data.settings);
-    appliedSummary(data); drawCounts(data.counts); drawStock(data.products); drawWorkers(data.workers);
+    appliedSummary(data); drawCounts(data.counts); drawStock(data.products); drawWorkers(data.workers, data.observed_at);
     history = data.runs; drawProgress(); drawRuns(); drawChartOptions(); draw();
     table('#order-table', data.orders, [['id', 'Pedido', shortId], ['created_at', 'Recebido em', date], ['status', 'Estado', statusPill],
       ['reason', 'Resultado'], ['worker', 'Worker'], ['attempts', 'Tentativas']]);
     table('#event-table', data.events, [['at', 'Horário local', date], ['order_id', 'Pedido', shortId], ['kind', 'Evento'], ['worker', 'Worker']]);
   } catch (error) {
+    if (request !== metricsRequest) return;
     $('#message').textContent = 'Dados sem atualização · ' + (error.message || 'Serviço indisponível') + '. Os valores exibidos são da última consulta.';
     $('#connection-indicator').className = 'status-dot disconnected'; $('.connection-strip').classList.add('is-offline');
-  } finally { setTimeout(refresh, 2000); }
+  } finally { if (schedule) setTimeout(() => refresh(), 2000); }
 }
+const historyConfirmation = $('#history-confirmation');
+historyConfirmation.addEventListener('input', () => {
+  $('#clear-history-form button').disabled = historyConfirmation.value !== 'APAGAR HISTORICO';
+});
+$('#clear-history-form').onsubmit = async event => {
+  event.preventDefault();
+  if (historyConfirmation.value !== 'APAGAR HISTORICO') return;
+  const button = event.currentTarget.querySelector('button'), notice = $('#history-result');
+  button.disabled = true; historyConfirmation.disabled = true;
+  notice.classList.remove('is-error'); notice.textContent = 'Apagando o histórico…';
+  try {
+    const cleared = await api('ClearHistory', {confirmation: historyConfirmation.value});
+    notice.textContent = `Histórico apagado: ${number(cleared.orders)} pedidos, ${number(cleared.benchmarks)} benchmarks, ${number(cleared.events)} eventos e ${number(cleared.offlineWorkers)} workers offline. Estoque e configuração preservados.`;
+    historyConfirmation.value = '';
+    await refresh(false);
+  } catch (error) { notice.classList.add('is-error'); notice.textContent = error.message; }
+  finally { historyConfirmation.disabled = false; button.disabled = historyConfirmation.value !== 'APAGAR HISTORICO'; }
+};
 async function action(form, fn, message = 'Operação aceita.') {
   const button = form.querySelector('button'); button.disabled = true; form.setAttribute('aria-busy', 'true');
   const notice = $('#action-result'); notice.hidden = false; notice.classList.remove('is-error'); notice.textContent = 'Enviando solicitação…';

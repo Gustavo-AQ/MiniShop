@@ -10,7 +10,9 @@ public class AdminModel(IHttpClientFactory f,IConfiguration c):ApiPage(f,c)
     public Task<IActionResult> OnPostSettingsAsync([FromBody]Settings s)=>Forward(HttpMethod.Put,"/api/admin/settings",s,true);
     public Task<IActionResult> OnPostStockAsync([FromBody]StockRequest s)=>Forward(HttpMethod.Post,"/api/admin/stock/reset",s,true);
     public Task<IActionResult> OnPostTestAsync([FromBody]Test t)=>Forward(HttpMethod.Post,"/api/admin/tests/start",t,true);
+    public Task<IActionResult> OnPostClearHistoryAsync([FromBody]HistoryClear request)=>Forward(HttpMethod.Post,"/api/admin/history/clear",request,true);
     public async Task<IActionResult> OnPostLogoutAsync(){await HttpContext.SignOutAsync();return LocalRedirect("/");}
     public record StockRequest(int Stock);
+    public record HistoryClear(string? Confirmation);
     public record Test(int Count,Settings Settings,int Seed=42);
 }

@@ -39,3 +39,6 @@ ALTER TABLE workers ADD COLUMN IF NOT EXISTS max_cpu_active int;
 ALTER TABLE workers ADD COLUMN IF NOT EXISTS os_threads int;
 ALTER TABLE workers ADD COLUMN IF NOT EXISTS cpu_percent_one_core double precision;
 CREATE INDEX IF NOT EXISTS unfinished_run_idx ON orders(run_id) WHERE finished_at IS NULL;
+
+-- Mantém a proteção contra reenvios após apagar o histórico visível.
+CREATE TABLE IF NOT EXISTS retired_order_keys(key_hash bytea PRIMARY KEY);

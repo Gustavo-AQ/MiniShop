@@ -13,6 +13,7 @@
             <a href="#workers-section"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg> Workers</a>
             <a href="#results"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10h4v10M10 20V4h4v16M16 20v-8h4v8M2 20h20"/></svg> Resultados</a>
             <a href="#activity"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Pedidos e eventos</a>
+            <a href="#maintenance"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7M14 10v7"/></svg> Limpar histórico</a>
         </nav>
         <div class="sidebar-note"><span class="eyebrow">PARA OBSERVAR</span><strong>Mesmos pedidos.<br>Diferentes caminhos.</strong><p>Compare como o trabalho muda ao executar um pedido por vez, usar threads ou distribuir entre workers.</p></div>
         <a class="back-store" href="/">← Voltar à loja</a>
@@ -48,6 +49,7 @@
         </section>
         <section id="workers-section" class="lab-section">
             <div class="section-heading"><div><p class="eyebrow">03 / QUEM ESTÁ PROCESSANDO</p><h2>Workers e uso de recursos</h2></div><span class="pill">Processos independentes</span></div>
+            <div class="worker-filter-bar"><label>Exibir workers<select id="worker-filter"><option value="online">Somente online</option><option value="7">Offline nos últimos 7 dias</option><option value="30">Offline nos últimos 30 dias</option></select></label><p id="worker-filter-description" class="helper">Apenas processos com sinal recente. O resumo geral continua mostrando os workers online.</p></div>
             <div id="worker-cards" class="worker-grid"><div class="empty-state">Aguardando os workers…</div></div>
             <details class="lab-card diagnostic-details"><summary>Detalhes técnicos dos workers <span>Threads, picos, CPU e memória</span></summary><p class="helper">Pedidos ativos incluem espera e finalização. Cálculos ativos contam só a rotina de CPU. Os picos reiniciam ao mudar a configuração. Threads do SO incluem rede, runtime e coleta de lixo. Um worker deixa de ser considerado online após 5 s sem sinal.</p><div id="worker-table" class="scroll" tabindex="0" role="region" aria-label="Diagnóstico dos workers"></div></details>
             <div class="info-note"><span aria-hidden="true">i</span><p><strong>Como ler a CPU:</strong> 100% corresponde a um processador lógico. Uma thread pode passar por diferentes núcleos sem executar cálculos simultâneos. O Beszel da VM soma também API, PostgreSQL e tarefas auxiliares. Contêineres na mesma VM compartilham os recursos dela.</p></div>
@@ -61,6 +63,14 @@
             <div class="section-heading"><div><p class="eyebrow">05 / RASTREABILIDADE</p><h2>Cada pedido tem uma história</h2></div></div>
             <section class="lab-card"><div class="card-heading"><div><h3>Pedidos recentes</h3><p class="helper">Até 60 pedidos. O resultado final vem da API e do banco de dados.</p></div><span class="pill">Últimos recebidos</span></div><div id="order-table" class="scroll" tabindex="0" role="region" aria-label="Pedidos recentes"></div></section>
             <details class="lab-card"><summary>Auditoria e recuperação <span>Últimos 40 eventos</span></summary><p class="helper">Use este registro para acompanhar tentativas e a recuperação de pedidos após a parada de um worker. Horários exibidos no fuso do navegador.</p><div id="event-table" class="scroll" tabindex="0" role="region" aria-label="Eventos de auditoria"></div></details>
+        </section>
+        <section id="maintenance" class="lab-section">
+            <div class="section-heading"><div><p class="eyebrow">MANUTENÇÃO DO LABORATÓRIO</p><h2>Limpar o histórico</h2></div></div>
+            <details class="lab-card danger-card"><summary>Apagar todos os registros de demonstração <span>Ação definitiva</span></summary>
+                <p>Apaga todos os pedidos e seus itens, eventos de auditoria, resultados de benchmarks e registros de workers offline. Os contadores e gráficos voltam a zero. Exporte os resultados que deseja guardar antes de continuar.</p>
+                <p class="helper">Preserva produtos, estoque atual, configuração e workers online. Marcas técnicas das chaves antigas são mantidas para impedir compras duplicadas por reenvio. Pedidos apagados não poderão mais ser consultados. A limpeza é bloqueada enquanto houver pedidos ou benchmarks em andamento.</p>
+                <form id="clear-history-form"><label>Para confirmar, digite APAGAR HISTORICO<input id="history-confirmation" type="text" autocomplete="off" spellcheck="false" required pattern="APAGAR HISTORICO" placeholder="APAGAR HISTORICO"></label><button class="danger-button" disabled>Apagar histórico definitivamente</button><p id="history-result" role="status" aria-live="polite" class="helper"></p></form>
+            </details>
         </section>
         <p class="lab-bottom-note">MiniShop · Laboratório de processamento sequencial, paralelo e distribuído.</p>
     </div>

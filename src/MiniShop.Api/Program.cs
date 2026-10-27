@@ -28,6 +28,7 @@ app.MapGet("/api/products",(Store db)=>db.Read("SELECT * FROM products ORDER BY 
 app.MapPost("/api/orders",(Purchase p,HttpContext c,Store db)=> { var id=db.Submit(p,c.Request.Headers["Idempotency-Key"].ToString()); return Results.Accepted($"/api/orders/{id}",new {id}); });
 app.MapGet("/api/orders/{id:guid}",(Guid id,Store db)=>db.Order(id) is {} order?Results.Ok(order):Results.NotFound(new {message="Pedido inexistente."}));
 app.MapGet("/api/admin/metrics",(Store db)=>db.Metrics());
+app.MapPost("/api/admin/history/clear",(HistoryClear r,Store db)=>Results.Ok(db.ClearHistory(r.Confirmation)));
 app.MapPut("/api/admin/settings",(Settings s,Store db)=> { db.Configure(s); return Results.Ok(s); });
 app.MapPost("/api/admin/stock/reset",(StockReset r,Store db)=> { db.ResetStock(r.Stock); return Results.Ok(new {message="Estoque atualizado."}); });
 app.MapPost("/api/admin/tests/start",(TestStart r,Store db)=> { var id=db.StartRun(r.Count,r.Settings,r.Seed); return Results.Accepted($"/api/admin/tests/{id}",new {id}); });
@@ -36,4 +37,5 @@ app.MapGet("/api/admin/tests/{id:guid}/orders",(Guid id,Store db)=>db.Read("SELE
 app.Run();
 return 0;
 record StockReset(int Stock);
+record HistoryClear(string? Confirmation);
 record TestStart(int Count,Settings Settings,int Seed=42);
